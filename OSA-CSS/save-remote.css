@@ -1,0 +1,309 @@
+*,*:before,*:after{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;}
+
+body{
+	height: 100%;
+	background-color: DarkSlateGray;
+	font-family:consolas, monospace; /*font for all browsers*/
+	color: #fff;
+	font-size: 16px;}
+
+
+/*setting for background*/
+@keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);}
+  to { 
+    -webkit-transform: translate3d(1000px, 0px, 0px);}
+}
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);}
+  to { 
+    -webkit-transform: translate3d(1000px, 0px, 0px);}
+}
+
+@-moz-keyframes move-background {    
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);}
+  to { 
+    -webkit-transform: translate3d(1000px, 0px, 0px);}
+}
+
+    @-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);}
+  to { 
+    -webkit-transform: translate3d(1000px, 0px, 0px);}
+}
+
+.background-container {
+  position: fixed;
+  top: 0; left:0; bottom: 0; right: 0;}
+
+.stars {
+ background: black url(CSS-paints/stars.png) repeat;
+ position: absolute; z-index: 0;
+  top: 0; bottom: 0; left: 0; right: 0;
+  display: block; }
+
+.twinkling{
+  width:10000px; height: 100%;
+  background: transparent url("CSS-paints/twinkling.png") repeat;
+  background-size: 1000px 1000px;
+    position: absolute; z-index: 2;
+    right: 0; top: 0; bottom: 0;
+     
+  -moz-animation:move-background 70s linear infinite;
+  -ms-animation:move-background 70s linear infinite;
+  -o-animation:move-background 70s linear infinite;
+  -webkit-animation:move-background 70s linear infinite;
+  animation:move-background 70s linear infinite;}
+
+.clouds{
+  width:10000px; height: 100%;
+  background: transparent url("CSS-paints/clouds-repeat.png") repeat;
+  background-size: 1000px 1000px;
+    position: absolute; z-index: 3;
+    right: 0; top: 0; bottom: 0;
+    
+  -moz-animation:move-background 150s linear infinite;
+  -ms-animation:move-background 150s linear infinite;
+  -o-animation:move-background 150s linear infinite;
+  -webkit-animation:move-background 150s linear infinite;
+  animation:move-background 150s linear infinite;}
+
+img{
+  height: 70vh; width:70vh;
+  position: absolute; z-index: 3;
+  right: 20px;}
+
+
+/*setting for game*/
+.wrapper{
+	min-height: 100%;
+	position: relative;
+	overflow: hidden;} /*so that nothing gets out*/
+
+.game {
+	position: fixed;
+	width: 100%; height: 100%;
+	top: 0; left: 0;
+	cursor: grab;}
+
+.game:hover .game-win{
+	animation: win 30s steps(1) forwards;}
+
+.game:hover .game-counter:after{
+	animation: timer_1 30s steps(30) forwards;}
+
+.game:hover .game-text span:after{
+	animation: timer_2 30s steps(30) forwards;}
+
+.game-body:hover .game-counter:after,
+.game-body:hover .game-text span:after{
+	animation-play-state: paused;} /*stop the counter when the mouse is caught by one of the enemies*/
+
+.game-body,
+.game-items {
+	position: absolute;
+	width: 100%; height: 100%;
+	top: 0; left: 0;
+	pointer-events: none;} /*remove any reactions to the mouse*/
+
+.game-body:before,
+.game-body:after,
+.game-items:before,
+.game-items:after{
+	content: 'підступний копі-кодер';
+	position: absolute;
+  top: 0; left: 0; z-index: 1;
+	width: 20vw; height: 30vh;
+	font-size: 18px; text-align: center;
+	pointer-events: all; /*and here you already need a reaction to the mouse*/	
+	display: inline-block;}
+
+.game-body:before{
+	border-radius: 15%;
+	background-color: DarkOrange;
+	animation: fly_1 5s infinite;}
+
+.game-body:after{
+	border-radius: 15%;
+	background-color: Indigo;
+	animation: fly_2 9s infinite;}
+
+.game-items:before{
+	border-radius: 15%;
+	background-color: LimeGreen;
+	animation: fly_3 7s infinite;}
+
+.game-items:after{
+	border-radius: 15%;
+	background-color: OrangeRed;
+	animation: fly_4 11s infinite;}
+
+@keyframes fly_1{
+	25% {transform: translate(80vw, 0vh);}
+	50% {transform: translate(70vw, 65vh);}
+	75% {transform: translate(0vw, 65vh);}
+	0%, 100% {transform: translate(0px, 0px);}
+}
+
+@keyframes fly_2{
+	25% {transform: translate(0vw, 70vh);}
+	50% {transform: translate(70vw, 0vh);}
+	75% {transform: translate(65vw, 65vh);}
+	0%, 100% {transform: translate(5px, 5px);}
+}
+
+@keyframes fly_3{
+	25% {transform: translate(75vw, 5vh);}
+	50% {transform: translate(5vw, 60vh);}
+	75% {transform: translate(70vw, 55vh);}
+	0%, 100% {transform: translate(10px, 10px);}
+}
+
+@keyframes fly_4{
+	25% {transform: translate(65vw, 0vh);}
+	50% {transform: translate(0vw, 65vh);}
+	75% {transform: translate(80vw, 70vh);}
+	0%, 100% {transform: translate(0px, 0px);}
+}
+
+@keyframes win{
+	0%{}
+	100%{
+		visibility: visible;}
+}
+
+@keyframes timer_1{
+	0%{
+		text-indent: -150ch;}
+	50%{
+		color: yellow;}
+	100% {
+		color: red;
+		text-indent: 0ch;}
+}
+
+@keyframes timer_2{
+	0%{
+		text-indent: 0ch;}
+	50%{
+		color: yellow;}
+	100% {
+		color: red;
+		text-indent: -150ch;}
+}
+
+.game-body:hover:before,
+.game-body:hover:after,
+.game-body:hover .game-items:before,
+.game-body:hover .game-items:after{
+	display: none;}
+
+.game-body:hover .game-items{
+	position: fixed; z-index: 20;
+	width: 100%; height: 100%;	
+	background-color: #333;
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	text-align: center;
+	pointer-events: all;}
+
+.game-body:hover .game-text{
+	visibility: visible;}
+
+.game-text {
+	font-size: 40px;
+	visibility: hidden;}
+
+.game-text span{
+	width: 109px;
+	font-size: 40px; color: blue;	
+	display: inline-block; vertical-align: middle;
+	overflow: hidden;}
+
+.game-counter {
+	position: absolute;
+	bottom: 80px; left: 20px; width: 72px;
+	font-size: 26px;
+	overflow: hidden; white-space: nowrap;}
+
+.game-text span:after,
+.game-counter:after{ /*set of seconds for the timer*/
+	display: block;
+	content: "00:0000:0100:0200:0300:0400:0500:0600:0700:0800:0900:1000:1100:1200:1300:1400:1500:1600:1700:1800:1900:2000:2100:2200:2300:2400:2500:2600:2700:2800:2930:00";
+}
+
+.game-win {
+	position: fixed; z-index: 10;
+	width: 100%; height: 100%;
+	top: 0; left: 0;	
+	background-color: #333;
+	display: flex;
+	justify-content:center; align-items: center;
+	text-align: center; font-size: 40px;
+	visibility: hidden;}
+
+/*setting up static blocks*/
+header {
+  margin: 0;
+  color: Fuchsia; font-weight: 800;
+  font-family: Helvetica, Verdana , Georgia, sans-serif;}
+
+header h2, header code {
+  margin: 10px;}
+
+footer {
+	position: absolute;
+  bottom: 0; width: 100%; height: 50px;   
+  padding: 5px 20px; 
+  font-style: italic; font-size: 12px; 
+  background-color: #c7c1c1; }
+
+footer a {
+  font-size: 20px; font-weight: 700; text-decoration: none; }
+
+.info {
+	position: absolute; z-index: 50;
+	right: 150px; bottom: 10px;}
+
+.info-icon { 
+	position: relative; z-index: 2;
+	display: inline-block; /*since this is a link*/
+	width: 30px; height: 30px;
+	border-radius: 50%;
+	border: 2px solid Fuchsia;
+	font-size: 25px; color: Fuchsia;
+	text-align: center; line-height: 25px;}
+
+.info-body {
+	display: none;
+	position: absolute;
+	width: 350px; bottom: 0; right: 0;
+	background-color: #000;
+	border-radius: 0 0 18px 0;
+	padding: 40px 5px 35px 20px;}
+
+.info-body:target { /*a pseudo-class is triggered to open rules*/
+	display: block;}
+
+.info-close {
+	position: absolute;
+	top: 10px; right: 10px;
+	font-size: 18px; color: #fff;}
+
+.info-text {
+	padding: 0px 10px 0px 0px;}
+
+.info-text p{
+	margin: 0px 0px 10px 0px;}
+
+.info-text p:last-child{
+	margin: 0;}
