@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uk-UA">
+<head>
+		<meta charset="utf-8">			
+		<meta author = "SKindij">
+		<meta keywords = "розпашна автоматика, ">
+		<title>OSA swing gate automation</title>
+	<link rel="stylesheet" href="OSA-CSS\normalize.css"> 
+  <link rel="stylesheet" href="OSA-CSS\pages-style.css">
+					
+	<script>
+
+	</script>
+</head>
+	
+<body>
+<!-- HEADER -->	
+	<header>
+	<!-- page background change buttons -->
+	  <button class="backgr" id="backgr1">O</button>
+    <button class="backgr" id="backgr2">S</button>
+    <button class="backgr" id="backgr3">A</button>
+        <img width="12%" src="OSA-paints\OSAtech-mini-logo.jpg" style="top: 10px; left: 10px; 
+        position: absolute;" alt="OSAtech-mini-logo">			
+	
+		<h1> Підбір автоматики для розпашних воріт </h1>
+	</header>	 
+
+		<!-- Site navigation menu -->
+		<nav>
+			 <ul>
+		 		<li><a href="index.html">базова сторінка</a></li>
+	 			<li><a href="sliding-automatic.html">автоматика на відкатні ворота</a></li>
+	 			<li><a href="garage-automatic.html">електроприводи на ворота гаражні</a></li>
+	 			<li><a href="interesting-useful.html">корисна інформація</a></li>
+	 			<li><a href="save-remote.html">гра <br>"Врятуй пульт"</a></li>
+			 </ul>
+		</nav>	 
+
+	<main>
+	<!-- block of algorithm for selection of retractable automatics -->
+	<h3>   запланована інтенсивність </h3>
+	  <p><button class="algorithm-button-A">ПРИВАТНИЙ БУДИНОК<br>1 - 4 авто</button></p>
+	  <p><button class="algorithm-button-A">ПІДПРИЄМСТВО<br>5 - 16 авто</button></p>
+	  <p><button class="algorithm-button-A">ПІДЗЕМНИЙ ПАРКІНГ<br>від 17 авто</button></p>
+	  <p><button class="algorithm-button-B">ЛОГІСТИЧНИЙ ЦЕНТР<br>від 17 авто</button></p>
+
+	<h3>   ширина однієї стулки </h3>
+	  <p><button class="algorithm-button-A"> 1 - 1,4 м </button></p>
+	  <p><button class="algorithm-button-A"> 1,5 - 1,9 м</button></p>
+	  <p><button class="algorithm-button-A"> 2,0 - 2,5 м</button></p>
+	  <p><button class="algorithm-button-B"> 2,6 - 3,0 м</button></p>
+
+	<h3>   вид матеріалу воріт (впливає на вагу) </h3>
+	  <p><button class="algorithm-button-A"> легка решітка </button></p>
+	  <p><button class="algorithm-button-A"> профнастил </button></p>
+	  <p><button class="algorithm-button-A"> ковка </button></p>
+	  <p><button class="algorithm-button-B"> дерево </button></p>
+
+	<h3>   швидкість відкривання </h3>
+	  <p><button class="algorithm-button-A">звичайна</button></p>
+	  <p><button class="algorithm-button-A">підвищена</button></p>
+	  <p><button class="algorithm-button-B">висока</button></p>
+
+    <section>
+      <p>вам підійде наступна модель:</p>
+      <p style="color: purple;"><em>наразі йде процесс зародження штучного інтелекту <span>🧑‍🔬</span>, який буде реагувати на вибрані вами параметри зверху... </em></p>
+    </section>
+
+
+   		<h4>Алгоритм підбору автоматики для розпашних воріт:</h4> 
+    		<ol>
+    			<li>інтенсивність роботи (частота відкривання воріт)</li>
+    			<li>ширина однієї створки</li>
+    			<li>вага створки воріт (+ на вітрове навантаження 27кг/м.кв. зашитої площі)</li>
+    			<li>особливості кріплення двигуна до колони (стовпа)</li>
+    			<li>необхідні пристрої захисту (фотоелементи, лампа)</li>
+    		</ol>
+
+   		<p>
+    	<b>Для підбору</b> моделі <b>лінійного</b> двигуна важливим є параметр <strong>С</strong> (відстань від осі петлі воріт до краю стовпа), а вже <b><i>при установці</i></b> монтажник має звертати увагу на параметри <b><i>А</i></b> та <b><i>В</i></b> (відстані від осі петлі до осей заднього та переднього кронштейнів).
+    	</p>
+
+	<figure>
+		<img width="50%" src="OSA-paints\R20-310-Roger.jpg" alt="ворота із лінійним комплектом">
+		<figcaption>ворота із лінійним комплектом</figcaption>
+	</figure>
+
+		<p>
+		<b>Для двигунів важільного типу</b> звертаємо увагу на параметр <b>В</b> (див. схеми).
+		</p>
+
+	<figure>
+		<img width="50%" src="OSA-paints\Roger-R23.jpg" alt="ворота із ричажним комплектом">
+		<figcaption>ворота із ричажним комплектом</figcaption>
+	</figure>
+
+
+	</main>
+
+  <!-- Copyright -->
+	<footer>
+     	<p><em>Copyright © 2021 SKindij</em></p>
+  </footer>
+
+<script>
+  let body = document.querySelector('body');
+    document.querySelector('#backgr1').onclick = function() {
+      body.style.backgroundColor = 'Black';
+    };
+    document.querySelector('#backgr2').onclick = function() {
+      body.style.backgroundColor = 'PaleGoldenrod';
+    };
+    document.querySelector('#backgr3').onclick = function() {
+      body.style.backgroundColor = 'Maroon';
+    };
+</script>
+
+</body>
+</html>

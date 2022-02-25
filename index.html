@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uk-UA">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="SKindij">
+    <meta name="description" content="Соціальний авторський web-проект, який допомагає підібрати оптимальну модель автоматики для конкретних відкатних, розпашних чи секційних гаражних воріт. Для кожної серії автоматики створена нативна та проста панель вибору параметрів воріт.">
+    <meta name="keywords" content="гаражні ворота, розпашні ворота, відкатні ворота, автоматика до воріт, управління воротами, пульти, шлагбауми">
+  <title>OSA optimal selection of automation</title>
+    <link rel="canonical" href="https://osatechno.com/">
+    <link rel="shortcut icon" type="image/png" href="OSA-paints/remote-favicon.png">
+    <link rel="stylesheet" href="OSA-CSS/normalize.css"> 
+    <link rel="stylesheet" href="OSA-CSS/main-style.css">
+
+  <!-- 
+    <link rel="alternate" hreflang="ru" href="https://osatechno.com/ru_INT/">
+    <link rel="alternate" hreflang="en" href="https://osatechno.com/en_INT/">
+  --> 
+
+  <!-- 	
+      <script src="OSA-JS/nav-osa.js"></script>
+      <script></script>
+	  -->	
+  </head>
+	
+<body>
+  <!-- HEADER -->		
+  <header>
+    <!-- page background change buttons -->
+    <button class="backgr" id="backgr1">O</button>
+    <button class="backgr" id="backgr2">S</button>
+    <button class="backgr" id="backgr3">A</button>
+    <img id="miniLogo1" width="15%" src="OSA-paints/OSAtech-mini-logo.jpg" alt="OSAtechno-mini-logo">
+    <h1><span class="osa">OSA - optimal selection of automation.</span><br>
+      <small>Розумний підбір автоматики для воріт.</small> </h1>
+  </header>	 
+
+    <!-- Site navigation menu -->
+    <nav class="page-navigation">
+      <ul>
+        <li><a href="sliding-automatic.html">автоматика<br>на відкатні ворота</a></li>
+        <li><a href="swing-automatic.html">автоматика<br>на розпашні ворота</a></li>
+        <li><a href="garage-automatic.html">електроприводи на ворота<br>гаражні</a></li>
+        <li><a href="#">системи парковок та шлагбауми</a></li>
+        <li><a href="interesting-useful.html">цікава та корисна інформація</a></li>
+        <li><a href="save-remote.html">зона розваг<br>гра "Врятуй пульт"</a></li>
+        <li><a href="back-page.html">форма<br>для<br>зв'язку</a></li>
+      </ul>    
+    </nav>	 
+
+  <!-- MAIN SECTION -->
+  <main>					
+    <section class="project-sections">
+    <h2 class="main-topic">Виберіть ваш тип воріт<small> до яких потрібна автоматика:</small></h2>
+      <div class="preface-section">
+        <img src="OSA-paints/sliding-body.jpg" alt="List picture" width="" height="">
+          <div class="preface-text">
+            <h3>відкатні ворота</h3>
+            <p>можуть відсуватися вправо чи вліво</p>
+          </div>
+      </div>
+      <div class="preface-section">
+        <img src="OSA-paints/swing-body.jpg" alt="List picture" width="" height="">
+          <div class="preface-text">
+            <h3>розпашні ворота</h3>
+            <p>відчиняються всередину двору або назовні</p>
+          </div>
+      </div>
+      <div class="preface-section">
+        <img src="OSA-paints/garage-body.jpg" alt="List picture" width="" height="">
+          <div class="preface-text">
+            <h3>ворота гаражні</h3>
+            <p>від'їжджають вверх під стелю гаража, мають декілька варіантів типів підйому полотна</p>
+          </div>
+      </div>								
+    </section>
+
+    <section class="project-sections">
+    <h2 class="main-topic">Виберіть тип обладнання,<small> що плануєте для своєї території:</small></h2>
+      <div class="preface-section">
+        <img src="OSA-paints/automatic-barrier.jpg" alt="List picture" width="" height="">
+          <div class="preface-text">
+            <h3>шлагбауми та боларди</h3>
+            <p>служать для обмеження доступу на загальні території</p>
+          </div>
+      </div>
+      <div class="preface-section">
+        <img src="OSA-paints/parking-system-main.jpg" alt="List picture" width="" height="">
+          <div class="preface-text">
+            <h3>термінали в'їзду/виїзду </h3>
+            <p>дозволяють обдумано керувати парковками</p>
+          </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- additional content -->
+  <aside class="related-topics">
+    <h3>Пов'язані теми</h3>
+      <ul>
+        <li><a href="interesting-useful.html">цікавинки...</a></li>
+        <li><a href="#">як правильно розблоковувати відкатні ворота</a></li>
+        <li><a href="#">сервісне обслуговування шлагбаумів</a></li>
+        <li><a href="#">доглядаємо за воротами взимку</a></li>
+        <li><a href="#">управління зі смарт-фону</a></li>
+      </ul>
+  </aside>
+  
+    <!-- Copyright -->
+    <footer>
+      <p><em>Copyright © 2021 SKindij</em></p>
+    </footer>
+
+<script>
+  let body = document.querySelector('body');
+    document.querySelector('#backgr1').onclick = function() {
+      body.style.backgroundColor = 'Black';
+    };
+    document.querySelector('#backgr2').onclick = function() {
+      body.style.backgroundColor = 'PaleGoldenrod';
+    };
+    document.querySelector('#backgr3').onclick = function() {
+      body.style.backgroundColor = 'Maroon';
+    };
+</script>
+
+  </body>
+</html>

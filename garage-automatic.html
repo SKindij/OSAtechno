@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uk-UA">
+<head>
+		<meta charset="utf-8">
+		<meta author = "SKindij">
+		<meta keywords = "гаражна автоматика, ">
+	<title>OSA garage gate automation</title>
+	<link rel="stylesheet" href="OSA-CSS\normalize.css"> 
+  <link rel="stylesheet" href="OSA-CSS\pages-style.css">
+	  <!--	
+	    <script src="OSA-JS/main-osa.js"></script>			
+	  -->	
+</head>
+	
+<body>
+	<!-- HEADER -->	
+				<header>
+					<!-- page background change buttons -->
+	  <button class="backgr" id="backgr1">O</button>
+      <button class="backgr" id="backgr2">S</button>
+      <button class="backgr" id="backgr3">A</button>
+        <img width="12%" src="OSA-paints\OSAtech-mini-logo.jpg" style="top: 10px; left: 10px; 
+        position: absolute;" alt="OSAtech-mini-logo">	
+        <h1> Підбір автоматики для гаражних воріт </h1>
+	</header>	 	
+
+		<!-- Site navigation menu -->
+		<nav>
+			 <ul>
+		 		<li><a href="index.html">базова сторінка</a></li>
+	 			<li><a href="sliding-automatic.html">автоматика на відкатні ворота</a></li>
+	 			<li><a href="swing-automatic.html">автоматика на розпашні ворота</a></li>
+	 			<li><a href="interesting-useful.html">корисна інформація</a></li>
+	 			<li><a href="save-remote.html">гра <br>"Врятуй пульт"</a></li>
+			 </ul>
+		</nav>	 	
+
+	<main>
+		<!-- block of algorithm for selection of sectional automatics -->
+	<h3>   запланована інтенсивність </h3>
+	  <p><button class="algorithm-button-A">ПРИВАТНИЙ БУДИНОК<br>1 - 4 авто</button></p>
+	  <p><button class="algorithm-button-A">ПІДПРИЄМСТВО<br>5 - 16 авто</button></p>
+	  <p><button class="algorithm-button-A">ПІДЗЕМНИЙ ПАРКІНГ<br>від 17 авто</button></p>
+	  <p><button class="algorithm-button-B">ЛОГІСТИЧНИЙ ЦЕНТР<br>від 17 авто</button></p>
+
+	<h3>  площа гаражного проєму </h3>
+	  <p><button class="algorithm-button-A"> до 7 м. кв. </button></p>
+	  <p><button class="algorithm-button-A"> 8 - 9 м. кв.</button></p>
+	  <p><button class="algorithm-button-A"> 10 - 12 м. кв.</button></p>
+	  <p><button class="algorithm-button-A"> 13 - 16 м. кв.</button></p>
+	  <p><button class="algorithm-button-B"> 17 - 25 м. кв.</button></p>
+
+  <h3>  висота гаражного проєму </h3>
+	  <p><button class="algorithm-button-A"> до 1,8 м </button></p>
+	  <p><button class="algorithm-button-A"> 1,9 - 2,3 м </button></p>
+	  <p><button class="algorithm-button-A"> 2,4 - 2,9 м </button></p>
+	  <p><button class="algorithm-button-A"> 3,0 - 3,4 м </button></p>
+	  <p><button class="algorithm-button-B"> 3,5 - 4,2 м </button></p>
+
+	<h3>   тип підйому воріт </h3>
+	  <p><button class="algorithm-button-A">ПОНИЖЕНИЙ</button></p>
+	  <p><button class="algorithm-button-A">СТАНДАРТНИЙ</button></p>
+	  <p><button class="algorithm-button-A">ПІДВИЩЕНИЙ</button></p>
+	  <p><button class="algorithm-button-B">ВЕРТИКАЛЬНИЙ</button></p>
+		
+    <section>
+      <p>вам підійде наступна модель:</p>
+      <p style="color: purple;"><em>наразі йде процесс зародження штучного інтелекту <span>🧑‍🔬</span>, який буде реагувати на вибрані вами параметри зверху... </em></p>
+    </section>
+
+		
+   		<h4>Алгоритм підбору автоматики для гаражних воріт:</h4> 
+    		<ol>
+    			<li>інтенсивність роботи (частота відкривання воріт)</li>
+    			<li>площа воріт</li>
+    			<li>висота проєму</li>
+    			<li>тип підйому: низький, стандартний, високий, вертикальний</li>
+    			<li>необхідність суміщення автоматики</li>
+    		</ol>
+
+	<figure>
+		<img width="40%" src="OSA-paints\sectional-gate-inside1.jpg" alt="sectional-gate-inside">
+		<figcaption>секційні ворота працюють в мережі WiFi</figcaption>
+	</figure>
+
+		<p>
+		<b>Для промислових двигунів</b> звертаємо увагу на вільне бокове місце (див. схеми).
+		</p>
+
+	<figure>
+		<img width="50%" src="OSA-paints\bft-sample.jpg" alt="bft-sample">
+		<figcaption>можливе управління зі смартфону</figcaption>
+	</figure>
+
+	<!-- Copyright -->
+	<footer>
+     <p><em>Copyright © 2021 SKindij</em></p>
+  </footer>
+
+<script>
+  let body = document.querySelector('body');
+    document.querySelector('#backgr1').onclick = function() {
+      body.style.backgroundColor = 'Black';
+    };
+    document.querySelector('#backgr2').onclick = function() {
+      body.style.backgroundColor = 'PaleGoldenrod';
+    };
+    document.querySelector('#backgr3').onclick = function() {
+      body.style.backgroundColor = 'Maroon';
+    };
+</script>
+
+</body>
+</html>
