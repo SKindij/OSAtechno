@@ -91,28 +91,20 @@ section {
 
 .algorithm-button-A {
   float: left;
-  margin: 5px 5px; 
-  border-radius: 10px;
-  padding: 20px 20px;
+  margin: 5px 5px; border-radius: 10px; padding: 20px 20px;
   display: inline-block;
-  text-decoration: none;
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 2px;
+  text-decoration: none; color: white;
+  font-family: 'Montserrat', sans-serif; letter-spacing: 2px;
   background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
   background-size: 200% auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, .1);
   transition: .5s;}
 
 .algorithm-button-B {
-  margin: 5px 10px;
-  border-radius: 10px;
-  padding: 20px 30px;
+  margin: 5px 10px; border-radius: 10px; padding: 20px 30px;
   display: inline-block;
-  text-decoration: none;
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 2px;
+  text-decoration: none; color: white;
+  font-family: 'Montserrat', sans-serif; letter-spacing: 2px;
   background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
   background-size: 200% auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, .1);
