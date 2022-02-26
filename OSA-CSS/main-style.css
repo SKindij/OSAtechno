@@ -45,11 +45,9 @@ h1 {
 
 header button {
   margin: 5px 10px;
-  border: none;
-  border-radius: 25px;
+  border: none; border-radius: 25px;
   padding: 10px 20px;
-  font-size: 20px;   
-  font-weight: 500; 
+  font-size: 20px; font-weight: 500; 
   background-color: transparent;
   cursor: pointer;
   user-select: none;}
@@ -117,8 +115,7 @@ header button {
   padding-right: 10px; }
 
 .project-sections > div:last-child {
-  padding-right: 0;
-  padding-left: 10px; }
+  padding-right: 0; padding-left: 10px; }
 
 .main-topic {
   padding-bottom: 5px;
@@ -129,12 +126,9 @@ header button {
   display: inline-block;
   float: left;
   margin: 5px 4px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 5px; padding-right: 5px;
   width: 32%;
-  border-style: groove;
-  border-color: darkmagenta;
-  border-radius: 7px;
+  border-style: groove; border-color: darkmagenta; border-radius: 7px;
   box-sizing: border-box; }
 
 .preface-section img {
