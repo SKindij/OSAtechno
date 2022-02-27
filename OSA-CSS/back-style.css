@@ -1,0 +1,101 @@
+body {
+  padding-left: 11em;                         /*посуває текст*/
+  font-family: Georgia, "Times New Roman",      /*варіанти шрифтів для тексту*/
+        Times, serif;
+  color: 3f225c;                               /*вибираємо колір тексту*/
+  background-color: #c0c0c0 }  
+
+/* HEADER */
+.header {
+  font-family: Helvetica, Geneva, Arial,        
+        SunSans-Regular, sans-serif;
+  text-align: center;   }
+
+
+h1, h2, h3 {
+  font-family: tahoma, SunSans-Regular, sans-serif;  }
+
+ul {
+  margin: 0;
+  padding: 0;   }
+
+nav {
+  list-style-type: none;
+  background-color: #c7c1c1;
+  border-color: #700733;
+  padding: 0;
+  margin: 0;
+  position: fixed;      /* Оставайтесь на месте */
+  top: 10em;                          /*розміщення зверху, em - це розмір наявного шрифту*/
+  left: 1em;                         /*розміщення зліва,  */
+  width: 9em; }
+
+ul li {
+  list-style-type: none; 
+  color: #3b0563;
+  background-color: #c7c1c1;
+  border-color: #700733;
+  margin: 0.5em 0;
+  padding: 0.3em;
+  border-right: 1em solid black }
+
+ul a {
+  text-decoration: none }
+
+form {
+  /* розмістимо форму по середині сторінки */
+  margin: 0 auto;
+  width: 950px;
+  /* визначимо контури цієї форми */
+  padding: 1em;
+  border: 2px solid #CCC;
+  border-radius: 2em;}
+
+label {
+  /* встановимо розміри та вирівнювання */
+  display: inline-block;
+  width: 150px;
+  text-align: right;}
+
+input,
+textarea {
+  /* Убедимся, что все поля имеют одинаковые настройки шрифта
+     По умолчанию в textarea используется моноширинный шрифт */
+  font: 1em sans-serif;
+
+  /* Определим размер полей */
+  width: 300px;
+  box-sizing: border-box;
+
+  /* Стилизуем границы полей */
+  border: 1px solid #999;}
+
+input:focus,
+textarea:focus {
+  /* Дополнительная подсветка для элементов в фокусе */
+  border-color: #000;}
+
+textarea {
+  /* Выравним многострочные текстовые поля с их текстами-подсказками */
+  vertical-align: top;
+
+  /* Предоставим пространство для ввода текста */
+  height: 5em;}
+
+/* налаштовуємо стиль радіо-кнопок */
+.form_radio {
+  margin-bottom: 10px;}
+
+
+
+
+.button {
+  /* Выравним кнопки с их текстами-подсказками */
+  padding-left: 70px; /* same size as the label elements */}
+
+button {
+  /* Этот дополнительный внешний отступ примерно равен расстоянию
+     между текстами-подсказками и текстовыми полями */
+  margin-left: .5em;}
+
+footer {font-size: 10px; font-style: italic;}
