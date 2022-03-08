@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="uk-UA">
+<head>
+	<meta charset="utf-8">
+	<meta author = "SKindij">
+		<meta keywords = " ">
+		<title>OSA back form</title>
+	<link rel="stylesheet" href="OSA-CSS\normalize.css"> 
+	<link rel="stylesheet" href="OSA-CSS\back-style.css">
+					
+	<script>
+	
+	</script>
+</head>
+	
+<body>	
+	<!-- HEADER -->		
+  <header class="header">
+	  <!-- page background change buttons -->
+    <button class="backgr" id="backgr1">O</button>
+    <button class="backgr" id="backgr2">S</button>
+    <button class="backgr" id="backgr3">A</button>
+        <img width="12%" src="OSA-paints/OSAtech-mini-logo.jpg" style="top: 10px; left: 10px; 
+        position: absolute;" alt="OSAtech-mini-logo">
+	 	  <h1> OSA - <em>optimal selection of automation</em>. <br>
+	 	    <small>Підбір автоматики для воріт.</smal> </h1>
+  </header>	 
+
+<!-- Site navigation menu -->
+	<nav>   	
+		 <ul>
+		 	<li><a href="index.html">базова сторінка</a></li>
+	 		<li><a href="sliding-automatic.html">відкатні ворота</a></li>
+	 		<li><a href="swing-automatic.html">розпашні ворота</a></li>
+	 		<li><a href="garage-automatic.html">ворота гаражні</a></li>
+	 		<li><a href="interesting-useful.html">корисна інформація</a></li>
+	 		<li><a href="save-remote.html">гра <br>"Врятуй пульт"</a></li>
+		 </ul>
+	</nav>	 
+	
+	
+	<main>
+		<h2> форма зворотнього зв'зку </h2>
+	<p style="color: SaddleBrown"><mark>дана сторінка на технічному обслуговуванні</mark></p>
+		
+		<form name="user_form" method="post" action="input1.php">
+ 			<label for="user_name"><b>ваше ім'я:</b></label>
+   			  <input type="text" id="user_name" name="" placeholder="your name" size="35"></p>
+
+			<label for="user_mail"><b>ваша електронка:</b></label>
+   			  <input type="email" id="user_mail" placeholder="your mail" size="40">
+   				<br> <br> 
+		  <div>
+			<label for="user_region"><b>виберіть область об'єкту:</b></label>
+			  <input name="district" id="user_region" list = "districts" placeholder="region of the object">
+				<datalist id="districts">
+					<option value="Вінницька">
+					<option value="Волинська">
+					<option value="Дніпропетровська">	
+					<option value="Закарпатська">
+					<option value="Запорізька">	
+					<option value="Івано-Франківська">	
+					<option value="Київська">
+					<option value="Кіроворадська">	
+					<option value="Львівська">	
+					<option value="Миколаївська">				
+					<option value="Одеська">
+					<option value="Черкаська">	
+					<option value="Чернігівська">
+				</datalist>
+		  </div>
+		
+  			<p><b>яким браузером ви зазвичай користуєтесь:</b> <br>
+   			  <input type="radio" name="browser" value="chrome"> Chrome 
+   			  <input type="radio" name="browser" value="edge"> Edge <br>
+   			  <input type="radio" name="browser" value="safari"> Safari   
+   			  <input type="radio" name="browser" value="opera"> Opera <br>
+   			  <input type="radio" name="browser" value="firefox"> Firefox 
+   			  <input type="radio" name="browser" value="ie"> Int Expl</p> <br>
+
+   			<div class="form_radio">
+   				<b>ваш улюблений колір?</b> <br>
+   				<input type="radio" name="color" value="red"> червоний
+   				<input type="radio" name="color" value="green"> зелений
+   				<input type="radio" name="color" value="blue"> синій
+   				<input type="radio" name="color" value="yellow"> жовтий
+   			</div>
+
+  			<p><b>ваше запитання</b><Br>
+  				<textarea name="comment" cols="40" rows="3"></textarea></p>
+
+	<!-- pause 
+ 			<p><input type="submit" value="відправити">
+   				<input type="reset" value="очистити"></p>	
+	-->
+	
+
+	</main>
+
+	<script>
+let body = document.querySelector('body');
+document.querySelector('#backgr1').onclick = function() {
+body.style.backgroundColor = 'Black';
+};
+document.querySelector('#backgr2').onclick = function() {
+body.style.backgroundColor = 'PaleGoldenrod';
+};
+document.querySelector('#backgr3').onclick = function() {
+body.style.backgroundColor = 'Maroon';
+};
+		</script>
+
+		<!-- Copyright -->
+	<footer>
+     	 <p><em>Copyright © 2021 SKindij</em></p>
+    </footer>
+
+</body>
+</html>
