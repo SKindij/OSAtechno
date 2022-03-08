@@ -18,13 +18,13 @@ ul {
 
 nav {
   list-style-type: none;
+  padding: 0;
+  margin: 0;  
   background-color: #c7c1c1;
   border-color: #700733;
-  padding: 0;
-  margin: 0;
+  
   position: fixed;      
-  top: 10em;                          
-  left: 1em;                         
+  top: 10em; left: 1em;                         
   width: 9em; }
 
 ul li {
