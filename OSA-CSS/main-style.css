@@ -144,9 +144,13 @@ header button {
   text-overflow: ellipsis; }
 
 .preface-text p {
-  height: 20px;
+  height: 40px;
   overflow: hidden; }
 
+.preface-text button {
+  padding: 5px;
+  border: 1px solid transparent; border-radius: 5px;
+  outline: none;}
 
 /* ADITIONAL CONTENT */
 .related-topics {
