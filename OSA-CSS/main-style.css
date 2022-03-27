@@ -151,6 +151,10 @@ header button {
   padding: 5px;
   border: 1px solid transparent; border-radius: 5px;
   outline: none;}
+  
+ .preface-text button:hover {
+  background-color: darkgrey;
+  color: white;}
 
 /* ADITIONAL CONTENT */
 .related-topics {
