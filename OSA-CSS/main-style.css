@@ -4,8 +4,7 @@ body {
   background-color: PaleGoldenrod;}                 
 
 ul {
-  margin: 0;
-  padding: 0;}
+  margin: 0; padding: 0;}
 
 ul a {
   text-decoration: none;}
@@ -14,8 +13,7 @@ ul a {
 header {
   padding-bottom: 5px;
   font-family: Helvetica, Verdana , Georgia, sans-serif;  
-  text-align: center;
-  font-weight: 800; }
+  text-align: center; font-weight: 800; }
 
 h1 {
   margin: 10px 0;}
@@ -27,8 +25,7 @@ h1 {
 
 .osa {
     transform: translate(50%,-50%);
-    color: Whitesmoke;
-    font-weight: 700;
+    color: Whitesmoke; font-weight: 700;
     text-shadow: 1px 1px 1px #919191,
         1px 2px 1px #919191,
         1px 3px 1px #919191,
@@ -49,8 +46,7 @@ header button {
   padding: 10px 20px;
   font-size: 20px; font-weight: 500; 
   background-color: transparent;
-  cursor: pointer;
-  user-select: none;}
+  cursor: pointer; user-select: none;}
 
 .backgr {
   box-shadow: 5px 5px 10px #c9c9c9, inset -5px -5px 8px -4px #c9c9c9,
@@ -103,7 +99,6 @@ header button {
   transform: scale(12);}
 
 
-
 /* MAIN PART */
 .project-sections {
   width: 98%;
@@ -111,8 +106,7 @@ header button {
   overflow: auto; }
 
 .project-sections > div:first-child {
-  padding-left: 0;
-  padding-right: 10px; }
+  padding-left: 0; padding-right: 10px; }
 
 .project-sections > div:last-child {
   padding-right: 0; padding-left: 10px; }
@@ -145,7 +139,8 @@ header button {
 
 .preface-text p {
   height: 40px;
-  overflow: hidden; }
+  overflow: hidden; 
+  font-style: oblique;}
 
 .preface-text button {
   padding: 5px;
@@ -159,16 +154,14 @@ header button {
 /* ADITIONAL CONTENT */
 .related-topics {
   width: 65%;
-  margin-left: 5%; }
+  margin-left: 5%;}
 
 .related-topics ul li {
-  border-radius: 10px;
+  margin: 0.5em 0; padding: 0.5em 2em;
+  border-radius: 10px; border-right: 1em solid orange;
   list-style-type: none; 
   color: #3b0563;
-  background-color: LightGray; 
-  margin: 0.5em 0;
-  padding: 0.5em 2em;
-  border-right: 1em solid orange; }
+  background-color: LightGray;}
 
 /* FOOTER */
 footer {
