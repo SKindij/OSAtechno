@@ -145,6 +145,7 @@ header button {
 .preface-text button {
   padding: 5px;
   border: 1px solid transparent; border-radius: 5px;
+  color: black;
   outline: none;}
   
  .preface-text button:hover {
