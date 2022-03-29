@@ -22,14 +22,11 @@ header {
 
 header button {
   margin: 5px 10px;
-  border: none;
-  border-radius: 25px;
+  border: none; border-radius: 25px;
   padding: 10px 20px;
-  font-size: 20px;   
-  font-weight: 500; 
+  font-size: 20px; font-weight: 500; 
   background-color: transparent;
-  cursor: pointer;
-  user-select: none;}
+  cursor: pointer; user-select: none;}
 
 .backgr {
   box-shadow: 5px 5px 10px #c9c9c9, inset -5px -5px 8px -4px #c9c9c9,
@@ -46,14 +43,11 @@ header button {
 nav {
   position: fixed; top: 150px; left: 5px;
   width: 165px; margin: 0; 
-  box-sizing: border-box; padding: 0;
-  }
+  box-sizing: border-box; padding: 0;}
 
 nav > ul {
   list-style-type: none;
-  height: 400px;
-  margin: 0 auto;
-  padding: 0;}
+  height: 400px; margin: 0 auto; padding: 0;}
 
 nav li {
   height: 60px; margin: 5px 0;
@@ -68,8 +62,7 @@ nav a {
   width: 100%; margin-top: 10px;
   border-radius: 15px;
   font-size: 15px;
-  text-align: center;
-  text-decoration: none;
+  text-align: center; text-decoration: none;
   cursor: pointer;}
 
 nav a:hover{
