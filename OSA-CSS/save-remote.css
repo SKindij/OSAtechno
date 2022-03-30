@@ -1,6 +1,5 @@
 *,*:before,*:after{
-	padding: 0;
-	margin: 0;
+	padding: 0; margin: 0;
 	border: 0;
 	box-sizing: border-box;}
 
@@ -8,9 +7,7 @@ body{
 	height: 100%;
 	background-color: DarkSlateGray;
 	font-family:consolas, monospace; /*font for all browsers*/
-	color: #fff;
-	font-size: 16px;}
-
+	color: #fff; font-size: 16px;}
 
 /*setting for background*/
 @keyframes move-background {
@@ -78,9 +75,7 @@ body{
 
 img{
   height: 70vh; width:70vh;
-  position: absolute; z-index: 3;
-  right: 20px;}
-
+  position: absolute; z-index: 3; right: 20px;}
 
 /*setting for game*/
 .wrapper{
@@ -114,10 +109,8 @@ img{
 	top: 0; left: 0;
 	pointer-events: none;} /*remove any reactions to the mouse*/
 
-.game-body:before,
-.game-body:after,
-.game-items:before,
-.game-items:after{
+.game-body:before, .game-body:after,
+.game-items:before, .game-items:after{
 	content: 'підступний копі-кодер';
 	position: absolute;
   top: 0; left: 0; z-index: 1;
