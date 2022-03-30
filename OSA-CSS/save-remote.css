@@ -111,7 +111,7 @@ img{
 
 .game-body:before, .game-body:after,
 .game-items:before, .game-items:after{
-	content: 'підступний копі-кодер';
+	content: 'підступний копі-кодер, що полює за сигналом твого пульта';
 	position: absolute;
   top: 0; left: 0; z-index: 1;
 	width: 20vw; height: 30vh;
