@@ -13,21 +13,18 @@ h1, h2, h3 {
   font-family: tahoma, SunSans-Regular, sans-serif;}
 
 ul {
-  margin: 0;
-  padding: 0;}
+  margin: 0; padding: 0;}
 
 /* NAVIGATION */
 nav {
   position: fixed; top: 150px; left: 5px;
   width: 165px; margin: 0; 
-  box-sizing: border-box; padding: 0;
-  }
+  box-sizing: border-box; padding: 0;}
 
 nav > ul {
   list-style-type: none;
   height: 400px;
-  margin: 0 auto;
-  padding: 0;}
+  margin: 0 auto; padding: 0;}
 
 nav li {
   height: 60px; margin: 5px 0;
@@ -43,8 +40,7 @@ nav a {
   border-radius: 15px;
   font-size: 15px;
   text-align: center;
-  text-decoration: none;
-  cursor: pointer;}
+  text-decoration: none; cursor: pointer;}
 
 nav a:hover{
   color: black; text-decoration: none;
@@ -68,11 +64,8 @@ nav li:hover{
   box-shadow: 0px 0px 0px;}
 
 form {
-  margin: 0 auto;
-  width: 950px;
-  padding: 1em;
-  border: 2px solid #CCC;
-  border-radius: 2em;}
+  margin: 0 auto; width: 950px; padding: 1em;
+  border: 2px solid #CCC; border-radius: 2em;}
 
 label {
   display: inline-block;
