@@ -169,3 +169,11 @@ footer {
   margin-top: 20px; padding: 10px 40px;
   background-color: LightGray;
   font-size: 11px; font-style: italic;}
+
+footer p {
+  width: 500;}
+
+footer img {
+  
+  width:88px; height:31px;
+  border:0;}
