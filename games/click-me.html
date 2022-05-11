@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OSA Clicker Game</title>
+    <script src="game-js/click-me.js" defer></script>
+
+    <link rel="stylesheet" href="game-css/click-me.css">
+
+</head>
+<body>
+
+ <div class="game-space">
+
+  <div class="game-form">    
+      <input type="text" id="userName" placeholder="Enter your nickname">  
+  </div> 
+
+    <!-- block of game buttons -->
+    <div class="game-buttons">
+      <button id="gameStart" class="algorithm-button">Start</button>
+      <button id="gameBestRes" class="algorithm-button">Best result this session</button>
+      <button id="gameBestAllTime" class="algorithm-button">Best result for all time</button>
+      <button id="clearBestRes" class="algorithm-button">Clear best result</button>
+      <button id="clearAllBest" class="algorithm-button">Clear best result for all time</button>  
+    </div>    
+ 
+  <div id="clickArea">
+    <button id="clickMe" class="click-me">Click me!</button>    
+  </div>   
+
+
+  <div id="contentGame">
+    Timer: <span id="gameTimer"></span><br/>
+    Score: <span id="gameScore"></span><br/>
+  </div>
+
+ </div> 
+
+</body>
+</html>
