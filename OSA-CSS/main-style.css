@@ -62,8 +62,8 @@ header button {
 /* NAVIGATION */
 .page-navigation { 
   list-style-type: none; 
-  min-height: 75px; margin: 5px 15px;
-  padding: 5px 5px; 
+  min-height: 75px; margin: 1rem auto;
+  padding: 0.2rem 0.4rem; 
   border-radius: 25px;
   align-items: center; justify-content: center;
   background: linear-gradient(to right bottom, gold, chocolate);
@@ -76,14 +76,17 @@ header button {
 
 .page-navigation ul li {
   position: relative; overflow: hidden;
-  width: 145px; height: 55px; margin:5px 10px;
+  width: 8rem; height: 3rem; margin:0.4rem 0.7rem;
   border: 2px solid black; border-radius: 25px;
-  padding: 5px 5px;
-  font-size: 14px; letter-spacing: 0.1em; text-align: center;
+  padding: 0.2rem 0.2rem;
+  font-size: 0.8rem; letter-spacing: 0.1em; text-align: center;
   background-color: PapayaWhip;
   cursor: pointer;}
 
 .page-navigation ul a {
+  position: absolute; margin: 0 auto;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 80%; height: 70%;
   list-style-type: none;
   font-weight: 500; text-align: center; color: Yellow;
   mix-blend-mode: difference;  }
