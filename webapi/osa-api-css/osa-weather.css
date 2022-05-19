@@ -18,6 +18,7 @@ body {
  background-color: var(--DarkForestGreen);
 }
 html main {
+    position: relative;
     height: 50vh;
 }
 
@@ -38,11 +39,12 @@ body header {
 
 /* MAIN PART */
 main .wrapper {
-    padding-bottom: 1rem;
+    height: 100%;
+    padding: 1rem 1rem;
 }
 main .weather {
-    max-width: 550px; 
-    margin: 0 auto; padding: 20px;
+    max-width: 750px; 
+    margin: 0 auto; padding: 3rem 4rem;
     border-radius: 10px;
     background-color: aquamarine;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -52,7 +54,7 @@ main .weather-loading {
   justify-content: center; align-items: center;
 }
 main .weather-loading img {
-    max-width: 50px;
+    max-width: 100px;
 }
 main .weather-header {
     display: flex;
@@ -60,6 +62,14 @@ main .weather-header {
 main .weather-main {
     flex: 1 1 auto;
 }
+main .weather-icon {
+    width: 120px;
+}
+main .weather-icon img {
+    width: 100%; 
+}
+
+
 main .weather-city {
     margin-bottom: 15px;
     font-size: 40px; font-weight: 700;
@@ -73,8 +83,6 @@ main .weather-temp {
     margin-bottom: 10px;
     font-size: 30px; font-weight: 700;
 }
-
-
 
 main .weather-temp::after,
 main .weather-feels-like::after {
