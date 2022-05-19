@@ -1,0 +1,234 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0; padding: 0;}
+
+:root {
+
+
+}
+
+html body {    
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+
+
+}
+
+body a {text-decoration: none;}
+body nav ul li {
+    text-decoration: none;
+    list-style-type: none;}
+
+body h1, body h3, body h4, body p {
+    padding-top: 1vh;}
+
+/* HEADER */
+
+
+
+
+
+
+
+
+
+/* MAIN SECTION */
+
+
+
+
+
+/* About   */
+.tm-content-box {
+    overflow: hidden;
+    margin-bottom: 30px
+}
+
+
+
+
+
+
+
+.boxes,
+.tm-box-bg-title {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox
+}
+
+
+
+.tm-box-bg-title {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+
+.boxes {
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap
+}
+
+.box {
+    list-style: none;
+    width: 33.3333%;
+    height: auto;
+}
+
+.box-bg {
+    position: relative
+}
+
+.box-img {
+    width: 100%;
+}
+
+
+
+.tm-section-title {
+    margin-bottom: 20px
+}
+
+
+
+
+.tm-section-title-box{
+  transition-duration: .5s;}
+.tm-section-title-box:hover{
+  background-color: lightskyblue;
+  color: white; font-weight: bold;
+  cursor: pointer;}
+
+
+
+
+
+
+.container main #mainPart .main-review {
+  padding: 1vw;
+  display: grid;
+  background-color: #8a6f8d; }
+.container main #mainPart .main-review h3 {
+    margin: 12px;
+    color: #caa2cb;
+    font-size: 2em;
+    text-align: center; }
+.container main #mainPart .main-review .reviews {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 1vw; }
+.container main #mainPart .main-review .reviews .review-card {
+      padding: 1vh;
+      display: grid;
+      background: #9d7a86;
+      grid-template-columns: 1fr 3fr; }
+.container main #mainPart .main-review .reviews .review-card .circle-image {
+        width: 10vh;
+        height: 10vh;
+        border-radius: 50%; }
+ .container main #mainPart .main-review .reviews .review-card p {
+        display: grid;
+        padding: 0 2vh;
+        align-content: center;
+        color: white; }
+        body .container main #mainPart .main-review .reviews .review-card p span {
+          font-style: italic; }
+
+
+/* FOOTER */
+footer #siteFooter {
+  display: flex; justify-content: space-around;
+
+   }
+
+footer #socialNetwork {
+  padding-left: 1rem; }
+footer #socialNetwork img {
+    width: 2.3rem;
+    height: 2.1rem;
+    padding-right: 1rem; }
+footer #socialNetwork h4 {
+    margin: 0 0 1rem 0;
+    color: #4f0a5e; }
+footer #socialNetwork .copyright {
+    padding-top: 1rem;
+    color: #4f0a5e; }
+
+footer #centerFooter {
+    width: 20rem;
+}
+
+
+
+footer #feedbackPayments {
+  display: grid; }
+  footer #feedbackPayments .send-email {
+    padding-right: 2rem; }
+    footer #feedbackPayments .send-email input {
+      width: 97%;
+      border: 0;
+      padding: 0.5rem;
+      color: #8a769f; }
+    footer #feedbackPayments .send-email button {
+      width: 100%;
+      margin-top: 1rem;
+      border: 0;
+      padding: 0.5rem;
+      background: #4f0a5e;
+      color: white;
+      cursor: pointer; }
+      body .container footer #feedbackPayments .send-email button:hover {
+        background: #65dafe;
+        color: white; }
+
+footer #feedbackPayments .payments h4 {
+  margin: 1rem 0 0;
+  color: #4f0a5e; }
+footer #feedbackPayments .pay-img img {
+  width: 4rem;
+  padding-right: 1rem; }
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 991px) {
+
+
+
+
+
+
+
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+
+
+
+
+
+}
