@@ -6,5 +6,5 @@ for sliding or swing gates and sectional garage doors.
 
 This project is registered under the domain name https://osatechno.com/
 
-It will be very usefull thing.
-OSA - optimal selection of automation.
+It will be very usefull thing. \
+## OSA - optimal selection of automation.
