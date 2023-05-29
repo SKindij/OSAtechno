@@ -1,9 +1,32 @@
-# OSAtechno
+# OSA - Optimal Selection of Accessories
 
-Author's :open_file_folder: **web-project**, which :handshake: helps to choose the optimal model of automation.
+&emsp;OSA is a web application 🔮 designed to assist 👷 users 🔍 in finding ⭐ the best in terms of price-quality ratio accessories for 🔧 upgrading, 🔨 repairing, or 🔱 enhancing various types of gates and roller shutters. 
 
- A native and simple gate selection panel is created for each series of automation:\
-:white_check_mark: for sliding or swing gates and sectional garage doors.
+## Key Features
+
+- **User-Friendly Interface**: OSA offers a user-friendly interface that allows seamless navigation and easy access to information.
+- **Categorized Product Groups**: The main page presents four distinct product groups - Residential Gates, Industrial Gates, Garage Roller Shutters, and Window Roller Shutters. Users can explore each category to find the relevant accessories.
+- **Order Customization**: OSA enables users to select the desired accessories by clicking the "Choose" button. Selected items are added to the order window, where users can input the desired quantities.
+- **Responsive Design**: The web application is designed with responsiveness in mind, ensuring an optimal viewing experience across various devices.
+<!--
+- **Registration and Extended Functionality**: OSA offers the potential for user registration, providing registered users with access to additional features and functionalities.
+-->
+
+## How to Use
+
+1. Visit the OSA web application and explore the main page, where you will find an overview of the available product groups.
+2. Click on a specific group to access the corresponding page, where a comprehensive list of products and accessories will be displayed.
+3. To select desired items, click the "Choose" button next to each product. The selected items will appear in the order window at the bottom of the page.
+4. In the order window, input the desired quantities for each item.
+5. Once you have finalized your selection and specified the quantities, you can download your order as an image (e.g., JPG, PNG) or a PDF file.
+
+
+## About
+
+&emsp;OSA is developed using React.js and React Bootstrap, ensuring a seamless user experience and a responsive design. 
+The logic and data handling are implemented using separation of concerns principles, ensuring a clean and maintainable codebase.
+
+
 
 
 
@@ -12,8 +35,5 @@ Author's :open_file_folder: **web-project**, which :handshake: helps to choose t
 
 ___
 
-### OSA - optimal selection of automation.
-This project is registered under the domain name <https://osatechno.com/>
-
-It will be very usefull thing :open_book:. 
-
+### ©️ OSA - 🏡 optimal selection of accessories.
+🔗 to: <https://osatechno.com/>
