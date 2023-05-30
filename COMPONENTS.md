@@ -20,12 +20,20 @@
 9. **ResidentialGatesPage.js**
 10. **GarageRollersPage.js**
 11. **WindowRollersPage.js**
-
-> 
+> _-user sees complete list of products and their prices on the page of selected block;_\
+> _user chooses desired goods - by entering required quantity and pressing "select" button;_\
+> _selected accessories are added to a separate window ("OrderForm");_
+12. **ProductPage.js** &emsp; - _displays a single product as a card with information and images;_
+13. **NotFoundPage.js** &emsp; - _displays a 404 page_
 
 ### │   └── order/
 
-
+14. **OrderForm.js**
+> _accessories selected by the user are displayed here;_\
+> _there is a form where the user can enter his data;_\
+> _here is the "Notes to order" field;_
+> _contains "Delete" and "View" buttons at the bottom;_
+15. **OrderSummary.js**
 
 
 
