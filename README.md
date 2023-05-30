@@ -49,10 +49,10 @@ src/
 │   │   ├── ResidentialGatesPage.js
 │   │   ├── GarageRollersPage.js
 │   │   ├── WindowRollersPage.js
+│   │   ├── ProductPage.js
 │   │   ├── NotFoundPage.js
 │   │   └── Pages.scss
 │   └── order/
-│       ├── ProductCard.js
 │       ├── OrderForm.js
 │       ├── OrderSummary.js
 │       ├── OrderConfirmation.js
