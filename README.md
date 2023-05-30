@@ -59,8 +59,14 @@ src/
 ├── services/
 │   ├── DataService.js
 │   └── AuthService.js
+├── resources/
+│   ├── rollersImages/
+│   └── gatesImages/
+│   └── commonImages/
 ├── App.js
-└── index.js
+├── index.js
+├── index.scss
+└── variables.scss
 ```
 
 
