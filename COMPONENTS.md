@@ -21,35 +21,29 @@
 10. **GarageRollersPage.js**
 11. **WindowRollersPage.js**
 > _-user sees complete list of products and their prices on the page of selected block;_\
-> _user chooses desired goods - by entering required quantity and pressing "select" button;_\
-> _selected accessories are added to a separate window ("OrderForm");_
+> _-user chooses desired goods - by entering required quantity and pressing "select" button;_\
+> _-selected accessories are added to a separate window ("OrderForm");_
 12. **ProductPage.js** &emsp; - _displays a single product as a card with information and images;_
 13. **NotFoundPage.js** &emsp; - _displays a 404 page_
 
 ### │   └── order/
 
 14. **OrderForm.js**
-> _accessories selected by the user are displayed here;_\
-> _there is a form where the user can enter his data;_\
-> _here is the "Notes to order" field;_
-> _contains "Delete" and "View" buttons at the bottom;_
+> _-accessories selected by the user are displayed here;_\
+> _-there is a form where the user can enter his data;_\
+> _-here is the "Notes to order" field;_\
+> _-contains "Delete" and "View" buttons at the bottom;_
 15. **OrderSummary.js**
-
-
+> _-displays the overall summary of the order;_\
+> _-contains "Print" and "Save" buttons;_
+16. **OrderConfirmation.js** &emsp; - _component functionality under development;_
 
 ## ├── database/
-
-
-
+17. **GatesDatabase.js** &emsp; - _module that contains data about available gate accessories;_
+18. **RollersDatabase.js** &emsp; - _module that contains data about available roller accessories;_
 
 ## ├── services/
-
-
-
-
-
-
-
-
+19. **DataService.js** &emsp; - _service module that provides access to reading product data;_
+20. **AuthService.js** &emsp; - _service module responsible for user authentication and authorization;_
 
 
