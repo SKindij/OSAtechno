@@ -32,24 +32,28 @@ The logic and data handling are implemented using separation of concerns princip
 
 ```css
 src/
+├── index.js
+├── index.scss
+├── variables.scss
+├── App.js
 ├── components/
 │   ├── common/
 │   │   ├── Header.js
-│   │   ├── Footer.js
-│   │   ├── Spinner.js
 │   │   ├── Navbar.js
+│   │   ├── Spinner.js
+│   │   ├── Footer.js
 │   │   └── Common.scss
 │   ├── pages/
 │   │   ├── MainPage.js
-│   │   ├── GarageRollersPage.js
-│   │   ├── WindowRollersPage.js
 │   │   ├── IndustrialGatesPage.js
 │   │   ├── ResidentialGatesPage.js
+│   │   ├── GarageRollersPage.js
+│   │   ├── WindowRollersPage.js
 │   │   ├── NotFoundPage.js
 │   │   └── Pages.scss
 │   └── order/
-│       ├── OrderForm.js
 │       ├── ProductCard.js
+│       ├── OrderForm.js
 │       ├── OrderSummary.js
 │       ├── OrderConfirmation.js
 │       └── Order.scss
@@ -62,18 +66,10 @@ src/
 ├── resources/
 │   ├── rollersImages/
 │   └── gatesImages/
-│   └── commonImages/
-├── App.js
-├── index.js
-├── index.scss
-└── variables.scss
+└── └── commonImages/
 ```
 
-
-
-
-
-
+See [Components Guide](https://github.com/SKindij/OSAtechno-app/blob/main/COMPONENTS.md) for more explanation and description.
 
 - - -
 
