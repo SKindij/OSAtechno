@@ -7,15 +7,15 @@
 - **User-Friendly Interface**: OSA offers a user-friendly interface that allows seamless navigation and easy access to information.
 - **Categorized Product Groups**: The main page presents four distinct product groups - Residential Gates, Industrial Gates, Garage Roller Shutters, and Window Roller Shutters. Users can explore each category to find the relevant accessories.
 - **Order Customization**: OSA enables users to select the desired accessories by clicking the "Choose" button. Selected items are added to the order window, where users can input the desired quantities.
-- **Responsive Design**: The web application is designed with responsiveness in mind, ensuring an optimal viewing experience across various devices.
+- **Responsive Design**: The web-app is designed with responsiveness in mind, ensuring an optimal viewing experience across various devices.
 
 ### 📝 How to Use
 
 1. Visit the OSA web application and explore the main page, where you will find an overview of the available product groups.
-2. Click on a specific group to access the corresponding page, where a comprehensive list of products and accessories will be displayed.
-3. To select desired items, click the "Choose" button next to each product. The selected items will appear in the order window at the bottom of the page.
-4. In the order window, input the desired quantities for each item.
-5. Once you have finalized your selection and specified the quantities, you can download your order as an image (e.g., JPG, PNG) or a PDF file.
+2. Click on a specific group to access the corresponding page, where a comprehensive list of products will be displayed.
+3. Select the desired accessories, enter the required quantity and press the "select" button next to each product. 
+4. The selected items will appear in the "order window", where you will be able to add your data and additional notes.
+5. Once you have completed your application, you can download your order as an image (e.g., JPG, PNG) or a PDF file.
 
 ### 📒 About
 
