@@ -51,6 +51,7 @@ src/
 │   │   ├── WindowRollersPage.js
 │   │   ├── ProductPage.js
 │   │   ├── NotFoundPage.js
+│   │   ├── index.js
 │   │   └── Pages.scss
 │   └── order/
 │       ├── OrderForm.js
