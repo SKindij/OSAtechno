@@ -24,7 +24,7 @@
 > _-selected accessories are added to a separate window ("OrderForm");_
 11. **ProductPage.js** &emsp; - _displays a single product as a card with information and images;_
 12. **NotFoundPage.js** &emsp; - _displays a 404 page_
-13. index.js** &emsp; - _file with a generalized import/export of all page components_
+13. **index.js** &emsp; - _file with a generalized import/export of all page components_
 
 ### │   └── order/
 
@@ -41,6 +41,7 @@
 ## ├── database/
 17. **GatesDatabase.js** &emsp; - _module that contains data about available gate accessories;_
 18. **RollersDatabase.js** &emsp; - _module that contains data about available roller accessories;_
+> _they are simply modules with data that will be imported into the required components;_
 
 ## ├── services/
 19. **DataService.js** &emsp; - _service module that provides access to reading product data;_
