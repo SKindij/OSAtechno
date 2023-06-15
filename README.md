@@ -39,7 +39,6 @@ src/
 ├── components/
 │   ├── common/
 │   │   ├── Header.js
-│   │   ├── Navbar.js
 │   │   ├── Spinner.js
 │   │   ├── Footer.js
 │   │   └── Common.scss
