@@ -7,10 +7,11 @@ import industrialGateImg from '../../resources/commonImages/industrial-gate-imag
 import garageRollesImg from '../../resources/commonImages/garage-roller-shutter.png';
 import windowRolletsImg from '../../resources/commonImages/window-roller-shutter.png';
 
-
+import './Pages.scss';
 
 function MainPage() {
   return (
+    <main className='main-page'>
     <Container>
       <Row xs={1} md={2} className="g-4 justify-content-center">
         <Col>
@@ -57,6 +58,7 @@ function MainPage() {
         </Col>
       </Row>
     </Container>
+    </main>
   );
 }
 

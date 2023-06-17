@@ -1,1 +1,8 @@
 @import '../../variables';
+
+.main-page{
+    padding: 20px;
+    background-color: $main-background;
+    box-shadow: $box-shadow;
+    margin-bottom: 20px;
+}
