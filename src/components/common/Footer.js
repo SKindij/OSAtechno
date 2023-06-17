@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container, Row, Col, Form, Button, InputGroup  } from 'react-bootstrap';
 
+import './Common.scss';
+
 const Footer = () => {
   const handleRegistration = (event) => {
     event.preventDefault();

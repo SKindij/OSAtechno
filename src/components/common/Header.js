@@ -28,7 +28,7 @@ const Header = () => {
       <Navbar expand="md" variant="light" >
         <Container>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Brand href="#home">
+          <Navbar.Brand>
             <Link to="/" className="logo-link" onClick={handleBrandLinkClick}>
               <img src={logo} alt="OSA-mini-logo" className="logo d-inline-block" />{' '}
                 <span className="brand-name">OSAtechno</span> 
