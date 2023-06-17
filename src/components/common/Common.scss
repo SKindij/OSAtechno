@@ -5,10 +5,29 @@
   background-color: $parts-background;
   box-shadow: $box-shadow;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    padding: 5px;
+  }
+
+  .header-content {
+    text-align: center;
+    padding: 20px 80px;
+
+    @media (max-width: 768px) {
+      padding: 5px 10px;
+    }
+  }
 }
+
+
 .logo {
   width: 120px; height: 54px;
   border-radius: 10px;
+
+  @media (max-width: 450px) {
+    width: 90px; height: 46px;
+  }
 }
 
 .brand-name {
@@ -17,14 +36,32 @@
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
   font-size: 20px;
   margin-left: 16px;
+
+  @media (max-width: 450px) {
+    font-size: 16px;
+    margin-left: 10px;
+  }
 }
 
 .nav-link {
   transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #f8f9fa;
+    color: darkorange; /* Change the color when hovering */
+    font-weight: bold; /* Add some emphasis */
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 0;
+  }
 }
-.nav-link:hover {
-  background-color: #f8f9fa;
+
+.navbar-toggler-icon {
+  width: 0.7rem;
+  height: 0.7rem;
 }
+
 .active {
   color: darkorange !important;
   font-weight: bold;
