@@ -11,7 +11,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-light">
+    <footer className="footer">
         <Container className="mt-4" >
           <h4>Login for registered users</h4>
           <p>Provides access to professional functions on the portal.</p>

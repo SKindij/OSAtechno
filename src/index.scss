@@ -34,28 +34,24 @@ input::-webkit-inner-spin-button {
 
 // Custom styles for App component
 .app { 
-  // Background and Box shadow
-  background-color: #f8f9fa;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: site-background;
+  box-shadow: $box-shadow;
+  margin: 10px;
+  color: $main-text;
 
   // Responsive styles
   @media (min-width: 768px) {
     max-width: 960px;
     margin: 0 auto;
     border-radius: 8px;
+    padding: 20px;
+    box-shadow: $box-shadow;
   }
 
   @media (min-width: 992px) {
     max-width: 1200px;
   }
 
-  // Margin and padding
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 20px;
-
-  // Colors
-  color: #333;
 }
 
 // Other styles for your application...
