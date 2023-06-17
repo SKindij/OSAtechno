@@ -17,7 +17,9 @@ function MainPage() {
           <Col>
             <Card className="card-wrapper">
             <Card.Header>Garage gates</Card.Header>
-                <Card.Img variant="top" src={residentialGateImg} />
+            <Link to="/residential">
+              <Card.Img variant="top" src={residentialGateImg} />
+            </Link>   
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>
                 <Card.Text>Explore our range of residential gates.</Card.Text>
@@ -30,7 +32,9 @@ function MainPage() {
           <Col>
             <Card className="card-wrapper">
               <Card.Header>Garage gates</Card.Header>
-                <Card.Img variant="top" src={industrialGateImg} />
+              <Link to="/industrial">
+              <Card.Img variant="top" src={industrialGateImg} />
+              </Link>
               <Card.Body>
                 <Card.Title>Industrial type</Card.Title>
                 <Card.Text>Discover our selection of industrial gates.</Card.Text> 
@@ -43,7 +47,9 @@ function MainPage() {
           <Col>
             <Card className="card-wrapper">
               <Card.Header>Roller gates</Card.Header>
+              <Link to="/garageroller">
                 <Card.Img variant="top" src={garageRollesImg} />
+              </Link>
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>
                 <Card.Text>Explore our range of garage roller shutters.</Card.Text>
@@ -56,7 +62,9 @@ function MainPage() {
           <Col>
             <Card className="card-wrapper">
               <Card.Header>Aluminum shutters</Card.Header>
+              <Link to="/garageroller">
                 <Card.Img variant="top" src={windowRolletsImg} />
+              </Link>
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>
                 <Card.Text>Discover our selection of window roller shutters.</Card.Text>
