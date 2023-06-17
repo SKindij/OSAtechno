@@ -1,0 +1,62 @@
+// Import Bootstrap styles
+@import '~bootstrap/scss/bootstrap';
+@import './variables';
+
+* {
+    font-family: "Roboto Condensed", sans-serif;
+    margin: 0;  padding: 0;
+    box-sizing: border-box;
+}
+ul, li, dl {
+    list-style-type: none;
+    margin: 0; padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    &:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+p {
+    margin: 0; padding: 0;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+// Custom styles for App component
+.app { 
+  // Background and Box shadow
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  // Responsive styles
+  @media (min-width: 768px) {
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 8px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 1200px;
+  }
+
+  // Margin and padding
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+
+  // Colors
+  color: #333;
+}
+
+// Other styles for your application...
+
