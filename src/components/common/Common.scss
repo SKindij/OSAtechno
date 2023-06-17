@@ -1,0 +1,30 @@
+@import '../../variables';
+
+.logo {
+  width: 160px;
+  border-radius: 25px;
+}
+
+.brand-name {
+  color: #333;
+  font-weight: 800;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+  font-size: 20px;
+  margin-left: 16px;
+}
+
+.nav-link {
+  transition: background-color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  background-color: #f8f9fa;
+}
+
+.active {
+  color: darkorange !important;
+  font-weight: bold;
+}
+
+
+/* Інші стилі, які вам можуть знадобитись */
