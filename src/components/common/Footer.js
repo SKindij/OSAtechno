@@ -1,32 +1,33 @@
 import React from 'react';
-import vcss from '../../resources/commonImages/vcss.gif';
-import { Container, Row, Col  } from 'react-bootstrap';
-import { Form, Button, InputGroup } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, InputGroup  } from 'react-bootstrap';
 
 const Footer = () => {
   const handleRegistration = (event) => {
     event.preventDefault();
-    // Виконайте необхідну логіку реєстрації
+    // Perform the necessary registration logic
     console.log(`User...`);
   };
 
   return (
     <footer className="footer">
         <Container className="mt-4" >
-          <h4>Login for registered users</h4>
+          <h4 className="mb-3">Login for registered users</h4>
           <p>Provides access to professional functions on the portal.</p>
           <Form onSubmit={handleRegistration}>
             <Row className="align-items-center">
-              <Col sm={3} className="my-1">
+              <Col md={3} className="my-1">
                 <Form.Label htmlFor="formInputUsername" visuallyHidden>Username</Form.Label>
                 <InputGroup>
                   <InputGroup.Text>User:</InputGroup.Text>
                       <Form.Control id="formInputUsername" placeholder="nickname" />
                     </InputGroup>
                   </Col>
-                  <Col sm={3} className="my-1">
+                  <Col md={3} className="my-1">
                     <Form.Label htmlFor="formInputUserPassworde" visuallyHidden>Password:</Form.Label>
                     <Form.Control id="formInputUserPassword" placeholder="Password" />
+                    <Form.Text className="text-muted">
+                      You can get your login and password from the portal administrator.
+                    </Form.Text>
                   </Col>
                   <Col xs="auto" className="my-1">
                     <Form.Check type="checkbox" id="autoSizingCheck2" label="Remember me" />
