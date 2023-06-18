@@ -1,5 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import GatesDatabase from "../../database/GatesDatabase";
 
 const ResidentialGatesPage = () => {
   const location = useLocation();
@@ -14,23 +16,22 @@ const ResidentialGatesPage = () => {
   };
 
   return (
-    <div>
-      <h2>Residential Gates</h2>
-      <p>Current location: {location.pathname}</p>
-      <p>Select a product:</p>
-      <ul>
-        <li onClick={() => handleProductClick('rd101')}>Product 101</li>
-        <li onClick={() => handleProductClick('rd102')}>Product 102</li>
-        <li onClick={() => handleProductClick('rd103')}>Product 103</li>
-        <li onClick={() => handleProductClick('rd104')}>Product 104</li>
-        <li onClick={() => handleProductClick('rd105')}>Product 105</li>
-      </ul>
-
-      <p>Go back to the previous action:</p>
-      <button onClick={() => navigate(-1)}>Go Back</button>
-      <p>Return to the beginning of the section:</p>
-      <button onClick={handleReplaceClick}>Replace</button>
-    </div>
+    <Container>
+      <Row>
+        {GatesDatabase.products.map(product => (
+          <Col key={product.id} xs={12} md={6} lg={4}>
+            <Card>
+              <Card.Img variant="top" src={product.imageA} />
+              <Card.Body>
+                <Card.Title>{product.name}</Card.Title>
+                <Card.Text>{product.description}</Card.Text>
+                <Button variant="primary">Buy Now</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 };
 
