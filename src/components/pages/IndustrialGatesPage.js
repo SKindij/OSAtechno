@@ -1,38 +1,73 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Button, Card, Form } from 'react-bootstrap';
+import DataService from './DataService';
 
+// IndustrialGatesPage component (similar to ResidentialGatesPage)
 const IndustrialGatesPage = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('All categories');
 
-  const handleProductClick = (productId) => {
-    navigate(`/industrial/${productId}`);
-  };
+  useEffect(() => {
+    const fetchProducts = async () => {
+      // Get industrial and common products from DataService
+      const industrialProducts = DataService.getIndustrialProducts();
+      setProducts(industrialProducts);
+      setFilteredProducts(industrialProducts);
+    };
 
-  const handleReplaceClick = () => {
-    navigate('/industrial', { replace: true });
+    fetchProducts();
+  }, []);
+
+  const filterProducts = (category) => {
+    setSelectedCategory(category);
+    if (category === 'All categories') {
+      setFilteredProducts(products);
+    } else {
+      const filtered = products.filter((product) => product.categories === category);
+      setFilteredProducts(filtered);
+    }
   };
 
   return (
-    <div>
-      <h2>Industrial Gates</h2>
-      <p>Current location: {location.pathname}</p>
-      <p>Select a product:</p>
-      <ul>
-        <li onClick={() => handleProductClick('rd101')}>Product 101</li>
-        <li onClick={() => handleProductClick('rd102')}>Product 102</li>
-        <li onClick={() => handleProductClick('rd103')}>Product 103</li>
-        <li onClick={() => handleProductClick('rd104')}>Product 104</li>
-        <li onClick={() => handleProductClick('rd105')}>Product 105</li>
-      </ul>
-
-      <p>Go back to the previous action:</p>
-      <button onClick={() => navigate(-1)}>Go Back</button>
-      <p>Return to the beginning of the section:</p>
-      <button onClick={handleReplaceClick}>Replace</button>
-    </div>
+    <Container>
+      <Row>
+        <Col>
+          <Button variant="secondary" onClick={() => filterProducts('All categories')}>
+            All categories
+          </Button>
+          <Button variant="secondary" onClick={() => filterProducts('On Shaft')}>
+            On Shaft
+          </Button>
+          <Button variant="secondary" onClick={() => filterProducts('On Panel')}>
+            On Panel
+          </Button>
+          <Button variant="secondary" onClick={() => filterProducts('Railsystem')}>
+            Railsystem
+          </Button>
+        </Col>
+      </Row>
+      <Row>
+        {filteredProducts.map((product) => (
+          <Col key={product.id} xs={12} md={6} lg={4} xl={3}>
+            <Card>
+              <Card.Img variant="top" src={product.imageA} />
+              <Card.Body>
+                <Card.Title>{product.name}</Card.Title>
+                <Card.Text>{product.article}</Card.Text>
+                <Card.Text>{product.price}</Card.Text>
+                <Card.Text>{product.description}</Card.Text>
+                <Form.Group controlId={`quantity_${product.id}`}>
+                  <Form.Control type="number" min="1" defaultValue="1" />
+                </Form.Group>
+                <Button variant="primary">Add</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 };
 
 export default IndustrialGatesPage;
-
