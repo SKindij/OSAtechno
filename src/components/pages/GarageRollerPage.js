@@ -1,12 +1,14 @@
 import React from 'react';
 
+import NotFoundPage from "./NotFoundPage";
+
 function GarageRollerPage() {
  
 
 return (
-      <div>
-	    View Garage Roller Shutter
-	  </div>
+    <main>
+        <NotFoundPage />
+    </main>	    
   );
 }
 

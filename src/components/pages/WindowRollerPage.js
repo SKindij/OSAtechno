@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+
+import NotFoundPage from "./NotFoundPage";
 
 function WindowRollerPage() {
  
 
 return (
-      <div>
-	    View Window Roller Shutters
-	  </div>
+    <main>
+       <NotFoundPage />
+    </main>	  
   );
 }
 
