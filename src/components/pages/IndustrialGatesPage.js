@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Button, Card, Form } from 'react-bootstrap';
-import DataService from '../../services/DataService';
+import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar } from 'react-bootstrap';
 import { FaEye } from 'react-icons/fa';
 import './Pages.scss';
+import DataService from '../../services/DataService';
 
 const IndustrialGatesPage = () => {
   const [products, setProducts] = useState([]);
@@ -40,28 +40,35 @@ const IndustrialGatesPage = () => {
 
   return (
     <Container>
-      <Row>
+      <Row className="mb-4">
         <Col>
-          <Button variant="secondary" onClick={() => filterProducts('All categories')}>
-            All categories
-          </Button>
-          <Button variant="secondary" onClick={() => filterProducts('Type A')}>
-            Type A
-          </Button>
-          <Button variant="secondary" onClick={() => filterProducts('Type B')}>
-            Type B
-          </Button>
-          <Button variant="secondary" onClick={() => filterProducts('Type C')}>
-            Type C
-          </Button>
+          <ButtonToolbar aria-label="Product categories">
+            <ButtonGroup className="me-2">
+              <Button variant="secondary" onClick={() => filterProducts('All categories')}>
+                All categories
+              </Button>
+            </ButtonGroup>
+            <ButtonGroup>
+              <Button variant="secondary" onClick={() => filterProducts('On Shaft')}>
+              On Shaft
+              </Button>
+              <Button variant="secondary" onClick={() => filterProducts('On Panel')}>
+              On Panel
+              </Button>
+              <Button variant="secondary" onClick={() => filterProducts('Railsystem')}>
+              Railsystem
+              </Button>
+            </ButtonGroup>
+          </ButtonToolbar>
         </Col>
       </Row>
       <Row>
         {filteredProducts.map((product) => (
           <Col key={product.id} xs={12} md={6} lg={4} xl={3}>
             <Card
-              className={`product-card ${selectedProduct && selectedProduct.id === product.id ? 'product-card-highlight' : ''}`}
-              onClick={() => selectProduct(product.id)}
+              className={`product-card ${
+                selectedProduct && selectedProduct.id === product.id ? 'product-card-highlight' : ''
+              }`}
             >
               <Card.Img className="product-image" variant="top" src={product.imageA} />
               <Card.Body>
@@ -78,8 +85,9 @@ const IndustrialGatesPage = () => {
                     <Button variant="outline-secondary">Add</Button>
                   </Col>
                   <Col>
-                    {/* Eye icon */}
-                    <Button variant="light"><FaEye /></Button>
+                    <Button variant="light" onClick={() => selectProduct(product.id)}>
+                      <FaEye />
+                    </Button>
                   </Col>
                 </Row>
               </Card.Body>

@@ -97,9 +97,9 @@ const GatesDatabase = {
     },
     {
       id: 'gdi106',
-      name: '',
+      name: 'Universal pvc footstep/handle',
       article: '25130.1',
-      description: '',
+      description: 'Two-piece. Supplied with 4 screws.',
       price: 4.15,
       category: 'On Panel',
       imageA: A25130_1,
