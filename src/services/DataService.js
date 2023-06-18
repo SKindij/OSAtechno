@@ -1,5 +1,5 @@
-import GatesDatabase from './database/GatesDatabase';
-import RolletsDatabase from './database/RolletsDatabase';
+import GatesDatabase from '../database/GatesDatabase';
+import RolletsDatabase from '../database/RolletsDatabase';
 
 const DataService = {
   getResidentialProducts: () => {
@@ -26,7 +26,7 @@ const DataService = {
     ];
     return allProducts.find((product) => product.id === productId);
   },
-  
+
 };
 
 export default DataService;

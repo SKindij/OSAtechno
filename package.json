@@ -1,6 +1,6 @@
 {
   "name": "robust",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
