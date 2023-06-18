@@ -25,19 +25,27 @@ import A25734_1 from '../resources/gatesImages/A25734_1.jpg';
 import B25734_1 from '../resources/gatesImages/B25734_1.jpg';
 import A25010 from '../resources/gatesImages/A25010.jpg';
 import B25010 from '../resources/gatesImages/B25010.jpg';
-import A from '../resources/gatesImages/A.jpg';
-import B from '../resources/gatesImages/B.jpg';
-
-
-
-
-
-
+import A25011 from '../resources/gatesImages/A25011.jpg';
+import B25011 from '../resources/gatesImages/B25011.jpg';
+import A25733_1 from '../resources/gatesImages/A25733_1.jpg';
+import B25733_1 from '../resources/gatesImages/B25733_1.jpg';
+import A820100b from '../resources/gatesImages/A820100b.jpg';
+import B820100b from '../resources/gatesImages/B820100b.jpg';
+import A80042 from '../resources/gatesImages/A80042.jpg';
+import B80042 from '../resources/gatesImages/B80042.jpg';
+import A825109 from '../resources/gatesImages/A825109.jpg';
+import B825109 from '../resources/gatesImages/B825109.jpg';
+import A285101 from '../resources/gatesImages/A285101.jpg';
+import B285101 from '../resources/gatesImages/B285101.jpg';
+import A25130_1 from '../resources/gatesImages/AA25130_1.jpg';
+import B25130_1 from '../resources/gatesImages/BA25130_1.jpg';
+import A240031 from '../resources/gatesImages/A240031.jpg';
+import B240031 from '../resources/gatesImages/B240031.jpg';
 
 
 const GatesDatabase = {
   industrial: [
-    // Industrial-specific products
+    // INDUSTRIAL-specific products
     {
       id: 'gdi101',
       name: 'Top seal',
@@ -88,10 +96,20 @@ const GatesDatabase = {
       imageA: A14022,
       imageB: B14022
     },
+    {
+      id: 'gdi106',
+      name: '',
+      article: '25130.1',
+      description: '',
+      price: 4.15,
+      categories: 'On Panel',
+      imageA: A25130_1,
+      imageB: B25130_1
+    },
     // Add more products here...
   ],
   residential: [
-    // Residential-specific products
+    // RESIDENTIAL-specific products
     {
       id: 'gdr101',
       name: '',
@@ -104,33 +122,32 @@ const GatesDatabase = {
     },
     {
       id: 'gdr102',
-      name: '',
-      article: '',
-      description: '',
-      price: ,
+      name: 'Handle black',
+      article: '285101',
+      description: 'Interrior & exterrior handle, black plastic.',
+      price: 1.87,
       categories: 'On Panel',
-      imageA: A,
-      imageB: B
-    },
+      imageA: A285101,
+      imageB: B285101
+    },   
     {
       id: 'gdr103',
-      name: '',
-      article: '',
-      description: '',
-      price: ,
+      name: 'Bottom bracket',
+      article: '240031',
+      description: 'Corner bracket with T-stud for cable fixation.',
+      price: 9.02,
       categories: 'On Panel',
-      imageA: A,
-      imageB: B
+      imageA: A240031,
+      imageB: B240031
     },
-    
     // Add more products here...
   ],
-  // Common products suitable for both industrial and residential groups
+  // COMMON products suitable for both industrial and residential groups
   common: [
     {
       id: 'gdc101',
-      name: 'Aluminum bottom profile',
-      article: '820100',
+      name: 'Aluminum top profile',
+      article: '820100t',
       description: 'For 40 mm thick panels. Suitable for rubber seal 825101.',
       price: 31.69,
       categories: 'On Panel',
@@ -181,11 +198,11 @@ const GatesDatabase = {
       id: 'gdc106',
       name: 'Side hinge',
       article: '25734.1',
-      description: 'Side hinge for 40mm panels.',
+      description: 'Suitable for 40mm panels.',
       price: 2.46,
       categories: 'On Panel',
       imageA: A25734_1,
-      imageB: B
+      imageB: B25734_1
     },
     {
       id: 'gdc107',
@@ -199,23 +216,53 @@ const GatesDatabase = {
     },
     {
       id: 'gdc108',
-      name: '',
-      article: 'Roller 190 mm',
+      name: 'Roller 190 mm',
+      article: '25011',
       description: 'Stainless steel & plastic.',
       price: 2.00,
       categories: 'On Panel',
-      imageA: A,
-      imageB: B
+      imageA: A25011,
+      imageB: B25011
     },
     {
       id: 'gdc109',
-      name: '',
-      article: '',
-      description: '',
-      price: ,
+      name: 'Intermediate hinge',
+      article: '25733.1',
+      description: 'For use with article 25734. Suitable for 40mm panels.',
+      price: 0.88,
       categories: 'On Panel',
-      imageA: A,
-      imageB: B
+      imageA: A25733_1,
+      imageB: B25733_1
+    },
+    {
+      id: 'gdc110',
+      name: 'Aluminum bottom profile',
+      article: '820100b',
+      description: 'For 40 mm thick panels. Suitable for rubber seal 80042.',
+      price: 31.69,
+      categories: 'On Panel',
+      imageA: A820100b,
+      imageB: B820100b
+    },
+    {
+      id: 'gdc111',
+      name: 'Bottom seal',
+      article: '80042',
+      description: 'Suitable for aluminum profile 820100b.',
+      price: 3.00,
+      categories: 'On Panel',
+      imageA: A80042,
+      imageB: B80042
+    },
+    {
+      id: 'gdc112',
+      name: 'Bottom seal',
+      article: '825109',
+      description: 'Suitable for aluminum profile VSN01.',
+      price: 5.53,
+      categories: 'On Panel',
+      imageA: A825109,
+      imageB: B825109
     },
     // Other common products...
   ],
