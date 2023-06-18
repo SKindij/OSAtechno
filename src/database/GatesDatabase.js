@@ -1,4 +1,3 @@
-
 import A825101 from '../resources/gatesImages/A825101.jpg';
 import B825101 from '../resources/gatesImages/B825101.jpg';
 import A820100 from '../resources/gatesImages/A820100.jpg';
@@ -52,7 +51,7 @@ const GatesDatabase = {
       article: '825101',
       description: 'Material: rubber. Suitable for aluminum profile 820100.',
       price: 2.75,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A825101,
       imageB: B825101
     },  
@@ -62,7 +61,7 @@ const GatesDatabase = {
       article: '230104',
       description: 'Usually for an industrial series. 2 pcs are required.',
       price: 1.39,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A230104,
       imageB: B230104
     },
@@ -72,7 +71,7 @@ const GatesDatabase = {
       article: '25238.1',
       description: 'Usually for an industrial series. 2 pcs are required.',
       price: 0.55,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A25238_1,
       imageB: B25238_1
     },
@@ -82,7 +81,7 @@ const GatesDatabase = {
       article: '14024',
       description: 'Especially suitable for tracks with reduced side room. ',
       price: 0.09,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A14024,
       imageB: B14024
     },
@@ -92,7 +91,7 @@ const GatesDatabase = {
       article: '14022',
       description: 'M8 nut with locking serration.',
       price: 0.07,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A14022,
       imageB: B14022
     },
@@ -102,7 +101,7 @@ const GatesDatabase = {
       article: '25130.1',
       description: '',
       price: 4.15,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A25130_1,
       imageB: B25130_1
     },
@@ -112,11 +111,11 @@ const GatesDatabase = {
     // RESIDENTIAL-specific products
     {
       id: 'gdr101',
-      name: '',
+      name: 'Universal top roller',
       article: '230130',
-      description: '',
+      description: 'Standard top roller for the HOME system.',
       price: 6.07,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A230130,
       imageB: B230130
     },
@@ -126,7 +125,7 @@ const GatesDatabase = {
       article: '285101',
       description: 'Interrior & exterrior handle, black plastic.',
       price: 1.87,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A285101,
       imageB: B285101
     },   
@@ -136,7 +135,7 @@ const GatesDatabase = {
       article: '240031',
       description: 'Corner bracket with T-stud for cable fixation.',
       price: 9.02,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A240031,
       imageB: B240031
     },
@@ -150,7 +149,7 @@ const GatesDatabase = {
       article: '820100t',
       description: 'For 40 mm thick panels. Suitable for rubber seal 825101.',
       price: 31.69,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A820100,
       imageB: B820100
     },
@@ -160,7 +159,7 @@ const GatesDatabase = {
       article: '217070',
       description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
       price: 4.62,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A217070,
       imageB: B217070
     },
@@ -170,7 +169,7 @@ const GatesDatabase = {
       article: '217071',
       description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
       price: 4.62,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A217071,
       imageB: B217071
     },
@@ -180,7 +179,7 @@ const GatesDatabase = {
       article: '217074',
       description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
       price: 5.59,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A217074,
       imageB: B217074
     },
@@ -190,7 +189,7 @@ const GatesDatabase = {
       article: '217075',
       description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
       price: 5.59,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A217075,
       imageB: B217075
     },
@@ -200,7 +199,7 @@ const GatesDatabase = {
       article: '25734.1',
       description: 'Suitable for 40mm panels.',
       price: 2.46,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A25734_1,
       imageB: B25734_1
     },
@@ -210,7 +209,7 @@ const GatesDatabase = {
       article: '25010',
       description: 'Stainless steel & plastic.',
       price: 0.95,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A25010,
       imageB: B25010
     },
@@ -220,7 +219,7 @@ const GatesDatabase = {
       article: '25011',
       description: 'Stainless steel & plastic.',
       price: 2.00,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A25011,
       imageB: B25011
     },
@@ -230,7 +229,7 @@ const GatesDatabase = {
       article: '25733.1',
       description: 'For use with article 25734. Suitable for 40mm panels.',
       price: 0.88,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A25733_1,
       imageB: B25733_1
     },
@@ -240,7 +239,7 @@ const GatesDatabase = {
       article: '820100b',
       description: 'For 40 mm thick panels. Suitable for rubber seal 80042.',
       price: 31.69,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A820100b,
       imageB: B820100b
     },
@@ -250,7 +249,7 @@ const GatesDatabase = {
       article: '80042',
       description: 'Suitable for aluminum profile 820100b.',
       price: 3.00,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A80042,
       imageB: B80042
     },
@@ -260,7 +259,7 @@ const GatesDatabase = {
       article: '825109',
       description: 'Suitable for aluminum profile VSN01.',
       price: 5.53,
-      categories: 'On Panel',
+      category: 'On Panel',
       imageA: A825109,
       imageB: B825109
     },
