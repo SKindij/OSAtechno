@@ -19,7 +19,7 @@ import B25238_1 from '../resources/gatesImages/B25238_1.png';
 
 
 const GatesDatabase = {
-  products: [
+  industrial: [
     {
       id: 'gd101',
       name: 'Top seal',
@@ -99,6 +99,59 @@ const GatesDatabase = {
       categories: 'On Panel',
       imageA: A25238_1,
       imageB: B25238_1
+    },
+    // Add more products here...
+  ],
+  residential: [
+    {
+      id: 'gd102',
+      name: 'Aluminum bottom profile',
+      article: 820100,
+      description: 'For 40 mm thick panels. Suitable for rubber seal 825101.',
+      price: 31.69,
+      categories: 'On Panel',
+      imageA: A820100,
+      imageB: B820100
+    },
+	{
+      id: 'gd103',
+      name: 'Endcap left 40-500mm',
+      article: 217070,
+      description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
+      price: 4.62,
+      categories: 'On Panel',
+      imageA: A217070,
+      imageB: B217070
+    },
+	{
+      id: 'gd104',
+      name: 'Endcap right 40-500mm',
+      article: 217071,
+      description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
+      price: 4.62,
+      categories: 'On Panel',
+      imageA: A217071,
+      imageB: B217071
+    },
+    {
+      id: 'gd105',
+      name: 'Endcap left 40-610mm',
+      article: 217074,
+      description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
+      price: 5.59,
+      categories: 'On Panel',
+      imageA: A217074,
+      imageB: B217074
+    },
+    {
+      id: 'gd106',
+      name: 'Endcap right 40-610mm',
+      article: 217075,
+      description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
+      price: 5.59,
+      categories: 'On Panel',
+      imageA: A217075,
+      imageB: B217075
     },
     // Add more products here...
   ],
