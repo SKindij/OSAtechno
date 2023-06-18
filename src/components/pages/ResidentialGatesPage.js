@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Card, Form } from 'react-bootstrap';
-import DataService from './DataService';
+import DataService from '../../services/DataService';
 
 const ResidentialGatesPage = () => {
   const [products, setProducts] = useState([]);

@@ -40,6 +40,7 @@ const RolletsDatabase = {
 
     return product;
   }
+  
 };
 
 export default RolletsDatabase;
