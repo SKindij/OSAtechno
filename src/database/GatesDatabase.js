@@ -41,8 +41,8 @@ import B25130_1 from '../resources/gatesImages/BA25130_1.jpg';
 import A240031 from '../resources/gatesImages/A240031.jpg';
 import B240031 from '../resources/gatesImages/B240031.jpg';
 
-import A from '../resources/gatesImages/A.jpg';
-import B from '../resources/gatesImages/B.jpg';
+import A235222 from '../resources/gatesImages/A235222.jpg';
+import B235222 from '../resources/gatesImages/B235222.jpg';
 import A from '../resources/gatesImages/A.jpg';
 import B from '../resources/gatesImages/B.jpg';
 import A from '../resources/gatesImages/A.jpg';
@@ -117,7 +117,7 @@ const GatesDatabase = {
     },
     {
       id: 'gdi107',
-      name: ',
+      name: '',
       article: '',
       description: '',
       price: ,
@@ -127,7 +127,7 @@ const GatesDatabase = {
     },
     {
       id: 'gdi108',
-      name: ',
+      name: '',
       article: '',
       description: '',
       price: ,
@@ -137,7 +137,7 @@ const GatesDatabase = {
     },
     {
       id: 'gdi109',
-      name: ',
+      name: '',
       article: '',
       description: '',
       price: ,
@@ -181,17 +181,17 @@ const GatesDatabase = {
     },
     {
       id: 'gdr104',
-      name: ',
-      article: '',
-      description: '',
-      price: ,
+      name: 'C-Track connection bracket',
+      article: '235222',
+      description: 'Connects horizontal track to the cross stabilization C-track',
+      price: 1.30,
       category: 'On Shaft',
-      imageA: A,
-      imageB: B
+      imageA: A235222,
+      imageB: B235222
     },
     {
       id: 'gdr105',
-      name: ',
+      name: '',
       article: '',
       description: '',
       price: ,
@@ -201,7 +201,7 @@ const GatesDatabase = {
     },
     // Add more products here...
   ],
-  // COMMON products suitable for both industrial and residential groups
+  // COMMON products suitable for both groups
   common: [
     {
       id: 'gdc101',
@@ -325,7 +325,7 @@ const GatesDatabase = {
     },
     {
       id: 'gdc113',
-      name: ',
+      name: '',
       article: '',
       description: '',
       price: ,
@@ -335,7 +335,7 @@ const GatesDatabase = {
     },
     {
       id: 'gdc114',
-      name: ',
+      name: '',
       article: '',
       description: '',
       price: ,
@@ -345,7 +345,7 @@ const GatesDatabase = {
     },
     {
       id: 'gdc115',
-      name: ',
+      name: '',
       article: '',
       description: '',
       price: ,
