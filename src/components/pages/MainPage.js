@@ -62,7 +62,7 @@ function MainPage() {
           <Col>
             <Card className="card-wrapper">
               <Card.Header>Aluminum shutters</Card.Header>
-              <Link to="/garageroller">
+              <Link to="/windowroller">
                 <Card.Img variant="top" src={windowRolletsImg} />
               </Link>
               <Card.Body>

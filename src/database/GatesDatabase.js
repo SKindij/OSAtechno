@@ -154,8 +154,8 @@ const GatesDatabase = {
     },
     {
       id: 'gdi108',
-      name: '25048',
-      article: 'Key 6.35x6.35x100 mm',
+      name: 'Key 6.35x6.35x100 mm',
+      article: '25048',
       description: 'Key for solid shaft with keyway.',
       price: 0.60,
       category: 'On Shaft',
@@ -422,8 +422,8 @@ const GatesDatabase = {
     },
     {
       id: 'gdc113',
-      name: '25019',
-      article: 'Tubular shaft with keyway',
+      name: 'Tubular shaft with keyway',
+      article: '25019',
       description: 'Hollow shaft with keyway. Additional key: 25064 or 25073.',
       price: 4.05,
       category: 'On Shaft',
@@ -482,16 +482,6 @@ const GatesDatabase = {
     },
     // Other common products...
   ],
-
-  getProductById: function (productId) {
-    // Search for the product in all arrays
-    const product = this.industrial.find(product => product.id === productId) ||
-                    this.residential.find(product => product.id === productId) ||
-                    this.common.find(product => product.id === productId);
-
-    return product;
-  }
-
 };
 
 export default GatesDatabase;

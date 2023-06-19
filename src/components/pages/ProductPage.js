@@ -1,32 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import GatesDatabase from '../../database/GatesDatabase';
-import RolletsDatabase from '../../database/RolletsDatabase';
+import { Modal } from 'react-bootstrap';
+// Import the DataService
+import DataService from '../../services/DataService';
 
-const ProductDetails = () => {
-  const { productId, databaseType } = useParams();
-  let product;
+const ProductDetails = ({ onClose }) => {
+  const { productId } = useParams();
+  const [product, setProduct] = useState(null);
 
-  if (databaseType === 'gates') {
-    product = GatesDatabase.getProductById(productId);
-  } else if (databaseType === 'rollets') {
-    product = RolletsDatabase.getProductById(productId);
-  }
+  useEffect(() => {
+    const fetchProductDetails = () => {
+      const productDetails = DataService.getGatesById(productId);
+      setProduct(productDetails);
+    };
+
+    fetchProductDetails();
+  }, [productId]);
 
   if (!product) {
-    return <div>Product not found</div>;
+    return <div>Loading...</div>;
   }
 
   return (
-    <div>
-      <h2>{product.name}</h2>
-      <p>{product.description}</p>
-      <p>Price: ${product.price}</p>
-      <img src={product.imageA} alt="Product Image A" />
-      <img src={product.imageB} alt="Product Image B" />
-    </div>
+    <Modal show={true} onHide={onClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>{product.name}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <p>Price: ${product.price}</p>
+        <p>{product.description}</p>
+        <img src={product.imageA} alt="Product A" />
+        <img src={product.imageB} alt="Product B" />
+      </Modal.Body>
+      <Modal.Footer>
+        <button onClick={onClose}>Close</button>
+      </Modal.Footer>
+    </Modal>
   );
 };
 
 export default ProductDetails;
-

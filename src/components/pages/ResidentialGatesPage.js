@@ -3,11 +3,15 @@ import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar } f
 import { FaEye } from 'react-icons/fa';
 import './Pages.scss';
 import DataService from '../../services/DataService';
+import ProductDetails from './ProductPage';
 
 const ResidentialGatesPage = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  
+  const [selectedProductId, setSelectedProductId] = useState(null);
+  const [showProductDetails, setShowProductDetails] = useState(false);
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -33,9 +37,13 @@ const ResidentialGatesPage = () => {
   };
 
   const selectProduct = (productId) => {
-    const product = products.find((product) => product.id === productId);
-    setSelectedProduct(product);
-    console.log(product.name);
+    setSelectedProductId(productId);
+    setShowProductDetails(true);
+  };
+
+  const handleCloseProductDetails = () => {
+    setSelectedProductId(null);
+    setShowProductDetails(false);
   };
 
   return (
@@ -66,7 +74,7 @@ const ResidentialGatesPage = () => {
         {filteredProducts.map( (product) => (
           <Col key={product.id} xs={12} md={6} lg={4} xl={3}>
             <Card
-              className={`product-card ${selectedProduct && selectedProduct.id === product.id ? 'product-card-highlight' : ''}`}
+              className={`product-card ${selectedProductId && selectedProductId === product.id ? 'product-card-highlight' : ''}`}
             >
               <Card.Img className="product-image" variant="top" src={product.imageA} />
               <Card.Body>
@@ -91,8 +99,11 @@ const ResidentialGatesPage = () => {
               </Card.Body>
             </Card>
           </Col>
-        ) )}
+        ) )}        
       </Row>
+      {selectedProductId && showProductDetails && (
+        <ProductDetails onClose={handleCloseProductDetails} />
+      )}
     </Container>
   );
 };

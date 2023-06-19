@@ -3,7 +3,7 @@ import B from '../resources/rollersImages/B.jpg';
 
 
 
-
+/*
 const RolletsDatabase = {
   forTAP39: [
     // SMALL WINDOW ROLLETS
@@ -77,16 +77,7 @@ const RolletsDatabase = {
     },
     // Other common products...
   ],
-
-  getProductById: function (productId) {
-    // Search for the product in all arrays
-    const product = this.industrial.find(product => product.id === productId) ||
-                    this.residential.find(product => product.id === productId) ||
-                    this.common.find(product => product.id === productId);
-
-    return product;
-  }
-  
 };
 
 export default RolletsDatabase;
+*/
