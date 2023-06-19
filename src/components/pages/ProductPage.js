@@ -9,8 +9,8 @@ const ProductDetails = ({ onClose }) => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    const fetchProductDetails = () => {
-      const productDetails = DataService.getGatesById(productId);
+    const fetchProductDetails = async () => {
+      const productDetails = await DataService.getGatesById(productId);
       setProduct(productDetails);
     };
 

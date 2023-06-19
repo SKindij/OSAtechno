@@ -16,7 +16,7 @@ const ResidentialGatesPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const residentialProducts = DataService.getResidentialProducts();
+        const residentialProducts = await DataService.getResidentialProducts();
         setProducts(residentialProducts);
         setFilteredProducts(residentialProducts);
       } catch (error) {
