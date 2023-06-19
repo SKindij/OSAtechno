@@ -65,11 +65,14 @@ import A110140 from '../resources/gatesImages/A110140.jpg';
 import B110140 from '../resources/gatesImages/B110140.jpg';
 import A235012 from '../resources/gatesImages/A235012.jpg';
 import B235012 from '../resources/gatesImages/B235012.jpg';
+import A235211 from '../resources/gatesImages/A235211.jpg';
+import B235211 from '../resources/gatesImages/B235211.jpg';
+import A235212 from '../resources/gatesImages/A235212.jpg';
+import B235212 from '../resources/gatesImages/B235212.jpg';
+import A235213 from '../resources/gatesImages/A235213.jpg';
+import B235213 from '../resources/gatesImages/B235213.jpg';
 import A from '../resources/gatesImages/A.jpg';
 import B from '../resources/gatesImages/B.jpg';
-import A from '../resources/gatesImages/A.jpg';
-import B from '../resources/gatesImages/B.jpg';
-
 
 
 
@@ -179,23 +182,33 @@ const GatesDatabase = {
     },
     {
       id: 'gdi111',
-      name: '',
-      article: '',
-      description: '',
-      price: ,
+      name: 'End bearing plate offset 111 mm',
+      article: '235211',
+      description: 'End bearing bracket, Offset 111mm',
+      price: 13.00,
       category: 'On Shaft',
-      imageA: A,
-      imageB: B
+      imageA: A235211,
+      imageB: B235211
     },
     {
       id: 'gdi112',
-      name: '',
-      article: '',
-      description: '',
-      price: ,
+      name: 'End bearing plate offset 127 mm',
+      article: '235212',
+      description: 'End bearing bracket, Offset 127mm',
+      price: 18.00,
       category: 'On Shaft',
-      imageA: A,
-      imageB: B
+      imageA: A235212,
+      imageB: B235212
+    },
+    {
+      id: 'gdi113',
+      name: 'End bearing plate offset 152 mm',
+      article: '235213',
+      description: 'End bearing bracket, Offset 152mm',
+      price: 22.00,
+      category: 'On Shaft',
+      imageA: A235213,
+      imageB: B235213
     },
     // Add more products here...
   ],
