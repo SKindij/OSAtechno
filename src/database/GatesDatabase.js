@@ -41,6 +41,16 @@ import B25130_1 from '../resources/gatesImages/BA25130_1.jpg';
 import A240031 from '../resources/gatesImages/A240031.jpg';
 import B240031 from '../resources/gatesImages/B240031.jpg';
 
+import A from '../resources/gatesImages/A.jpg';
+import B from '../resources/gatesImages/B.jpg';
+import A from '../resources/gatesImages/A.jpg';
+import B from '../resources/gatesImages/B.jpg';
+import A from '../resources/gatesImages/A.jpg';
+import B from '../resources/gatesImages/B.jpg';
+import A from '../resources/gatesImages/A.jpg';
+import B from '../resources/gatesImages/B.jpg';
+
+
 
 const GatesDatabase = {
   industrial: [
@@ -105,6 +115,36 @@ const GatesDatabase = {
       imageA: A25130_1,
       imageB: B25130_1
     },
+    {
+      id: 'gdi107',
+      name: ',
+      article: '',
+      description: '',
+      price: ,
+      category: 'On Shaft',
+      imageA: A,
+      imageB: B
+    },
+    {
+      id: 'gdi108',
+      name: ',
+      article: '',
+      description: '',
+      price: ,
+      category: 'On Shaft',
+      imageA: A,
+      imageB: B
+    },
+    {
+      id: 'gdi109',
+      name: ',
+      article: '',
+      description: '',
+      price: ,
+      category: 'On Shaft',
+      imageA: A,
+      imageB: B
+    },
     // Add more products here...
   ],
   residential: [
@@ -138,6 +178,26 @@ const GatesDatabase = {
       category: 'On Panel',
       imageA: A240031,
       imageB: B240031
+    },
+    {
+      id: 'gdr104',
+      name: ',
+      article: '',
+      description: '',
+      price: ,
+      category: 'On Shaft',
+      imageA: A,
+      imageB: B
+    },
+    {
+      id: 'gdr105',
+      name: ',
+      article: '',
+      description: '',
+      price: ,
+      category: 'On Shaft',
+      imageA: A,
+      imageB: B
     },
     // Add more products here...
   ],
@@ -262,6 +322,36 @@ const GatesDatabase = {
       category: 'On Panel',
       imageA: A825109,
       imageB: B825109
+    },
+    {
+      id: 'gdc113',
+      name: ',
+      article: '',
+      description: '',
+      price: ,
+      category: 'On Shaft',
+      imageA: A,
+      imageB: B
+    },
+    {
+      id: 'gdc114',
+      name: ',
+      article: '',
+      description: '',
+      price: ,
+      category: 'On Shaft',
+      imageA: A,
+      imageB: B
+    },
+    {
+      id: 'gdc115',
+      name: ',
+      article: '',
+      description: '',
+      price: ,
+      category: 'On Shaft',
+      imageA: A,
+      imageB: B
     },
     // Other common products...
   ],
