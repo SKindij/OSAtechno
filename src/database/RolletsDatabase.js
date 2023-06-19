@@ -1,33 +1,79 @@
-
+import A from '../resources/rollersImages/A.jpg';
+import B from '../resources/rollersImages/B.jpg';
 
 
 
 
 const RolletsDatabase = {
-  industrial: [
-    // Industrial-specific products
+  forTAP39: [
+    // SMALL WINDOW ROLLETS
     {
-      id: 'rd101',
-      name: 'Top seal',
-      // Other properties...
+      id: 'swr101',
+      name: '',
+      article: '',
+      description: '',
+      price: ,
+      category: 'On box',
+      imageA: A,
+      imageB: B
     },
-    // Other industrial products...
-  ],
-  residential: [
-    // Residential-specific products
     {
-      id: 'rd102',
-      name: 'Aluminum bottom profile',
-      // Other properties...
+      id: 'swr102',
+      name: '',
+      article: '',
+      description: '',
+      price: ,
+      category: 'On box',
+      imageA: A,
+      imageB: B
     },
-    // Other residential products...
+    // Other forTAP39 products...
   ],
-  // Common products suitable for both industrial and residential groups
+  forTAP55: [
+    // MEDIUM WINDOW ROLLETS
+    {
+      id: 'mwr101',
+      name: '',
+      article: '',
+      description: '',
+      price: ,
+      category: 'On box',
+      imageA: A,
+      imageB: B
+    },
+    {
+      id: 'mwr102',
+      name: '',
+      article: '',
+      description: '',
+      price: ,
+      category: 'On box',
+      imageA: A,
+      imageB: B
+    },
+    // Other forTAP55 products...
+  ],
+  // Common products suitable for both groups
   common: [
     {
-      id: 'rd103',
-      name: 'Common product for both groups',
-      // Other properties...
+      id: 'crd101',
+      name: '',
+      article: '',
+      description: '',
+      price: ,
+      category: 'On box',
+      imageA: A,
+      imageB: B
+    },
+    {
+      id: 'crd102',
+      name: '',
+      article: '',
+      description: '',
+      price: ,
+      category: 'On box',
+      imageA: A,
+      imageB: B
     },
     // Other common products...
   ],
