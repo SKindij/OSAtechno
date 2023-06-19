@@ -43,12 +43,34 @@ import B240031 from '../resources/gatesImages/B240031.jpg';
 
 import A235222 from '../resources/gatesImages/A235222.jpg';
 import B235222 from '../resources/gatesImages/B235222.jpg';
+import A25019 from '../resources/gatesImages/A25019.jpg';
+import B25019 from '../resources/gatesImages/B25019.jpg';
+import A25516 from '../resources/gatesImages/A25516.jpg';
+import B25516 from '../resources/gatesImages/B25516.jpg';
+import A25048 from '../resources/gatesImages/A25048.jpg';
+import B25048 from '../resources/gatesImages/B25048.jpg';
+import A276002 from '../resources/gatesImages/A276002.jpg';
+import B276002 from '../resources/gatesImages/B276002.jpg';
+import A13026_1 from '../resources/gatesImages/A13026_1.jpg';
+import B13026_1 from '../resources/gatesImages/B13026_1.jpg';
+import A235210 from '../resources/gatesImages/A235210.jpg';
+import B235210 from '../resources/gatesImages/B235210.jpg';
+import A110010 from '../resources/gatesImages/A110010.jpg';
+import B110010 from '../resources/gatesImages/B110010.jpg';
+import A110013 from '../resources/gatesImages/A110013.jpg';
+import B110013 from '../resources/gatesImages/B110013.jpg';
+import A110020 from '../resources/gatesImages/A110020.jpg';
+import B110020 from '../resources/gatesImages/B110020.jpg';
+import A110140 from '../resources/gatesImages/A110140.jpg';
+import B110140 from '../resources/gatesImages/B110140.jpg';
+import A235012 from '../resources/gatesImages/A235012.jpg';
+import B235012 from '../resources/gatesImages/B235012.jpg';
 import A from '../resources/gatesImages/A.jpg';
 import B from '../resources/gatesImages/B.jpg';
 import A from '../resources/gatesImages/A.jpg';
 import B from '../resources/gatesImages/B.jpg';
-import A from '../resources/gatesImages/A.jpg';
-import B from '../resources/gatesImages/B.jpg';
+
+
 
 
 
@@ -117,16 +139,46 @@ const GatesDatabase = {
     },
     {
       id: 'gdi107',
-      name: '',
-      article: '',
-      description: '',
-      price: ,
+      name: 'Galvanised solid shaft 25,4 mm',
+      article: '25516',
+      description: 'Solid shaft with keyway zinc plated. Additional key: 25062 or25048.',
+      price: 13.00,
       category: 'On Shaft',
-      imageA: A,
-      imageB: B
+      imageA: A25516,
+      imageB: B25516
     },
     {
       id: 'gdi108',
+      name: '25048',
+      article: 'Key 6.35x6.35x100 mm',
+      description: 'Key for solid shaft with keyway.',
+      price: 0.60,
+      category: 'On Shaft',
+      imageA: A25048,
+      imageB: B25048
+    },
+    {
+      id: 'gdi109',
+      name: 'Drums M134-5500 SL',
+      article: '110020',
+      description: 'Application: Industrial garage doors.',
+      price: 24.00,
+      category: 'On Shaft',
+      imageA: A110020,
+      imageB: B110020
+    },
+    {
+      id: 'gdi110',
+      name: 'Bracket with angle',
+      article: '235012',
+      description: 'For connection from horizontal track with C-profile.',
+      price: 1.28,
+      category: 'On Shaft',
+      imageA: A235012,
+      imageB: B235012
+    },
+    {
+      id: 'gdi111',
       name: '',
       article: '',
       description: '',
@@ -136,7 +188,7 @@ const GatesDatabase = {
       imageB: B
     },
     {
-      id: 'gdi109',
+      id: 'gdi112',
       name: '',
       article: '',
       description: '',
@@ -191,6 +243,26 @@ const GatesDatabase = {
     },
     {
       id: 'gdr105',
+      name: 'Drums M102-2400 mm with 3 screws',
+      article: '110013',
+      description: 'Is used for a standard lift door. ',
+      price: 18.00,
+      category: 'On Shaft',
+      imageA: A110013,
+      imageB: B110013
+    },
+    {
+      id: 'gdr106',
+      name: 'Bearing 25,4 mm',
+      article: '13026.1',
+      description: 'Suitable for mounting in bearing bracket or stationary plugs.',
+      price: 1.00,
+      category: 'On Shaft',
+      imageA: A13026_1,
+      imageB: B13026_1
+    },
+    {
+      id: 'gdr107',
       name: '',
       article: '',
       description: '',
@@ -325,26 +397,56 @@ const GatesDatabase = {
     },
     {
       id: 'gdc113',
-      name: '',
-      article: '',
-      description: '',
-      price: ,
+      name: '25019',
+      article: 'Tubular shaft with keyway',
+      description: 'Hollow shaft with keyway. Additional key: 25064 or 25073.',
+      price: 4.05,
       category: 'On Shaft',
-      imageA: A,
-      imageB: B
+      imageA: A25019,
+      imageB: B25019
     },
     {
       id: 'gdc114',
-      name: '',
-      article: '',
-      description: '',
-      price: ,
+      name: 'Rectangle key 6.35x9.5x43 mm',
+      article: '276002',
+      description: 'Can be used in combination with spring break devices.',
+      price: 0.20,
       category: 'On Shaft',
-      imageA: A,
-      imageB: B
+      imageA: A276002,
+      imageB: B276002
     },
     {
       id: 'gdc115',
+      name: 'End bearing plate offset 86 mm',
+      article: '235210',
+      description: 'End bearing bracket, Offset 86mm',
+      price: 10.00,
+      category: 'On Shaft',
+      imageA: A235210,
+      imageB: B235210
+    },
+    {
+      id: 'gdc116',
+      name: 'Drums M102-3125 SL',
+      article: '110010',
+      description: 'Is used for a standard lift door. ',
+      price: 20.00,
+      category: 'On Shaft',
+      imageA: A110010,
+      imageB: B110010
+    },
+    {
+      id: 'gdc117',
+      name: 'Drums M102-3760 SL',
+      article: '110140',
+      description: 'Is used for a standard lift.',
+      price: 18.00,
+      category: 'On Shaft',
+      imageA: A110140,
+      imageB: B110140
+    },
+    {
+      id: 'gdc118',
       name: '',
       article: '',
       description: '',
