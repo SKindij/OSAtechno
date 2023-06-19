@@ -71,10 +71,12 @@ import A235212 from '../resources/gatesImages/A235212.jpg';
 import B235212 from '../resources/gatesImages/B235212.jpg';
 import A235213 from '../resources/gatesImages/A235213.jpg';
 import B235213 from '../resources/gatesImages/B235213.jpg';
-import A from '../resources/gatesImages/A.jpg';
-import B from '../resources/gatesImages/B.jpg';
-
-
+import A43006 from '../resources/gatesImages/A43006.jpg';
+import B43006 from '../resources/gatesImages/B43006.jpg';
+import A43007 from '../resources/gatesImages/A43007.jpg';
+import B43007 from '../resources/gatesImages/B43007.jpg';
+import A290030 from '../resources/gatesImages/A290030.jpg';
+import B290030 from '../resources/gatesImages/B290030.jpg';
 
 
 const GatesDatabase = {
@@ -276,13 +278,23 @@ const GatesDatabase = {
     },
     {
       id: 'gdr107',
-      name: '',
-      article: '',
-      description: '',
-      price: ,
-      category: 'On Shaft',
-      imageA: A,
-      imageB: B
+      name: 'Vertical trackset HOME',
+      article: '43006',
+      description: 'Vertical trackset, bolted.',
+      price: 80.00,
+      category: 'Railsystem',
+      imageA: A43006,
+      imageB: B43006
+    },
+    {
+      id: 'gdr108',
+      name: 'Horizontal trackset with short alu. curve HOME',
+      article: '43007',
+      description: 'Horizontal trackset with short alu. curve, bolted. ',
+      price: 99.00,
+      category: 'Railsystem',
+      imageA: A43007,
+      imageB: B43007
     },
     // Add more products here...
   ],
@@ -460,13 +472,13 @@ const GatesDatabase = {
     },
     {
       id: 'gdc118',
-      name: '',
-      article: '',
-      description: '',
-      price: ,
-      category: 'On Shaft',
-      imageA: A,
-      imageB: B
+      name: 'Vertical angle 85x69x17x2.00 mm',
+      article: '290030',
+      description: 'Hole-pattern for various. Applications.',
+      price: 50.00,
+      category: 'Railsystem',
+      imageA: A290030,
+      imageB: B290030
     },
     // Other common products...
   ],
