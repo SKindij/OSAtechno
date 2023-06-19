@@ -1,6 +1,6 @@
 {
-  "name": "robust",
-  "version": "0.5.4",
+  "name": "osatechno",
+  "version": "0.5.5",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -11,7 +11,7 @@
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
-    "react-router-dom": "^6.12.1",
+    "react-router-dom": "^6.13.0",
     "react-scripts": "5.0.1",
     "sass": "^1.63.3",
     "web-vitals": "^2.1.4"
