@@ -1,26 +1,26 @@
 @import '../../variables';
 
-.main-page{
-    padding: 20px;
-    background-color: $main-background;
-    box-shadow: $box-shadow;
-    margin-bottom: 20px;
-}
+.main-page {
+  padding: 20px;
+  background-color: $main-background;
+  box-shadow: $box-shadow;
+  margin-bottom: 20px;
 
-.card-wrapper {
+  .card-wrapper {
     height: 100%;
-    
   }
 
   .product-card {
     margin-bottom: 20px; /* Adjust the value to add the desired spacing */
   }
+
   .product-card-highlight {
     border: 2px solid $yellow-border;
     box-shadow: 0 0 10px $shadow-effect;
   }
 
   .product-image {
-    width: 70%; /* Adjust value to resize image as desired */
+    width: 100%; /* Adjust value to resize image as desired */
+    height: auto; /* Maintain aspect ratio */
   }
-
+}
