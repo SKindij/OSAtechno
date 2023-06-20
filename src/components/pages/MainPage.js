@@ -19,6 +19,8 @@ function MainPage() {
             <Card.Header>Garage gates</Card.Header>
             <Link to="/residential">
               <Card.Img variant="top" src={residentialGateImg}
+                 srcSet={`${residentialGateImg} 334w, ${residentialGateImg} 668w, ${residentialGateImg} 916w, ${residentialGateImg} 1068w`}
+                 sizes="(max-width: 768px) 334px, (max-width: 992px) 668px, 916px"
                  alt="residential gate" className="product-image" />
             </Link>   
               <Card.Body>
@@ -35,6 +37,8 @@ function MainPage() {
               <Card.Header>Garage gates</Card.Header>
               <Link to="/industrial">
               <Card.Img variant="top" src={industrialGateImg}
+                 srcSet={`${industrialGateImg} 334w, ${industrialGateImg} 668w, ${industrialGateImg} 916w, ${industrialGateImg} 1068w`}
+                 sizes="(max-width: 768px) 334px, (max-width: 992px) 668px, 916px"
                  alt="industrial gate" className="product-image" />
               </Link>
               <Card.Body>
@@ -51,6 +55,8 @@ function MainPage() {
               <Card.Header>Roller gates</Card.Header>
               <Link to="/garageroller">
                 <Card.Img variant="top" src={garageRollesImg}
+                 srcSet={`${garageRollesImg} 334w, ${garageRollesImg} 668w, ${garageRollesImg} 916w, ${garageRollesImg} 1068w`}
+                 sizes="(max-width: 768px) 334px, (max-width: 992px) 668px, 916px"
                    alt="roller gate" className="product-image" />
               </Link>
               <Card.Body>
@@ -67,6 +73,8 @@ function MainPage() {
               <Card.Header>Aluminum shutters</Card.Header>
               <Link to="/windowroller">
                 <Card.Img variant="top" src={windowRolletsImg}
+                   srcSet={`${windowRolletsImg} 334w, ${windowRolletsImg} 668w, ${windowRolletsImg} 916w, ${windowRolletsImg} 1068w`}
+                   sizes="(max-width: 768px) 334px, (max-width: 992px) 668px, 916px"
                    alt="window roller" className="product-image"/>
               </Link>
               <Card.Body>
