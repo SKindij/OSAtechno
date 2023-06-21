@@ -13,7 +13,7 @@ function MainPage() {
   return (
     <main className='main-page'>
       <div className="header-content">
-        <h2 className="mb-3">OSA - Optimal Selection of Accessories</h2>
+        <h1 className="mb-3">OSA - Optimal Selection of Accessories</h1>
         <p className="mb-3">
           Web application 🔮 designed to assist 👷 users 🔍 in finding ⭐ the best in terms of price-quality ratio accessories
             for 🔧 upgrading, 🔨 repairing, or 🔱 enhancing various types of gates and roller shutters.
@@ -28,7 +28,8 @@ function MainPage() {
               <Card.Img variant="top" src={residentialGateImg}
                  srcSet={`${residentialGateImg} 334w, ${residentialGateImg} 668w, ${residentialGateImg} 916w, ${residentialGateImg} 1068w`}
                  sizes="(max-width: 768px) 334px, (max-width: 992px) 668px, 916px"
-                 alt="residential gate" className="product-image" />
+                 alt="residential gate" className="product-image"
+                 style={{ width: '100%', height: 'auto' }} />
             </Link>   
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>
@@ -46,7 +47,8 @@ function MainPage() {
               <Card.Img variant="top" src={industrialGateImg}
                  srcSet={`${industrialGateImg} 334w, ${industrialGateImg} 668w, ${industrialGateImg} 916w, ${industrialGateImg} 1068w`}
                  sizes="(max-width: 768px) 334px, (max-width: 992px) 668px, 916px"
-                 alt="industrial gate" className="product-image" />
+                 alt="industrial gate" className="product-image"
+                 style={{ width: '100%', height: 'auto' }} />
               </Link>
               <Card.Body>
                 <Card.Title>Industrial type</Card.Title>
@@ -64,7 +66,8 @@ function MainPage() {
                 <Card.Img variant="top" src={garageRollesImg}
                  srcSet={`${garageRollesImg} 334w, ${garageRollesImg} 668w, ${garageRollesImg} 916w, ${garageRollesImg} 1068w`}
                  sizes="(max-width: 768px) 334px, (max-width: 992px) 668px, 916px"
-                   alt="roller gate" className="product-image" />
+                   alt="roller gate" className="product-image"
+                   style={{ width: '100%', height: 'auto' }} />
               </Link>
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>
@@ -82,7 +85,8 @@ function MainPage() {
                 <Card.Img variant="top" src={windowRolletsImg}
                    srcSet={`${windowRolletsImg} 334w, ${windowRolletsImg} 668w, ${windowRolletsImg} 916w, ${windowRolletsImg} 1068w`}
                    sizes="(max-width: 768px) 334px, (max-width: 992px) 668px, 916px"
-                   alt="window roller" className="product-image"/>
+                   alt="window roller" className="product-image"
+                   style={{ width: '100%', height: 'auto' }} />
               </Link>
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>

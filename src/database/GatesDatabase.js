@@ -302,6 +302,16 @@ const GatesDatabase = {
   common: [
     {
       id: 'gdc101',
+      name: 'Tubular shaft with keyway',
+      article: '25019',
+      description: 'Hollow shaft with keyway. Additional key: 25064 or 25073.',
+      price: 4.05,
+      category: 'On Shaft',
+      imageA: A25019,
+      imageB: B25019
+    },
+    {
+      id: 'gdc102',
       name: 'Aluminum top profile',
       article: '820100t',
       description: 'For 40 mm thick panels. Suitable for rubber seal 825101.',
@@ -311,7 +321,7 @@ const GatesDatabase = {
       imageB: B820100
     },
 	{
-      id: 'gdc102',
+      id: 'gdc103',
       name: 'Endcap left 40-500mm',
       article: '217070',
       description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
@@ -321,7 +331,7 @@ const GatesDatabase = {
       imageB: B217070
     },
 	{
-      id: 'gdc103',
+      id: 'gdc104',
       name: 'Endcap right 40-500mm',
       article: '217071',
       description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
@@ -331,7 +341,7 @@ const GatesDatabase = {
       imageB: B217071
     },
     {
-      id: 'gdc104',
+      id: 'gdc105',
       name: 'Endcap left 40-610mm',
       article: '217074',
       description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
@@ -341,7 +351,7 @@ const GatesDatabase = {
       imageB: B217074
     },
     {
-      id: 'gdc105',
+      id: 'gdc106',
       name: 'Endcap right 40-610mm',
       article: '217075',
       description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
@@ -351,7 +361,7 @@ const GatesDatabase = {
       imageB: B217075
     },
     {
-      id: 'gdc106',
+      id: 'gdc107',
       name: 'Side hinge',
       article: '25734.1',
       description: 'Suitable for 40mm panels.',
@@ -361,7 +371,7 @@ const GatesDatabase = {
       imageB: B25734_1
     },
     {
-      id: 'gdc107',
+      id: 'gdc108',
       name: 'Roller 120 mm',
       article: '25010',
       description: 'Stainless steel & plastic.',
@@ -371,7 +381,7 @@ const GatesDatabase = {
       imageB: B25010
     },
     {
-      id: 'gdc108',
+      id: 'gdc109',
       name: 'Roller 190 mm',
       article: '25011',
       description: 'Stainless steel & plastic.',
@@ -381,7 +391,7 @@ const GatesDatabase = {
       imageB: B25011
     },
     {
-      id: 'gdc109',
+      id: 'gdc110',
       name: 'Intermediate hinge',
       article: '25733.1',
       description: 'For use with article 25734. Suitable for 40mm panels.',
@@ -391,7 +401,7 @@ const GatesDatabase = {
       imageB: B25733_1
     },
     {
-      id: 'gdc110',
+      id: 'gdc111',
       name: 'Aluminum bottom profile',
       article: '820100b',
       description: 'For 40 mm thick panels. Suitable for rubber seal 80042.',
@@ -401,7 +411,7 @@ const GatesDatabase = {
       imageB: B820100b
     },
     {
-      id: 'gdc111',
+      id: 'gdc112',
       name: 'Bottom seal',
       article: '80042',
       description: 'Suitable for aluminum profile 820100b.',
@@ -411,7 +421,7 @@ const GatesDatabase = {
       imageB: B80042
     },
     {
-      id: 'gdc112',
+      id: 'gdc113',
       name: 'Bottom seal',
       article: '825109',
       description: 'Suitable for aluminum profile VSN01.',
@@ -419,16 +429,6 @@ const GatesDatabase = {
       category: 'On Panel',
       imageA: A825109,
       imageB: B825109
-    },
-    {
-      id: 'gdc113',
-      name: 'Tubular shaft with keyway',
-      article: '25019',
-      description: 'Hollow shaft with keyway. Additional key: 25064 or 25073.',
-      price: 4.05,
-      category: 'On Shaft',
-      imageA: A25019,
-      imageB: B25019
     },
     {
       id: 'gdc114',
