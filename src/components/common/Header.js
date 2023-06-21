@@ -1,26 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import logo from '../../resources/commonImages/OSA-mini-logo.jpg';
 import './Common.scss';
 
 const Header = () => {
-  /* To make <"header-content"> collapse when user navigates to other pages,
-   we use React state to control its visibility.
-  */
-  const [isHeaderContentVisible, setHeaderContentVisible] = useState(true);
-
-  const handleNavLinkClick = () => {    
-    setTimeout( () => {
-      setHeaderContentVisible(false);
-    }, 300);
-  };
-  const handleBrandLinkClick = () => {
-    setTimeout( () => {
-      setHeaderContentVisible(true);
-    }, 300);     
-  };
-
   return (
     <header className="header">
     <Container>
@@ -29,7 +13,7 @@ const Header = () => {
         <Container>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Brand>
-            <Link to="/" className="logo-link" onClick={handleBrandLinkClick}>
+            <Link to="/" className="logo-link" >
               <img src={logo} alt="OSA-mini-logo" className="logo d-inline-block" />{' '}
                 <span className="brand-name">OSAtechno</span> 
             </Link>           
@@ -42,23 +26,19 @@ const Header = () => {
             <nav>
               <Nav className="me-auto">
                 <Nav.Link as={NavLink} to="/residential" 
-                  className="nav-link" activeclassname="active"
-                  onClick={handleNavLinkClick}>
+                  className="nav-link" activeclassname="active">
                     Residential Gates
                 </Nav.Link>
                 <Nav.Link as={NavLink} to="/industrial" 
-                  className="nav-link" activeclassname="active"
-                  onClick={handleNavLinkClick}>
+                  className="nav-link" activeclassname="active">
                     Industrial Gates
                 </Nav.Link>
                 <Nav.Link as={NavLink} to="/garageroller" 
-                  className="nav-link" activeclassnamee="active"
-                  onClick={handleNavLinkClick}>
+                  className="nav-link" activeclassnamee="active">
                     Garage Rollers
                 </Nav.Link>
                 <Nav.Link as={NavLink} to="/windowroller" 
-                  className="nav-link" activeclassname="active"
-                  onClick={handleNavLinkClick}>
+                  className="nav-link" activeclassname="active">
                     Window Rollers
                 </Nav.Link>
               </Nav>
@@ -67,19 +47,8 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      {/* element will only be rendered if isHeaderContentVisible is true */}
-      {isHeaderContentVisible && (
-        <div className="header-content">
-          <h2 className="mb-3">OSA - Optimal Selection of Accessories</h2>
-          <p className="mb-3">
-            Web application 🔮 designed to assist 👷 users 🔍 in finding ⭐ the best in terms of price-quality ratio accessories
-            for 🔧 upgrading, 🔨 repairing, or 🔱 enhancing various types of gates and roller shutters.
-          </p>
-        </div>
-      )}
     </Container>
     </header>
   );
 };
-
 export default Header;

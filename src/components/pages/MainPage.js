@@ -12,6 +12,13 @@ import './Pages.scss';
 function MainPage() {
   return (
     <main className='main-page'>
+      <div className="header-content">
+        <h2 className="mb-3">OSA - Optimal Selection of Accessories</h2>
+        <p className="mb-3">
+          Web application 🔮 designed to assist 👷 users 🔍 in finding ⭐ the best in terms of price-quality ratio accessories
+            for 🔧 upgrading, 🔨 repairing, or 🔱 enhancing various types of gates and roller shutters.
+        </p>
+      </div>
       <Container>
         <Row xs={1} md={2} className="g-4 justify-content-center">
           <Col>
