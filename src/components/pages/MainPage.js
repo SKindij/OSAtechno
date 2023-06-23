@@ -8,7 +8,7 @@ import './Pages.scss';
 function MainPage() {
   return (
     <main className='main-page'>
-      <div className="header-content d-flex justify-content-center align-items-center">
+      <div className="header-content">
         <h1 className="mb-3">OSA - Optimal Selection of Accessories</h1>
         <p className="mb-3">
           Web application 🔮 designed to assist 👷 users 🔍 in finding ⭐ the best in terms of price-quality ratio accessories
