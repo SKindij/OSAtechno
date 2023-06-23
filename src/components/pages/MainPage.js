@@ -12,7 +12,11 @@ import './Pages.scss';
 function MainPage() {
   return (
     <main className='main-page'>
+<<<<<<< HEAD
       <div className="header-content">
+=======
+      <div className="header-content d-flex justify-content-center align-items-center">
+>>>>>>> 03b2f33a71625acc8594e09c63d3f994b3b3e8e2
         <h1 className="mb-3">OSA - Optimal Selection of Accessories</h1>
         <p className="mb-3">
           Web application 🔮 designed to assist 👷 users 🔍 in finding ⭐ the best in terms of price-quality ratio accessories
@@ -25,11 +29,19 @@ function MainPage() {
             <Card className="card-wrapper">
             <Card.Header>Garage gates</Card.Header>
             <Link to="/residential">
+<<<<<<< HEAD
               <Card.Img variant="top" src={residentialGateImg}
                  srcSet={`${residentialGateImg} 334w, ${residentialGateImg} 668w, ${residentialGateImg} 916w, ${residentialGateImg} 1068w`}
                  sizes="(max-width: 768px) 334px, (max-width: 992px) 668px, 916px"
                  alt="residential gate" className="product-image"
                  style={{ width: '100%', height: 'auto' }} />
+=======
+              <Card.Img variant="top" src={residentialGate}
+                srcSet={`${residentialGate334} 334w, ${residentialGate668} 668w, ${residentialGate916} 916w, ${residentialGate1068} 1068w`}
+                sizes="(max-width:767px) 334px, (max-width:991px) 668px, (max-width:1399px) 916px", 1068px"
+                className="img-fluid img-thumbnail product-image" alt="roller gate"
+              />               
+>>>>>>> 03b2f33a71625acc8594e09c63d3f994b3b3e8e2
             </Link>   
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>
@@ -44,11 +56,19 @@ function MainPage() {
             <Card className="card-wrapper">
               <Card.Header>Garage gates</Card.Header>
               <Link to="/industrial">
+<<<<<<< HEAD
               <Card.Img variant="top" src={industrialGateImg}
                  srcSet={`${industrialGateImg} 334w, ${industrialGateImg} 668w, ${industrialGateImg} 916w, ${industrialGateImg} 1068w`}
                  sizes="(max-width: 768px) 334px, (max-width: 992px) 668px, 916px"
                  alt="industrial gate" className="product-image"
                  style={{ width: '100%', height: 'auto' }} />
+=======
+              <Card.Img variant="top" src={industrialGate}
+                srcSet={`${industrialGate334} 334w, ${industrialGate668} 668w, ${industrialGate916} 916w, ${industrialGate1068} 1068w`}
+                sizes="(max-width:767px) 334px, (max-width:991px) 668px, (max-width:1399px) 916px", 1068px"
+                className="img-fluid img-thumbnail product-image" alt="roller gate"
+              />                   
+>>>>>>> 03b2f33a71625acc8594e09c63d3f994b3b3e8e2
               </Link>
               <Card.Body>
                 <Card.Title>Industrial type</Card.Title>
@@ -63,11 +83,19 @@ function MainPage() {
             <Card className="card-wrapper">
               <Card.Header>Roller gates</Card.Header>
               <Link to="/garageroller">
+<<<<<<< HEAD
                 <Card.Img variant="top" src={garageRollesImg}
                  srcSet={`${garageRollesImg} 334w, ${garageRollesImg} 668w, ${garageRollesImg} 916w, ${garageRollesImg} 1068w`}
                  sizes="(max-width: 768px) 334px, (max-width: 992px) 668px, 916px"
                    alt="roller gate" className="product-image"
                    style={{ width: '100%', height: 'auto' }} />
+=======
+              <Card.Img variant="top" src={garageRollet}
+                srcSet={`${garageRollet334} 334w, ${garageRollet668} 668w, ${garageRollet916} 916w, ${garageRollet1068} 1068w`}
+                sizes="(max-width:767px) 334px, (max-width:991px) 668px, (max-width:1399px) 916px", 1068px"
+                className="img-fluid img-thumbnail product-image" alt="roller gate"
+              />                   
+>>>>>>> 03b2f33a71625acc8594e09c63d3f994b3b3e8e2
               </Link>
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>
@@ -82,11 +110,19 @@ function MainPage() {
             <Card className="card-wrapper">
               <Card.Header>Aluminum shutters</Card.Header>
               <Link to="/windowroller">
+<<<<<<< HEAD
                 <Card.Img variant="top" src={windowRolletsImg}
                    srcSet={`${windowRolletsImg} 334w, ${windowRolletsImg} 668w, ${windowRolletsImg} 916w, ${windowRolletsImg} 1068w`}
                    sizes="(max-width: 768px) 334px, (max-width: 992px) 668px, 916px"
                    alt="window roller" className="product-image"
                    style={{ width: '100%', height: 'auto' }} />
+=======
+              <Card.Img variant="top" src={windowRollet}
+                srcSet={`${windowRollet334} 334w, ${windowRollet668} 668w, ${windowRollet916} 916w, ${windowRollet1068} 1068w`}
+                sizes="(max-width:767px) 334px, (max-width:991px) 668px, (max-width:1399px) 916px", 1068px"
+                className="img-fluid img-thumbnail product-image" alt="roller gate"
+              />                     
+>>>>>>> 03b2f33a71625acc8594e09c63d3f994b3b3e8e2
               </Link>
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>
