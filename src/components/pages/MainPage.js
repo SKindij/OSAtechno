@@ -2,11 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 
-import residentialGate from '../../resources/commonImages/residential-gate-image.png';
-import industrialGate from '../../resources/commonImages/industrial-gate-image.png';
-import garageRollet from '../../resources/commonImages/garage-roller-shutter.png';
-import windowRollet from '../../resources/commonImages/window-roller-shutter.png';
-
+import { images } from './images'; // Import the images object
 import './Pages.scss';
 
 function MainPage() {
@@ -25,9 +21,9 @@ function MainPage() {
             <Card className="card-wrapper">
             <Card.Header>Garage gates</Card.Header>
             <Link to="/residential">
-              <Card.Img variant="top" src={residentialGate}
-                srcSet={`${residentialGate334} 334w, ${residentialGate668} 668w, ${residentialGate916} 916w, ${residentialGate1068} 1068w`}
-                sizes="(max-width:767px) 334px, (max-width:991px) 668px, (max-width:1399px) 916px, 1068px"
+              <Card.Img variant="top" src={images.residentialGate916}
+                srcSet={`${images.residentialGate334} 334w, ${images.residentialGate668} 668w, ${images.residentialGate916} 916w, ${images.residentialGate1068} 1068w`}
+                sizes="(max-width:767px) 334px, (max-width:1199px) 668px, (max-width:1399px) 916px, 1068px"
                 className="img-fluid img-thumbnail product-image" alt="roller gate"
               />               
             </Link>   
@@ -44,9 +40,9 @@ function MainPage() {
             <Card className="card-wrapper">
               <Card.Header>Garage gates</Card.Header>
               <Link to="/industrial">
-              <Card.Img variant="top" src={industrialGate}
-                srcSet={`${industrialGate334} 334w, ${industrialGate668} 668w, ${industrialGate916} 916w, ${industrialGate1068} 1068w`}
-                sizes="(max-width:767px) 334px, (max-width:991px) 668px, (max-width:1399px) 916px, 1068px"
+              <Card.Img variant="top" src={images.industrialGate916}
+                srcSet={`${images.industrialGate334} 334w, ${images.industrialGate668} 668w, ${images.industrialGate916} 916w, ${images.industrialGate1068} 1068w`}
+                sizes="(max-width:767px) 334px, (max-width:1199px) 668px, (max-width:1399px) 916px, 1068px"
                 className="img-fluid img-thumbnail product-image" alt="roller gate"
               />                   
               </Link>
@@ -63,9 +59,9 @@ function MainPage() {
             <Card className="card-wrapper">
               <Card.Header>Roller gates</Card.Header>
               <Link to="/garageroller">
-              <Card.Img variant="top" src={garageRollet}
-                srcSet={`${garageRollet334} 334w, ${garageRollet668} 668w, ${garageRollet916} 916w, ${garageRollet1068} 1068w`}
-                sizes="(max-width:767px) 334px, (max-width:991px) 668px, (max-width:1399px) 916px, 1068px"
+              <Card.Img variant="top" src={images.garageRollet916}
+                srcSet={`${images.garageRollet334} 334w, ${images.garageRollet668} 668w, ${images.garageRollet916} 916w, ${images.garageRollet1068} 1068w`}
+                sizes="(max-width:767px) 334px, (max-width:1199px) 668px, (max-width:1399px) 916px, 1068px"
                 className="img-fluid img-thumbnail product-image" alt="roller gate"
               />                   
               </Link>
@@ -82,9 +78,9 @@ function MainPage() {
             <Card className="card-wrapper">
               <Card.Header>Aluminum shutters</Card.Header>
               <Link to="/windowroller">
-              <Card.Img variant="top" src={windowRollet}
-                srcSet={`${windowRollet334} 334w, ${windowRollet668} 668w, ${windowRollet916} 916w, ${windowRollet1068} 1068w`}
-                sizes="(max-width:767px) 334px, (max-width:991px) 668px, (max-width:1399px) 916px, 1068px"
+              <Card.Img variant="top" src={images.windowRollet916}
+                srcSet={`${images.windowRollet334} 334w, ${images.windowRollet668} 668w, ${images.windowRollet916} 916w, ${images.windowRollet1068} 1068w`}
+                sizes="(max-width:767px) 334px, (max-width:1199px) 668px, (max-width:1399px) 916px, 1068px"
                 className="img-fluid img-thumbnail product-image" alt="roller gate"
               />                     
               </Link>
