@@ -25,11 +25,11 @@ function MainPage() {
             <Card className="card-wrapper">
             <Card.Header>Garage gates</Card.Header>
             <Link to="/residential">
-              <Card.Img variant="top" src={residentialGateImg} thumbnail
-                srcSet={`${residentialGateImg} 334w, ${residentialGateImg} 668w, ${residentialGateImg} 916w, ${residentialGateImg} 1068w`}
-                sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw"
-                className="product-image img-fluid" alt="residential gate"
-              />
+              <Card.Img variant="top" src={residentialGate}
+                srcSet={`${residentialGate334} 334w, ${residentialGate668} 668w, ${residentialGate916} 916w, ${residentialGate1068} 1068w`}
+                sizes="(max-width:767px) 334px, (max-width:991px) 668px, (max-width:1399px) 916px", 1068px"
+                className="img-fluid img-thumbnail product-image" alt="roller gate"
+              />               
             </Link>   
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>
@@ -44,11 +44,11 @@ function MainPage() {
             <Card className="card-wrapper">
               <Card.Header>Garage gates</Card.Header>
               <Link to="/industrial">
-              <Card.Img variant="top" src={industrialGateImg} thumbnail
-                srcSet={`${industrialGateImg} 334w, ${industrialGateImg} 668w, ${industrialGateImg} 916w, ${industrialGateImg} 1068w`}
-                sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw"
-                className="product-image img-fluid" alt="industrial gate"
-              />
+              <Card.Img variant="top" src={industrialGate}
+                srcSet={`${industrialGate334} 334w, ${industrialGate668} 668w, ${industrialGate916} 916w, ${industrialGate1068} 1068w`}
+                sizes="(max-width:767px) 334px, (max-width:991px) 668px, (max-width:1399px) 916px", 1068px"
+                className="img-fluid img-thumbnail product-image" alt="roller gate"
+              />                   
               </Link>
               <Card.Body>
                 <Card.Title>Industrial type</Card.Title>
@@ -63,11 +63,11 @@ function MainPage() {
             <Card className="card-wrapper">
               <Card.Header>Roller gates</Card.Header>
               <Link to="/garageroller">
-                <Card.Img variant="top" src={garageRollesImg} thumbnail
-                  srcSet={`${garageRollesImg} 334w, ${garageRollesImg} 668w, ${garageRollesImg} 916w, ${garageRollesImg} 1068w`}
-                  sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw"
-                  className="product-image img-fluid" alt="roller gate"
-                />
+              <Card.Img variant="top" src={garageRollet}
+                srcSet={`${garageRollet334} 334w, ${garageRollet668} 668w, ${garageRollet916} 916w, ${garageRollet1068} 1068w`}
+                sizes="(max-width:767px) 334px, (max-width:991px) 668px, (max-width:1399px) 916px", 1068px"
+                className="img-fluid img-thumbnail product-image" alt="roller gate"
+              />                   
               </Link>
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>
@@ -82,11 +82,11 @@ function MainPage() {
             <Card className="card-wrapper">
               <Card.Header>Aluminum shutters</Card.Header>
               <Link to="/windowroller">
-                <Card.Img variant="top" src={windowRolletsImg} thumbnail
-                  srcSet={`${windowRolletsImg} 334w, ${windowRolletsImg} 668w, ${windowRolletsImg} 916w, ${windowRolletsImg} 1068w`}
-                  sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw"
-                  className="product-image img-fluid" alt="window roller"
-                />
+              <Card.Img variant="top" src={windowRollet}
+                srcSet={`${windowRollet334} 334w, ${windowRollet668} 668w, ${windowRollet916} 916w, ${windowRollet1068} 1068w`}
+                sizes="(max-width:767px) 334px, (max-width:991px) 668px, (max-width:1399px) 916px", 1068px"
+                className="img-fluid img-thumbnail product-image" alt="roller gate"
+              />                     
               </Link>
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>
