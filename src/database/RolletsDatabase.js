@@ -14,8 +14,8 @@ const RolletsDatabase = {
       description: '',
       price: ,
       category: 'On box',
-      imageA: A,
-      imageB: B
+      imageA: images.A,
+      imageB: images.B
     },
     {
       id: 'swr102',
@@ -24,8 +24,8 @@ const RolletsDatabase = {
       description: '',
       price: ,
       category: 'On box',
-      imageA: A,
-      imageB: B
+      imageA: images.A,
+      imageB: images.B
     },
     // Other forTAP39 products...
   ],
@@ -38,8 +38,8 @@ const RolletsDatabase = {
       description: '',
       price: ,
       category: 'On box',
-      imageA: A,
-      imageB: B
+      imageA: images.A,
+      imageB: images.B
     },
     {
       id: 'mwr102',
@@ -48,8 +48,8 @@ const RolletsDatabase = {
       description: '',
       price: ,
       category: 'On box',
-      imageA: A,
-      imageB: B
+      imageA: images.A,
+      imageB: images.B
     },
     // Other forTAP55 products...
   ],
@@ -62,8 +62,8 @@ const RolletsDatabase = {
       description: '',
       price: ,
       category: 'On box',
-      imageA: A,
-      imageB: B
+      imageA: images.A,
+      imageB: images.B
     },
     {
       id: 'crd102',
@@ -72,8 +72,8 @@ const RolletsDatabase = {
       description: '',
       price: ,
       category: 'On box',
-      imageA: A,
-      imageB: B
+      imageA: images.A,
+      imageB: images.B
     },
     // Other common products...
   ],

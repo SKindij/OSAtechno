@@ -1,4 +1,4 @@
-// images.js
+// images.js for pages
 export const images = {
     residentialGate1068: require('../../resources/commonImages/residentialGate1068.png').default,
     residentialGate916: require('../../resources/commonImages/residentialGate916.png').default,
