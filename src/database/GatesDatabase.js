@@ -11,7 +11,7 @@ const GatesDatabase = {
       price: 2.75,
       category: 'On Panel',
       imageA: images.A825101,
-      imageB: images.images.B825101
+      imageB: images.B825101
     },  
 	  {
       id: 'gdi102',
@@ -20,8 +20,8 @@ const GatesDatabase = {
       description: 'Usually for an industrial series. 2 pcs are required.',
       price: 1.39,
       category: 'On Panel',
-      imageA: images.images.A230104,
-      imageB: images.images.B230104
+      imageA: images.A230104,
+      imageB: images.B230104
     },
     {
       id: 'gdi103',

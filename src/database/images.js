@@ -1,6 +1,6 @@
 // images.js for database
 export const images = {
-   A825101: require('../../resources/gatesImages/A825101.jpg').default,  
+   A825101: require('../resources/gatesImages/A825101.jpg').default,  
    B825101: require('../resources/gatesImages/B825101.jpg').default,
    A820100 : require('../resources/gatesImages/A820100.jpg').default,
    B820100 : require('../resources/gatesImages/B820100.jpg').default,

@@ -44,18 +44,18 @@ const IndustrialGatesPage = () => {
         <Col>
           <ButtonToolbar aria-label="Product categories">
             <ButtonGroup className="me-2">
-              <Button variant="secondary" onClick={() => filterProducts('All categories')}>
+              <Button variant="success" onClick={() => filterProducts('All categories')}>
                 All categories
               </Button>
             </ButtonGroup>
             <ButtonGroup>
-              <Button variant="secondary" onClick={() => filterProducts('On Shaft')}>
+              <Button variant="info" onClick={() => filterProducts('On Shaft')}>
               On Shaft
               </Button>
-              <Button variant="secondary" onClick={() => filterProducts('On Panel')}>
+              <Button variant="info" onClick={() => filterProducts('On Panel')}>
               On Panel
               </Button>
-              <Button variant="secondary" onClick={() => filterProducts('Railsystem')}>
+              <Button variant="info" onClick={() => filterProducts('Railsystem')}>
               Railsystem
               </Button>
             </ButtonGroup>
