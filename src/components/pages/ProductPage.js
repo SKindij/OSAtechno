@@ -29,7 +29,6 @@ const ProductDetails = ({ onClose }) => {
       <Modal.Body>
         <p>Price: ${product.price}</p>
         <p>{product.description}</p>
-        <img src={product.imageA} alt="Product A" />
         <img src={product.imageB} alt="Product B" />
       </Modal.Body>
       <Modal.Footer>

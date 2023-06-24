@@ -6,7 +6,7 @@
   box-shadow: $box-shadow;
   margin-bottom: 20px;
 
-  .header-content {
+  .header-content { /* Fix the class name here */
     text-align: center;
     padding: 20px 80px;
 
@@ -24,7 +24,7 @@
   }
 
   .product-card-highlight {
-    border: 2px solid $yellow-border;
+    border: 7px solid $yellow-border;
     box-shadow: 0 0 10px $shadow-effect;
   }
 

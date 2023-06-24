@@ -16,7 +16,7 @@ const DataService = {
       ...GatesDatabase.industrial,
       ...GatesDatabase.common,
     ];
-    return allProducts.find((product) => product.id === productId);
+    return allProducts.find( (product) => product.id === productId );
   },
   /*
   getRolletsById: (productId) => {

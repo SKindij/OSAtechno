@@ -1,8 +1,8 @@
 import { images } from './images'; // Import the images object
 
 const GatesDatabase = {
-  industrial: [
     // INDUSTRIAL-specific products
+  industrial: [
     {
       id: 'gdi101',
       name: 'Top seal',
@@ -135,14 +135,15 @@ const GatesDatabase = {
     },
     // Add more products here...
   ],
-  residential: [
     // RESIDENTIAL-specific products
+  residential: [
     {
       id: 'gdr101',
       name: 'Universal top roller',
       article: '230130',
       description: 'Standard top roller for the HOME system.',
-      price: 6.07,
+      price: 9.10,
+      unit: 'pair',
       category: 'On Panel',
       imageA: images.A230130,
       imageB: images.B230130
@@ -153,6 +154,7 @@ const GatesDatabase = {
       article: '285101',
       description: 'Interrior & exterrior handle, black plastic.',
       price: 1.87,
+      unit: 'pair',
       category: 'On Panel',
       imageA: images.A285101,
       imageB: images.B285101

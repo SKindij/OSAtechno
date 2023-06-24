@@ -40,6 +40,7 @@ const IndustrialGatesPage = () => {
 
   return (
     <Container>
+      <h1>Accessories for industrial sectional doors</h1>
       <Row className="mb-4">
         <Col>
           <ButtonToolbar aria-label="Product categories">
@@ -78,7 +79,7 @@ const IndustrialGatesPage = () => {
                 <Row>
                   <Col>
                     <Form.Group controlId={`quantity_${product.id}`}>
-                      <Form.Control type="number" min="1" defaultValue="1" />
+                      <Form.Control type="number" min="1" defaultValue="" />
                     </Form.Group>
                   </Col>
                   <Col>
