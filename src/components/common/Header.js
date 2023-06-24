@@ -54,7 +54,7 @@ const Header = () => {
           {/* Language switch button */}
           <Button variant="light" className="language-switch-button" onClick={handleLanguageSwitch}>
             <FaLanguage />
-            <span className="language-text">{language === 'en' ? 'UA' : 'Eng'}</span>
+            <span className="language-text">{language === 'en' ? 'UA' : 'EN'}</span>
           </Button>
         </Navbar>
       </Container>

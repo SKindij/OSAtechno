@@ -50,8 +50,7 @@ const ResidentialGatesPage = () => {
 
   const handleQuantityChange = (event) => {
     const value = parseInt(event.target.value, 10) || 0;
-    const nonNegativeValue = Math.max(0, value);
-    setQuantity(nonNegativeValue);
+    setQuantity(value);
   };
 
   const handleAddClick = (event) => {
@@ -62,6 +61,7 @@ const ResidentialGatesPage = () => {
   };
 
   return (
+    <main className='main-page'>
     <Container>
       <h1>Accessories for residential garage doors</h1>
       <Row className="mb-4">       
@@ -135,6 +135,7 @@ const ResidentialGatesPage = () => {
         <ProductDetails onClose={handleCloseProductDetails} />
       )}
     </Container>
+    </main>
   );
 };
 
