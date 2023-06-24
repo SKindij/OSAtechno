@@ -25,7 +25,7 @@ function MainPage() {
                 srcSet={`${images.residentialGate334} 334w, ${images.residentialGate668} 668w, ${images.residentialGate916} 916w`}
                 sizes="(min-width: 1200px) 525px, (min-width: 1000px) calc(11.11vw + 314px), (min-width: 780px) calc(5vw + 276px), (min-width: 640px) 505px, calc(93.75vw - 76px)"
                 className="img-fluid img-thumbnail product-image" alt="roller gate"
-                width={916} />               
+                width={916} height={692}/>               
             </Link>   
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>
@@ -44,7 +44,7 @@ function MainPage() {
                 srcSet={`${images.industrialGate334} 334w, ${images.industrialGate668} 668w, ${images.industrialGate916} 916w`}
                 sizes="(min-width: 1200px) 525px, (min-width: 1000px) calc(11.11vw + 314px), (min-width: 780px) calc(5vw + 276px), (min-width: 640px) 505px, calc(93.75vw - 76px)"
                 className="img-fluid img-thumbnail product-image" alt="roller gate"
-              />                   
+                width={916} height={692} />                   
               </Link>
               <Card.Body>
                 <Card.Title>Industrial type</Card.Title>
@@ -63,7 +63,7 @@ function MainPage() {
                 srcSet={`${images.garageRollet334} 334w, ${images.garageRollet668} 668w, ${images.garageRollet916} 916w`}
                 sizes="(min-width: 1200px) 525px, (min-width: 1000px) calc(11.11vw + 314px), (min-width: 780px) calc(5vw + 276px), (min-width: 640px) 505px, calc(93.75vw - 76px)"
                 className="img-fluid img-thumbnail product-image" alt="roller gate"
-              />                   
+                width={916} height={692} />                   
               </Link>
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>
@@ -82,7 +82,7 @@ function MainPage() {
                 srcSet={`${images.windowRollet334} 334w, ${images.windowRollet668} 668w, ${images.windowRollet916} 916w`}
                 sizes="(min-width: 1200px) 525px, (min-width: 1000px) calc(11.11vw + 314px), (min-width: 780px) calc(5vw + 276px), (min-width: 640px) 505px, calc(93.75vw - 76px)"
                 className="img-fluid img-thumbnail product-image" alt="roller gate"
-              />                     
+                width={916} height={692} />                     
               </Link>
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>
