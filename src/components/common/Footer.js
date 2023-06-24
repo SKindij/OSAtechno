@@ -15,7 +15,8 @@ const Footer = () => {
         <Container className="mt-4" >
           <h4 className="mb-3">Login for registered users</h4>
           <p>Provides access to professional functions on the portal.</p>
-          <Form onSubmit={handleRegistration}>
+          <Form onSubmit={handleRegistration} >
+          <fieldset disabled>
             <Row className="align-items-center">
               <Col md={3} className="my-1">
                 <Form.Label htmlFor="formInputUsername" visuallyHidden>Username</Form.Label>
@@ -38,6 +39,7 @@ const Footer = () => {
                 <Button type="submit"  variant="outline-success" style={{ width: '100%' }}>Enter</Button>
               </Col>
             </Row>
+          </fieldset>
           </Form>
         </Container>
 

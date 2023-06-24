@@ -19,7 +19,7 @@ function MainPage() {
         <Row xs={1} md={2} className="g-4 justify-content-center">
           <Col>
             <Card className="card-wrapper">
-            <Card.Header>Garage gates</Card.Header>
+            <Card.Header>Accessories for garage gates</Card.Header>
             <Link to="/residential">
               <Card.Img variant="top" src={images.residentialGate916}
                 srcSet={`${images.residentialGate334} 334w, ${images.residentialGate668} 668w, ${images.residentialGate916} 916w`}
@@ -29,16 +29,16 @@ function MainPage() {
             </Link>   
               <Card.Body>
                 <Card.Title>Residential type</Card.Title>
-                <Card.Text>Explore our range of residential gates.</Card.Text>
+                <Card.Text>Upgrade your residential gate with top-quality accessories for enhanced performance.</Card.Text>
               </Card.Body>
               <Card.Footer>
-                <Button as={Link} to="/residential" variant="outline-info">View Accessories</Button>
+                <Button as={Link} to="/residential" variant="outline-success">View Accessories</Button>
               </Card.Footer>
             </Card>
           </Col>
           <Col>
             <Card className="card-wrapper">
-              <Card.Header>Garage gates</Card.Header>
+              <Card.Header>Accessories for garage gates</Card.Header>
               <Link to="/industrial">
               <Card.Img variant="top" src={images.industrialGate916}
                 srcSet={`${images.industrialGate334} 334w, ${images.industrialGate668} 668w, ${images.industrialGate916} 916w`}
@@ -48,16 +48,16 @@ function MainPage() {
               </Link>
               <Card.Body>
                 <Card.Title>Industrial type</Card.Title>
-                <Card.Text>Discover our selection of industrial gates.</Card.Text> 
+                <Card.Text>Discover a wide range of accessories for industrial gates to optimize functionality and durability.</Card.Text> 
               </Card.Body>
               <Card.Footer>
-                <Button as={Link} to="/industrial" variant="outline-info">View Accessories</Button>
+                <Button as={Link} to="/industrial" variant="outline-success">View Accessories</Button>
               </Card.Footer>
             </Card>
           </Col>
           <Col>
             <Card className="card-wrapper">
-              <Card.Header>Roller gates</Card.Header>
+              <Card.Header>Accessories for protective shutters</Card.Header>
               <Link to="/garageroller">
               <Card.Img variant="top" src={images.garageRollet916}
                 srcSet={`${images.garageRollet334} 334w, ${images.garageRollet668} 668w, ${images.garageRollet916} 916w`}
@@ -66,17 +66,17 @@ function MainPage() {
                 width={916} height={692} />                   
               </Link>
               <Card.Body>
-                <Card.Title>Residential type</Card.Title>
-                <Card.Text>Explore our range of garage roller shutters.</Card.Text>
+                <Card.Title>Garage type</Card.Title>
+                <Card.Text>Customize your garage doors with reliable and stylish accessories for optimal functionality.</Card.Text>
               </Card.Body>
               <Card.Footer>
-                <Button as={Link} to="/garageroller" variant="outline-info">View Accessories</Button>
+                <Button as={Link} to="/garageroller" variant="outline-success">View Accessories</Button>
               </Card.Footer>
             </Card>
           </Col>
           <Col>
             <Card className="card-wrapper">
-              <Card.Header>Aluminum shutters</Card.Header>
+              <Card.Header>Accessories for protective shutters</Card.Header>
               <Link to="/windowroller">
               <Card.Img variant="top" src={images.windowRollet916}
                 srcSet={`${images.windowRollet334} 334w, ${images.windowRollet668} 668w, ${images.windowRollet916} 916w`}
@@ -85,11 +85,11 @@ function MainPage() {
                 width={916} height={692} />                     
               </Link>
               <Card.Body>
-                <Card.Title>Residential type</Card.Title>
-                <Card.Text>Discover our selection of window roller shutters.</Card.Text>
+                <Card.Title>Window type</Card.Title>
+                <Card.Text>Explore selection of accessories to enhance the functionality and aesthetics of your window shutters.</Card.Text>
               </Card.Body>
               <Card.Footer>
-                <Button as={Link} to="/windowroller" variant="outline-info">View Accessories</Button>
+                <Button as={Link} to="/windowroller" variant="outline-success">View Accessories</Button>
               </Card.Footer>
             </Card>
           </Col>
