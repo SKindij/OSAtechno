@@ -21,10 +21,17 @@
 
   .product-card {
     margin-bottom: 20px; /* Adjust the value to add the desired spacing */
+    
+    @media (max-width: 768px) {
+      .product-button {
+        margin-top: 10px;
+        width: 50%;
+      }
+    } 
   }
 
   .product-card-highlight {
-    border: 7px solid $yellow-border;
+    border: 3px solid $yellow-border;
     box-shadow: 0 0 10px $shadow-effect;
   }
 

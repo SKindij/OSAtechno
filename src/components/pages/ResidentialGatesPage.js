@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
 import { FaEye } from 'react-icons/fa';
-import { BsFillBagCheckFill } from 'react-icons/bs';
+import { BsFillBadgeAdFill } from 'react-icons/bs';
 import DataService from '../../services/DataService';
 import ProductDetails from './ProductPage';
 import './Pages.scss';
@@ -101,7 +101,7 @@ const ResidentialGatesPage = () => {
             </Card.Body>
             <Card.Footer>
               <Row>
-                <Col>
+                <Col xs={12} md={9}>
                   <Form.Group controlId={`quantity_${product.id}`}>
                   <InputGroup>
                     <Form.Control aria-label="Need for spare parts"
@@ -110,17 +110,15 @@ const ResidentialGatesPage = () => {
                       onChange={handleQuantityChange}
                     />
                     <InputGroup.Text>{product.unit}</InputGroup.Text>
+                    <Button variant="outline-secondary" 
+                      onClick={handleAddClick}>
+                      <BsFillBadgeAdFill />
+                    </Button>
                   </InputGroup>
                   </Form.Group>
                 </Col>
-                <Col>
-                  <Button variant="outline-secondary" 
-                    onClick={handleAddClick}>
-                    <BsFillBagCheckFill />
-                  </Button>
-                </Col>
-                <Col>
-                  <Button variant="outline-success" 
+                <Col xs={12} md={3} className="d-flex justify-content-center">
+                  <Button variant="outline-success" className="product-button"
                     onClick={() => selectProduct(product.id)}>
                     <FaEye />
                   </Button>

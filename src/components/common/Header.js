@@ -50,7 +50,7 @@ const Header = () => {
                 </nav>
               </Container>
             </Navbar.Collapse>
-          </Container>
+          </Container>  
           {/* Language switch button */}
           <Button variant="light" className="language-switch-button" onClick={handleLanguageSwitch}>
             <FaLanguage />
