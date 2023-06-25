@@ -16,7 +16,7 @@ return (
         <meta name="keywords" 
 	        content="window roller shutters, window shutters, privacy solutions, energy-efficient windows, noise reduction" />
         <title>Window roller shutters</title>
-        <link rel="canonical" href="https://osatechno.com/residential" />
+        <link rel="canonical" href="https://osatechno.com/windowroller" />
       </Helmet>
        <NotFoundPage />
     </main>	  

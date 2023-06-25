@@ -15,7 +15,7 @@ return (
         <meta name="keywords" 
 	        content="garage roller doors, roller garage doors, garage door features, secure garage doors, space-saving doors" />
         <title>Garage roller doors</title>
-        <link rel="canonical" href="https://osatechno.com/residential" />
+        <link rel="canonical" href="https://osatechno.com/garageroller" />
       </Helmet>
         <NotFoundPage />
     </main>	    

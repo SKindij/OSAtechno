@@ -68,7 +68,7 @@ const IndustrialGatesPage = () => {
         <meta name="keywords" 
 	        content="industrial gates, commercial gates, warehouse gates, factory gates, durable gates" />
         <title>Industrial gates</title>
-        <link rel="canonical" href="https://osatechno.com/residential" />
+        <link rel="canonical" href="https://osatechno.com/industrial" />
       </Helmet>
     <Container className={ `card-wrapper ${showProductDetails ? 'blur' : ''}` }>
         <h1>Accessories for industrial sectional doors</h1>
