@@ -1,4 +1,5 @@
 import React, { useState, useEffect, lazy, startTransition } from 'react';
+import { Helmet } from "react-helmet";
 import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
 import { FaEye } from 'react-icons/fa';
 import { BsFillBadgeAdFill } from 'react-icons/bs';
@@ -59,6 +60,16 @@ const IndustrialGatesPage = () => {
 
   return (
     <main className='main-page'>
+      <Helmet>
+        <meta name="description"
+          content="Browse our selection of durable industrial gates. 
+          Find the perfect solution for warehouses, factories, and commercial properties."
+        />
+        <meta name="keywords" 
+	        content="industrial gates, commercial gates, warehouse gates, factory gates, durable gates" />
+        <title>Industrial gates</title>
+        <link rel="canonical" href="https://osatechno.com/residential" />
+      </Helmet>
     <Container className={ `card-wrapper ${showProductDetails ? 'blur' : ''}` }>
         <h1>Accessories for industrial sectional doors</h1>
         <Row className="mb-4">       

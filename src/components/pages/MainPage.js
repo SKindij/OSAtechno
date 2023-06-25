@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 
@@ -8,6 +9,17 @@ import './Pages.scss';
 function MainPage() {
   return (
     <main className='main-page'>
+      <Helmet>
+        <meta name="description"
+          content="Upgrade and repair gates and roller shutters effortlessly. 
+          Our web-app helps you discover accessories that offer the perfect balance of price and quality. 
+          Start exploring for the best solutions."
+        />
+        <meta name="keywords" 
+	        content="garage gates, gate spare parts, gate accessories, rollers, protective shutters, shutter control, remote controls, sectional gates, products" />
+        <title>Optimal Selection Accessories</title>
+        <link rel="canonical" href="https://osatechno.com/" />
+      </Helmet>
       <div className="header-content">
         <h1 className="mb-3">OSA - Optimal Selection of Accessories</h1>
         <p className="mb-3">

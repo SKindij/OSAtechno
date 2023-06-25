@@ -1,4 +1,5 @@
 import React, { useState, useEffect, lazy, startTransition } from 'react';
+import { Helmet } from "react-helmet";
 import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
 import { FaEye } from 'react-icons/fa';
 import { BsFillBadgeAdFill } from 'react-icons/bs';
@@ -59,6 +60,16 @@ const ResidentialGatesPage = () => {
 
   return (
     <main className='main-page'>
+      <Helmet>
+        <meta name="description"
+          content="Discover our collection of high-quality residential gates. Choose from various designs and materials. 
+          Enhance the security and aesthetics of your home. Request a quote now!"
+        />
+        <meta name="keywords" 
+	        content="residential gates, home gates, gate designs, gate materials, security gates" />
+        <title>Residential gates</title>
+        <link rel="canonical" href="https://osatechno.com/residential" />
+      </Helmet>
     <Container className={ `card-wrapper ${showProductDetails ? 'blur' : ''}` }>
       <h1>Accessories for residential garage doors</h1>
       <Row className="mb-4">       
