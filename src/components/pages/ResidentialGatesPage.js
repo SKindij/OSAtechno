@@ -1,9 +1,8 @@
-import React, { useState, useEffect, startTransition, lazy } from 'react';
+import React, { useState, useEffect, lazy, startTransition } from 'react';
 import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
 import { FaEye } from 'react-icons/fa';
 import { BsFillBadgeAdFill } from 'react-icons/bs';
 import DataService from '../../services/DataService';
-// import ProductDetails from './ProductPage';
 import './Pages.scss';
 const ProductDetails = lazy( () => import('./ProductDetails') );
 const ResidentialGatesPage = () => {
@@ -19,7 +18,7 @@ const ResidentialGatesPage = () => {
         setProducts(residentialProducts);
         setFilteredProducts(residentialProducts);
       } catch (error) {
-        console.error('Error fetching residential products:', error);
+        console.error('Error fetching products:', error);
       }
     };
     fetchProducts();
@@ -34,9 +33,10 @@ const ResidentialGatesPage = () => {
   };
   const selectProduct = (productId) => {
     setSelectedProductId(productId);
-    startTransition( () => {
-      setShowProductDetails(true);
-    } );
+  };
+  const handleOpenProductDetails = (productId) => {
+    setSelectedProductId(productId);
+    startTransition(() => { setShowProductDetails(true); });
   };
   const handleCloseProductDetails = () => {
     setSelectedProductId(null);
@@ -48,7 +48,7 @@ const ResidentialGatesPage = () => {
   };
   const handleAddClick = async (event) => {
     event.preventDefault();
-    // Handle add button click event with the quantity value
+    // Handle add button click event with quantity value
     try {
       const selectedProduct = await DataService.getGatesById(selectedProductId);
       console.log(`User add ${quantity} of ${selectedProduct.name}`);
@@ -87,7 +87,8 @@ const ResidentialGatesPage = () => {
       {filteredProducts.map( (product) => (
         <Col key={product.id} xs={12} md={6} lg={4} xl={3}>
           <Card className={`product-card ${selectedProductId === product.id ? 'product-card-highlight' : ''}`}
-            onClick={() => selectProduct(product.id)}>
+            onClick={() => selectProduct(product.id)}
+          >
             <Card.Header>{product.name}</Card.Header>
             <div className="product-image-container">
               <Card.Img className="product-image" variant="top" src={product.imageA} />
@@ -116,7 +117,7 @@ const ResidentialGatesPage = () => {
                 </Col>
                 <Col xs={12} md={3} className="d-flex justify-content-center">
                   <Button variant="outline-success" className="product-button"
-                    onClick={() => selectProduct(product.id)}>
+                    onClick={() => handleOpenProductDetails(product.id)}>
                     <FaEye />
                   </Button>
                 </Col>

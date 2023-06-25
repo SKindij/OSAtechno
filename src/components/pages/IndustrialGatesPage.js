@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, startTransition } from 'react';
 import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
 import { FaEye } from 'react-icons/fa';
 import { BsFillBadgeAdFill } from 'react-icons/bs';
 import DataService from '../../services/DataService';
-import ProductDetails from './ProductPage';
 import './Pages.scss';
+const ProductDetails = lazy( () => import('./ProductDetails') );
 const IndustrialGatesPage = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [showProductDetails, setShowProductDetails] = useState(false);
   const [quantity, setQuantity] = useState(0);
-
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -19,7 +18,7 @@ const IndustrialGatesPage = () => {
         setProducts(industrialProducts);
         setFilteredProducts(industrialProducts);
       } catch (error) {
-        console.error('Error fetching industrial products:', error);
+        console.error('Error fetching products:', error);
       }
     };
     fetchProducts();
@@ -34,25 +33,33 @@ const IndustrialGatesPage = () => {
   };
   const selectProduct = (productId) => {
     setSelectedProductId(productId);
-    setShowProductDetails(true);
+  };
+  const handleOpenProductDetails = (productId) => {
+    setSelectedProductId(productId);
+    startTransition(() => { setShowProductDetails(true); });
   };
   const handleCloseProductDetails = () => {
     setSelectedProductId(null);
-    setShowProductDetails(false);
+    startTransition(() => { setShowProductDetails(false); });
   };
   const handleQuantityChange = (event) => {
     const value = parseInt(event.target.value, 10) || 0;
     setQuantity(value);
   };
-  const handleAddClick = (event) => {
+  const handleAddClick = async (event) => {
     event.preventDefault();
-    // Handle add button click event with the quantity value
-    const selectedProduct = DataService.getGatesById(selectedProductId);
-    console.log(`User add ${quantity} of ${selectedProduct.name}`);
+    // Handle add button click event with quantity value
+    try {
+      const selectedProduct = await DataService.getGatesById(selectedProductId);
+      console.log(`User add ${quantity} of ${selectedProduct.name}`);
+    } catch (error) {
+      console.error('Error fetching selected product:', error);
+    }
   };
+
   return (
-    <main className="main-page">
-      <Container className={ `card-wrapper ${showProductDetails ? 'blur' : ''}` }>
+    <main className='main-page'>
+    <Container className={ `card-wrapper ${showProductDetails ? 'blur' : ''}` }>
         <h1>Accessories for industrial sectional doors</h1>
         <Row className="mb-4">       
         <Col>
@@ -80,7 +87,8 @@ const IndustrialGatesPage = () => {
       {filteredProducts.map( (product) => (
         <Col key={product.id} xs={12} md={6} lg={4} xl={3}>
           <Card className={`product-card ${selectedProductId === product.id ? 'product-card-highlight' : ''}`}
-            onClick={() => selectProduct(product.id)}>
+            onClick={() => selectProduct(product.id)}
+          >
             <Card.Header>{product.name}</Card.Header>
             <div className="product-image-container">
               <Card.Img className="product-image" variant="top" src={product.imageA} />
@@ -109,7 +117,7 @@ const IndustrialGatesPage = () => {
                 </Col>
                 <Col xs={12} md={3} className="d-flex justify-content-center">
                   <Button variant="outline-success" className="product-button"
-                    onClick={() => selectProduct(product.id)}>
+                    onClick={() => handleOpenProductDetails(product.id)}>
                     <FaEye />
                   </Button>
                 </Col>
