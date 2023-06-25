@@ -5,7 +5,7 @@ import { BsFillBadgeAdFill } from 'react-icons/bs';
 import DataService from '../../services/DataService';
 // import ProductDetails from './ProductPage';
 import './Pages.scss';
-const ProductDetails = lazy( () => import('./ProductPage') );
+const ProductDetails = lazy( () => import('./ProductDetails') );
 const ResidentialGatesPage = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);

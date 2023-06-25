@@ -5,7 +5,6 @@ import { BsFillBadgeAdFill } from 'react-icons/bs';
 import DataService from '../../services/DataService';
 import ProductDetails from './ProductPage';
 import './Pages.scss';
-
 const IndustrialGatesPage = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -23,10 +22,8 @@ const IndustrialGatesPage = () => {
         console.error('Error fetching industrial products:', error);
       }
     };
-
     fetchProducts();
   }, []);
-
   const filterProducts = (category) => {
     if (category === 'All categories') {
       setFilteredProducts(products);
@@ -35,29 +32,24 @@ const IndustrialGatesPage = () => {
       setFilteredProducts(filtered);
     }
   };
-
   const selectProduct = (productId) => {
     setSelectedProductId(productId);
     setShowProductDetails(true);
   };
-
   const handleCloseProductDetails = () => {
     setSelectedProductId(null);
     setShowProductDetails(false);
   };
-
   const handleQuantityChange = (event) => {
     const value = parseInt(event.target.value, 10) || 0;
     setQuantity(value);
   };
-
   const handleAddClick = (event) => {
     event.preventDefault();
     // Handle add button click event with the quantity value
     const selectedProduct = DataService.getGatesById(selectedProductId);
     console.log(`User add ${quantity} of ${selectedProduct.name}`);
   };
-
   return (
     <main className="main-page">
       <Container className={ `card-wrapper ${showProductDetails ? 'blur' : ''}` }>
@@ -134,5 +126,4 @@ const IndustrialGatesPage = () => {
     </main>
   );
 };
-
 export default IndustrialGatesPage;

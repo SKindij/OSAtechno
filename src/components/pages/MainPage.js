@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 
-import { images } from './images'; // Import the images object
+import { commonImages as images } from './commonImages'; // Import the images object
 import './Pages.scss';
 
 function MainPage() {

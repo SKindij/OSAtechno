@@ -9,7 +9,7 @@ import Footer from "./components/common/Footer";
 
 // put dynamic imports after static imports
 const Page404 = lazy( () => import('./components/pages/NotFoundPage') );
-const ProductDetails = lazy( () => import('./components/pages/ProductPage') );
+const ProductDetails = lazy( () => import('./components/pages/ProductDetails') );
 
 function App() {
   return (

@@ -12,7 +12,7 @@ import windowRollet916 from '../../resources/commonImages/windowRollet916.png';
 import windowRollet668 from '../../resources/commonImages/windowRollet668.png';
 import windowRollet334 from '../../resources/commonImages/windowRollet334.png';
 
-export const images = {
+export const commonImages = {
   residentialGate916,
   residentialGate668,
   residentialGate334,

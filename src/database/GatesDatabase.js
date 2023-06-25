@@ -1,4 +1,4 @@
-import { images } from './images'; // Import the images object
+import { dbGateImages as images } from './dbImages'; // Import the images object
 
 const GatesDatabase = {
     // INDUSTRIAL-specific products

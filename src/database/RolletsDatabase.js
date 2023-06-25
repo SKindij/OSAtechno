@@ -1,6 +1,4 @@
-import A from '../resources/rollersImages/A.jpg';
-import B from '../resources/rollersImages/B.jpg';
-
+//import { dbRollImages as images } from './dbImages'; // Import the images object
 
 
 /*

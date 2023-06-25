@@ -78,7 +78,7 @@ import B43007 from '../resources/gatesImages/B43007.jpg';
 import A290030 from '../resources/gatesImages/A290030.jpg';
 import B290030 from '../resources/gatesImages/B290030.jpg';
 
-export const images = {
+export const dbGateImages = {
   A825101,
   B825101,
   A820100,
