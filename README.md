@@ -48,7 +48,8 @@ src/
 │   │   ├── ResidentialGatesPage.js
 │   │   ├── GarageRollersPage.js
 │   │   ├── WindowRollersPage.js
-│   │   ├── ProductPage.js
+│   │   ├── ProductDetails.js
+│   │   ├── commonImages.js
 │   │   ├── NotFoundPage.js
 │   │   ├── index.js
 │   │   └── Pages.scss
@@ -58,6 +59,7 @@ src/
 │       ├── OrderConfirmation.js
 │       └── Order.scss
 ├── database/
+│   ├── dbImages.js
 │   ├── GatesDatabase.js
 │   └── RollersDatabase.js
 ├── services/
