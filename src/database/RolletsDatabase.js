@@ -51,7 +51,7 @@ const RolletsDatabase = {
     },
     // Other forTAP55 products...
   ],
-  // Common products suitable for both groups
+  // Common products features for both groups
   common: [
     {
       id: 'crd101',

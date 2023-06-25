@@ -26,7 +26,7 @@ const ProductDetails = ({ onClose, productId }) => {
         <Modal.Title>{product.name}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>Suitable: ${product.suitable}</p>        
+        <p>features: ${product.features}</p>        
         <div className="product-image-container">
           <img className="product-image" src={product.imageB} alt="Drawing B of detail" />
         </div>     
