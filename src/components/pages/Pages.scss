@@ -9,19 +9,19 @@
   .header-content { /* Fix the class name here */
     text-align: center;
     padding: 20px 80px;
-
     @media (max-width: 768px) {
       padding: 5px 10px;
     }
   }
-
   .card-wrapper {
     height: 100%;
   }
-
+  .blur {
+    filter: blur(3px); // apply the blur effect
+    pointer-events: none; // prohibit interaction with elements that have blur class
+  }
   .product-card {
-    margin-bottom: 20px; /* Adjust the value to add the desired spacing */
-    
+    margin-bottom: 20px; /* Adjust the value to add the desired spacing */   
     @media (max-width: 768px) {
       .product-button {
         margin-top: 10px;
@@ -35,6 +35,13 @@
     box-shadow: 0 0 10px $shadow-effect;
   }
 
+  .product-image {
+    width: 100%; /* Adjust value to resize image as desired */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+.modal-detail {
   .product-image {
     width: 100%; /* Adjust value to resize image as desired */
     height: auto; /* Maintain aspect ratio */

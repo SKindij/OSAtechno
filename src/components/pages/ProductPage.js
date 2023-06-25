@@ -1,35 +1,39 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { Modal } from 'react-bootstrap';
 // Import the DataService
 import DataService from '../../services/DataService';
+import './Pages.scss';
 
-const ProductDetails = ({ onClose }) => {
-  const { productId } = useParams();
+const ProductDetails = ({ onClose, productId}) => {
+  
   const [product, setProduct] = useState(null);
 
-  useEffect(() => {
+  useEffect( () => {
     const fetchProductDetails = async () => {
       const productDetails = await DataService.getGatesById(productId);
       setProduct(productDetails);
     };
 
     fetchProductDetails();
-  }, [productId]);
+  }, [productId] );
 
   if (!product) {
-    return <div>Loading...</div>;
+    return null;
+    // <div>Loading...</div>;
   }
 
   return (
-    <Modal show={true} onHide={onClose}>
+    <Modal show={true} onHide={onClose} className='modal-detail'
+      backdrop="static" keyboard={false} >
       <Modal.Header closeButton>
         <Modal.Title>{product.name}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>Price: ${product.price}</p>
-        <p>{product.description}</p>
-        <img src={product.imageB} alt="Product B" />
+        <p>Suitable: ${product.suitable}</p>        
+        <div className="product-image-container">
+          <img className="product-image" src={product.imageB} alt="Drawing B of detail" />
+        </div>     
+        <p>{product.description}</p>  
       </Modal.Body>
       <Modal.Footer>
         <button onClick={onClose}>Close</button>

@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, startTransition, lazy } from 'react';
 import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
 import { FaEye } from 'react-icons/fa';
 import { BsFillBadgeAdFill } from 'react-icons/bs';
 import DataService from '../../services/DataService';
-import ProductDetails from './ProductPage';
+// import ProductDetails from './ProductPage';
 import './Pages.scss';
-
+const ProductDetails = lazy( () => import('./ProductPage') );
 const ResidentialGatesPage = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [showProductDetails, setShowProductDetails] = useState(false);
-
   const [quantity, setQuantity] = useState(0);
-
   useEffect( () => {
     const fetchProducts = async () => {
       try {
@@ -25,10 +22,8 @@ const ResidentialGatesPage = () => {
         console.error('Error fetching residential products:', error);
       }
     };
-
     fetchProducts();
   }, [] );
-
   const filterProducts = (category) => {
     if (category === 'All categories') {
       setFilteredProducts(products);
@@ -37,32 +32,34 @@ const ResidentialGatesPage = () => {
       setFilteredProducts(filtered);
     }
   };
-
   const selectProduct = (productId) => {
     setSelectedProductId(productId);
-    setShowProductDetails(true);
+    startTransition( () => {
+      setShowProductDetails(true);
+    } );
   };
-
   const handleCloseProductDetails = () => {
     setSelectedProductId(null);
     setShowProductDetails(false);
   };
-
   const handleQuantityChange = (event) => {
     const value = parseInt(event.target.value, 10) || 0;
     setQuantity(value);
   };
-
-  const handleAddClick = (event) => {
+  const handleAddClick = async (event) => {
     event.preventDefault();
     // Handle add button click event with the quantity value
-    const selectedProduct = DataService.getGatesById(selectedProductId);
-    console.log(`User add ${quantity} of ${selectedProduct.name}`);
+    try {
+      const selectedProduct = await DataService.getGatesById(selectedProductId);
+      console.log(`User add ${quantity} of ${selectedProduct.name}`);
+    } catch (error) {
+      console.error('Error fetching selected product:', error);
+    }
   };
 
   return (
     <main className='main-page'>
-    <Container>
+    <Container className={ `card-wrapper ${showProductDetails ? 'blur' : ''}` }>
       <h1>Accessories for residential garage doors</h1>
       <Row className="mb-4">       
         <Col>
@@ -130,11 +127,10 @@ const ResidentialGatesPage = () => {
       ) )}        
       </Row>
       {selectedProductId && showProductDetails && (
-        <ProductDetails onClose={handleCloseProductDetails} />
+        <ProductDetails onClose={handleCloseProductDetails} productId={selectedProductId} />
       )}
     </Container>
     </main>
   );
 };
-
 export default ResidentialGatesPage;

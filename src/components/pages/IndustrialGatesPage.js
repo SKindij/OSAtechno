@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
 import { FaEye } from 'react-icons/fa';
-import { BsFillBagCheckFill } from 'react-icons/bs';
+import { BsFillBadgeAdFill } from 'react-icons/bs';
 import DataService from '../../services/DataService';
 import ProductDetails from './ProductPage';
 import './Pages.scss';
@@ -60,84 +60,77 @@ const IndustrialGatesPage = () => {
 
   return (
     <main className="main-page">
-      <Container>
+      <Container className={ `card-wrapper ${showProductDetails ? 'blur' : ''}` }>
         <h1>Accessories for industrial sectional doors</h1>
-        <Row className="mb-4">
-          <Col>
-            <ButtonToolbar aria-label="Product categories">
-              <ButtonGroup className="me-2">
-                <Button variant="success" onClick={() => filterProducts('All categories')}>
-                  All categories
-                </Button>
-              </ButtonGroup>
-              <ButtonGroup>
-                <Button variant="info" onClick={() => filterProducts('On Shaft')}>
-                  On Shaft
-                </Button>
-                <Button variant="info" onClick={() => filterProducts('On Panel')}>
-                  On Panel
-                </Button>
-                <Button variant="info" onClick={() => filterProducts('Railsystem')}>
-                  Railsystem
-                </Button>
-              </ButtonGroup>
-            </ButtonToolbar>
-          </Col>
-        </Row>
-        <Row>
-          {filteredProducts.map( (product) => (
-            <Col key={product.id} xs={12} md={6} lg={4} xl={3}>
-              <Card
-                className={`product-card ${selectedProductId === product.id ? 'product-card-highlight' : ''}`}
-                onClick={() => selectProduct(product.id)}
-              >
-                <Card.Header>{product.name}</Card.Header>
-                <div className="product-image-container">
-                  <Card.Img className="product-image" variant="top" src={product.imageA} />
-                </div>
-                <Card.Body>
-                  <Card.Text>Article: {product.article}</Card.Text>
-                  <Card.Text>Price: {product.price}€</Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                  <Row>
-                    <Col xs={12} md={9}>
-                      <Form.Group controlId={`quantity_${product.id}`}>
-                        <InputGroup>
-                          <Form.Control
-                            aria-label="Need for spare parts"
-                            type="number"
-                            min={0}
-                            step={1}
-                            pattern="[0-9]+"
-                            inputMode="numeric"
-                            onChange={handleQuantityChange}
-                          />
-                          <InputGroup.Text>{product.unit}</InputGroup.Text>
-                        </InputGroup>
-                      </Form.Group>
-                    </Col>
-                    <Col>
-                      <Button variant="outline-secondary" onClick={handleAddClick}>
-                        <BsFillBagCheckFill />
-                      </Button>
-                    </Col>
-                    <Col xs={12} md={3} className="d-flex justify-content-center">
-                      <Button variant="outline-success" className="product-button"
-                        onClick={() => selectProduct(product.id)}>
-                        <FaEye />
-                      </Button>
-                    </Col>
-                  </Row>
-                </Card.Footer>
-              </Card>
-            </Col>
-          ) )}
-        </Row>
-        {selectedProductId && showProductDetails && (
-          <ProductDetails onClose={handleCloseProductDetails} />
-        )}
-      </Container>
+        <Row className="mb-4">       
+        <Col>
+          <ButtonToolbar aria-label="Product categories">
+            <ButtonGroup className="me-2">
+              <Button variant="success" onClick={() => filterProducts('All categories')}>
+                All categories
+              </Button>
+            </ButtonGroup>
+            <ButtonGroup>
+              <Button variant="info" onClick={() => filterProducts('On Shaft')}>
+                On Shaft
+              </Button>
+              <Button variant="info" onClick={() => filterProducts('On Panel')}>
+                On Panel
+              </Button>
+              <Button variant="info" onClick={() => filterProducts('Railsystem')}>
+                Railsystem
+              </Button>
+            </ButtonGroup>
+          </ButtonToolbar>
+        </Col>
+      </Row>
+      <Row>
+      {filteredProducts.map( (product) => (
+        <Col key={product.id} xs={12} md={6} lg={4} xl={3}>
+          <Card className={`product-card ${selectedProductId === product.id ? 'product-card-highlight' : ''}`}
+            onClick={() => selectProduct(product.id)}>
+            <Card.Header>{product.name}</Card.Header>
+            <div className="product-image-container">
+              <Card.Img className="product-image" variant="top" src={product.imageA} />
+            </div>
+            <Card.Body>
+              <Card.Text>Article: {product.article}</Card.Text>
+              <Card.Text>Price: {product.price}€</Card.Text>
+            </Card.Body>
+            <Card.Footer>
+              <Row>
+                <Col xs={12} md={9}>
+                  <Form.Group controlId={`quantity_${product.id}`}>
+                  <InputGroup>
+                    <Form.Control aria-label="Need for spare parts"
+                      type="number" min={0} step={1} pattern="[0-9]+"
+                      inputMode="numeric"
+                      onChange={handleQuantityChange}
+                    />
+                    <InputGroup.Text>{product.unit}</InputGroup.Text>
+                    <Button variant="outline-secondary" 
+                      onClick={handleAddClick}>
+                      <BsFillBadgeAdFill />
+                    </Button>
+                  </InputGroup>
+                  </Form.Group>
+                </Col>
+                <Col xs={12} md={3} className="d-flex justify-content-center">
+                  <Button variant="outline-success" className="product-button"
+                    onClick={() => selectProduct(product.id)}>
+                    <FaEye />
+                  </Button>
+                </Col>
+              </Row>
+            </Card.Footer>
+          </Card>
+        </Col>
+      ) )}        
+      </Row>
+      {selectedProductId && showProductDetails && (
+        <ProductDetails onClose={handleCloseProductDetails} productId={selectedProductId} />
+      )}
+    </Container>
     </main>
   );
 };
