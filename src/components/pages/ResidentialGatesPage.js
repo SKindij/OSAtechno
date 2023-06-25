@@ -91,7 +91,8 @@ const ResidentialGatesPage = () => {
           >
             <Card.Header>{product.name}</Card.Header>
             <div className="product-image-container">
-              <Card.Img className="product-image" variant="top" src={product.imageA} />
+              <Card.Img className="product-image" variant="top" 
+                src={product.imageA} alt={product.name} />
             </div>
             <Card.Body>
               <Card.Text>Article: {product.article}</Card.Text>
@@ -109,7 +110,8 @@ const ResidentialGatesPage = () => {
                     />
                     <InputGroup.Text>{product.unit}</InputGroup.Text>
                     <Button variant="outline-secondary" 
-                      onClick={handleAddClick}>
+                      onClick={handleAddClick}
+                      aria-label="Add value to cart">
                       <BsFillBadgeAdFill />
                     </Button>
                   </InputGroup>
@@ -117,7 +119,8 @@ const ResidentialGatesPage = () => {
                 </Col>
                 <Col xs={12} md={3} className="d-flex justify-content-center">
                   <Button variant="outline-success" className="product-button"
-                    onClick={() => handleOpenProductDetails(product.id)}>
+                    onClick={() => handleOpenProductDetails(product.id)}
+                    aria-label="Open product details">
                     <FaEye />
                   </Button>
                 </Col>
