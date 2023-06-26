@@ -45,7 +45,7 @@ const GatesDatabase = {
       imageA: images.A14022, imageB: images.B14022
     },
     {
-      id: 'gdi106', name: 'Universal pvc footstep/handle', article: '25130.1',
+      id: 'gdi106', name: 'Universal footstep/handle', article: '25130.1',
       price: 6.25, unit: 'piece',	    
       description: 'Two-piece. Supplied with 4 screws.',
       features: 'Handle for panel thickness 38 / 50 mm.',
@@ -174,47 +174,45 @@ const GatesDatabase = {
       category: 'On Panel',
       imageA: images.A240031, imageB: images.B240031
     },
-// gdi-ON-SHAFT
+// gdr-ON-SHAFT
     {
-      id: 'gdr104', name: 'Vertical trackset HOME',
-      article: '43006-2250',
-      description: 'Vertical trackset, bolted.',
-      price: 80.00, unit: '',
-      features: '',
-      category: 'Railsystem',
-      imageA: images.A43006, imageB: images.B43006
-    },
-    {
-      id: 'gdr104', name: 'C-Track connection bracket',
-      article: '235222',
-      description: 'Connects horizontal track to the cross stabilization C-track',
-      features: '', 
-      price: 1.30, unit: '',
+      id: 'gdr106', name: 'Connection bracket', article: '235222',
+      price: 1.95, unit: 'piece',	    
+      description: 'Connects horizontal track to cross stabilization C-track',
+      features: 'Suitable for both 53mm and 40mm C-tracks.', 
       category: 'On Shaft',
       imageA: images.A235222, imageB: images.B235222
     },
     {
-      id: 'gdr105', name: 'Drums M102-2400 mm with 3 screws',
-      article: '110013',
-      description: 'Is used for a standard lift door. ',
-      price: 18.00, unit: '',
+      id: 'gdr107', name: 'Drums ', article: '110013',
+      price: 27.00, unit: 'pair',	    
+      description: 'M102-2400 mm with 3 screws.',
+      features: 'Is used for a standard lift door.', 
       category: 'On Shaft',
       imageA: images.A110013, imageB: images.B110013
     },
     {
-      id: 'gdr106', name: 'Bearing 25,4 mm',
-      article: '13026.1',
+      id: 'gdr108', name: 'Bearing 25,4 mm', article: '13026.1',
+      price: 1.50, unit: 'piece',	    
       description: 'features for mounting in bearing bracket or stationary plugs.',
-      price: 1.00, unit: '',
+      features: '',
       category: 'On Shaft',
       imageA: images.A13026_1, imageB: images.B13026_1
     },
 // gdr-RAILSYSTEM
     {
-      id: 'gdr108', name: 'Horizontal trackset with short alu. curve HOME',
-      article: '43007',
+      id: 'gdr105', name: 'Vertical trackset', article: '43006-2250',
+      price: 120.00, unit: 'pair',	    
+      description: 'Vertical trackset, bolted.',
+      features: 'HOME',
+      category: 'Railsystem',
+      imageA: images.A43006, imageB: images.B43006
+    },
+    {
+      id: 'gdr109', name: 'Horizontal trackset HOME', article: '43007',
+      price: 144.00, unit: 'pair',	    
       description: 'Horizontal trackset with short alu. curve, bolted. ',
-      price: 99.00, unit: '',
+      features: 'HOME',
       category: 'Railsystem',
       imageA: images.A43007, imageB: images.B43007
     },
