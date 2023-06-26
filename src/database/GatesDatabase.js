@@ -7,9 +7,9 @@ const GatesDatabase = {
     {
       id: 'gdi101', name: 'Top seal',
       article: '825101',
-      description: 'Material: rubber. features for aluminum profile 820100.',
-      price: 2.75, unit: '',
-      features: '',
+      description: 'Material: rubber.',
+      price: 4.15, unit: 'mtr',
+      features: 'For profile 820100.',
       category: 'On Panel',
       imageA: images.A825101, imageB: images.B825101
     },  
@@ -126,32 +126,39 @@ const GatesDatabase = {
 // gdi-RAILSYSTEM
     // Add more products here...
   ],
+
 	
 // gdr = Garage Door RESIDENTIAL products
   residential: [
 // gdr-ON-PANEL
     {
       id: 'gdr101', name: 'Universal top roller', article: '230130',
-      price: 13.65, unit: 'pair',     
+      price: 9.10, unit: 'pair',     
       description: 'Standard top roller for the HOME system. More lateral adjustability and improved hole pattern.',
-      features: 'Self aligning, non adjustable. ',
+      features: 'Self aligning, non adjustable.',
       category: 'On Panel',
       imageA: images.A230130, imageB: images.B230130
     },
     {
       id: 'gdr102', name: 'Handle black', article: '285101',
-      price: 2.81, unit: 'set',
+      price: 2.80, unit: 'set',
       description: 'Interrior & exterrior handle. Modern ergonomical design.',
       features: 'Black ABS. Length 200mm. Suitable for panels 38-40mm. Including 4 cross head screw.',
       category: 'On Panel',
       imageA: images.A285101, imageB: images.B285101
     },   
     {
-      id: 'gdr103', name: 'Bottom bracket',
-      article: '240031',
+      id: 'gdr103', name: 'Bottom bracket 12,5', article: '240031',
       description: 'Corner bracket with T-stud for cable fixation.',
-      features: 'HOME-F. ',
-      price: 9.02, unit: 'pair',
+      features: 'Offset=12,5. For HOME-F.',
+      price: 13.50, unit: 'pair',
+      category: 'On Panel',
+      imageA: images.A240031, imageB: images.B240031
+    },
+      id: 'gdr104', name: 'Bottom bracket 18,0', article: '240034',
+      description: 'Corner bracket with T-stud for cable fixation.',
+      features: 'Offset=18,0. For HOME-F.',
+      price: 13.50, unit: 'pair',
       category: 'On Panel',
       imageA: images.A240031, imageB: images.B240031
     },
@@ -201,68 +208,62 @@ const GatesDatabase = {
     },
     // Add more products here...
   ],
+
 	
 // gdc = Garage Door COMMON products features for both groups
   common: [
 // gdc-ON-PANEL
     {
-      id: 'gdc102', name: 'Aluminum top profile',
-      article: '820100t',
-      description: 'For 40 mm thick panels. features for rubber seal 825101.',
-      price: 31.69, unit: '',
-      features: '',
+      id: 'gdc101', name: 'Top u-profile 6090', article: '820100t',
+      price: 47.50, unit: 'piece',	    
+      description: 'For 40 mm thick panels. H=35 Pan=40 L=6090.',	    
+      features: 'For rubber seal 825101.',
       category: 'On Panel',
       imageA: images.A820100, imageB: images.B820100
     },
-	{
-      id: 'gdc103', name: 'Endcap left 40-500mm',
-      article: '217070',
-      description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
-      price: 4.62, unit: '',
-      features: '',
+   {
+      id: 'gdc102', name: 'Endcap left 40-500mm', article: '217070',
+      price: 6.95, unit: 'piece',	
+      description: 'Zinc plated endcap.',     
+      features: 'For Tecsedo panel with finger pinch safety.',
       category: 'On Panel',
       imageA: images.A217070, imageB: images.B217070
     },
 	{
-      id: 'gdc104', name: 'Endcap right 40-500mm',
-      article: '217071',
-      description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
-      price: 4.62, unit: '',
-      features: '',
+      id: 'gdc103', name: 'Endcap right 40-500mm', article: '217071',
+      price: 6.95, unit: 'piece',		
+      description: 'Zinc plated endcap.',
+      features: 'For Tecsedo panel with finger pinch safety.',
       category: 'On Panel',
       imageA: images.A217071, imageB: images.B217071
     },
     {
-      id: 'gdc105', name: 'Endcap left 40-610mm',
-      article: '217074',
-      description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
-      price: 5.59, unit: '',
-      features: '',
+      id: 'gdc104', name: 'Endcap left 40-610mm', article: '217074',
+      price: 8.40, unit: 'piece',	    
+      description: 'Zinc plated endcap .',
+      features: 'For Tecsedo panel with finger pinch safety',
       category: 'On Panel',
       imageA: images.A217074, imageB: images.B217074
     },
     {
-      id: 'gdc106',
-      name: 'Endcap right 40-610mm',
-      article: '217075',
-      description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
-      price: 5.59, unit: '',
-      features: '',
+      id: 'gdc105', name: 'Endcap right 40-610mm', article: '217075',
+      price: 8.40, unit: 'piece',	    
+      description: 'Zinc plated endcap .',
+      features: 'For Tecsedo panel with finger pinch safety',	    
       category: 'On Panel',
       imageA: images.A217075, imageB: images.B217075
     },
     {
-      id: 'gdc107',
-      name: 'Side hinge',
-      article: '25734.1',
+      id: 'gdc106', name: 'Side hinge', article: '25734.1',
+      price: 3.70, unit: 'piece',    
       description: 'features for 40mm panels.',
-      price: 2.46, unit: '',
+
       features: '',
       category: 'On Panel',
       imageA: images.A25734_1, imageB: images.B25734_1
     },
     {
-      id: 'gdc108',
+      id: 'gdc107',
       name: 'Roller 120 mm',
       article: '25010',
       description: 'Stainless steel & plastic.',
@@ -272,7 +273,7 @@ const GatesDatabase = {
       imageA: images.A25010, imageB: images.B25010
     },
     {
-      id: 'gdc109',
+      id: 'gdc108',
       name: 'Roller 190 mm',
       article: '25011',
       description: 'Stainless steel & plastic.',
@@ -282,7 +283,7 @@ const GatesDatabase = {
       imageA: images.A25011, imageB: images.B25011
     },
     {
-      id: 'gdc110',
+      id: 'gdc109',
       name: 'Intermediate hinge',
       article: '25733.1',
       description: 'For use with article 25734. features for 40mm panels.',
@@ -292,7 +293,7 @@ const GatesDatabase = {
       imageA: images.A25733_1, imageB: images.B25733_1
     },
     {
-      id: 'gdc111',
+      id: 'gdc110',
       name: 'Aluminum bottom profile',
       article: '820100b',
       description: 'For 40 mm thick panels. features for rubber seal 80042.',
@@ -302,7 +303,7 @@ const GatesDatabase = {
       imageA: images.A820100b, imageB: images.B820100b
     },
     {
-      id: 'gdc112',
+      id: 'gdc111',
       name: 'Bottom seal',
       article: '80042',
       description: 'features for aluminum profile 820100b.',
@@ -312,7 +313,7 @@ const GatesDatabase = {
       imageA: images.A80042, imageB: images.B80042
     },
     {
-      id: 'gdc113',
+      id: 'gdc112',
       name: 'Bottom seal',
       article: '825109',
       description: 'features for aluminum profile VSN01.',
