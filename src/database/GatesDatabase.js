@@ -1,9 +1,9 @@
 import { dbGateImages as images } from './dbImages'; // Import the images object
 
 const GatesDatabase = {
-    // INDUSTRIAL-specific products
+// gdi = Garage Door INDUSTRIAL products
   industrial: [
-    // ON PANEL
+// gdi-ON PANEL
     {
       id: 'gdi101', name: 'Top seal',
       article: '825101',
@@ -58,7 +58,7 @@ const GatesDatabase = {
       category: 'On Panel',
       imageA: images.A25130_1, imageB: images.B25130_1
     },
-    // RAILSYSTEM
+// gdi-ON-SHAFT
     {
       id: 'gdi107', name: 'Galvanised solid shaft 25,4 mm',
       article: '25516',
@@ -123,11 +123,13 @@ const GatesDatabase = {
       category: 'On Shaft',
       imageA: images.A235213, imageB: images.B235213
     },
+// gdi-RAILSYSTEM
     // Add more products here...
   ],
-    // RESIDENTIAL-specific products
+	
+// gdr = Garage Door RESIDENTIAL products
   residential: [
-    // ON PANEL
+// gdr-ON-PANEL
     {
       id: 'gdr101', name: 'Universal top roller', article: '230130',
       price: 13.65, unit: 'pair',     
@@ -153,7 +155,7 @@ const GatesDatabase = {
       category: 'On Panel',
       imageA: images.A240031, imageB: images.B240031
     },
-    // RAILSYSTEM
+// gdi-ON-SHAFT
     {
       id: 'gdr104', name: 'Vertical trackset HOME',
       article: '43006-2250',
@@ -188,6 +190,7 @@ const GatesDatabase = {
       category: 'On Shaft',
       imageA: images.A13026_1, imageB: images.B13026_1
     },
+// gdr-RAILSYSTEM
     {
       id: 'gdr108', name: 'Horizontal trackset with short alu. curve HOME',
       article: '43007',
@@ -198,17 +201,10 @@ const GatesDatabase = {
     },
     // Add more products here...
   ],
-  // COMMON products features for both groups
+	
+// gdc = Garage Door COMMON products features for both groups
   common: [
-    {
-      id: 'gdc101', name: 'Tubular shaft with keyway',
-      article: '25019',
-      description: 'Hollow shaft with keyway. Additional key: 25064 or 25073.',
-      price: 4.05, unit: '',
-      features: '',
-      category: 'On Shaft',
-      imageA: images.A25019, imageB: images.B25019
-    },
+// gdc-ON-PANEL
     {
       id: 'gdc102', name: 'Aluminum top profile',
       article: '820100t',
@@ -250,120 +246,110 @@ const GatesDatabase = {
       name: 'Endcap right 40-610mm',
       article: '217075',
       description: 'Zinc plated endcap for Tecsedo panel with finger pinch safety.',
-      price: 5.59,
-      unit: '',
+      price: 5.59, unit: '',
       features: '',
       category: 'On Panel',
-      imageA: images.A217075,
-      imageB: images.B217075
+      imageA: images.A217075, imageB: images.B217075
     },
     {
       id: 'gdc107',
       name: 'Side hinge',
       article: '25734.1',
       description: 'features for 40mm panels.',
-      price: 2.46,
-      unit: '',
+      price: 2.46, unit: '',
       features: '',
       category: 'On Panel',
-      imageA: images.A25734_1,
-      imageB: images.B25734_1
+      imageA: images.A25734_1, imageB: images.B25734_1
     },
     {
       id: 'gdc108',
       name: 'Roller 120 mm',
       article: '25010',
       description: 'Stainless steel & plastic.',
-      price: 0.95,
-      unit: '',
+      price: 0.95, unit: '',
       features: '',
       category: 'On Panel',
-      imageA: images.A25010,
-      imageB: images.B25010
+      imageA: images.A25010, imageB: images.B25010
     },
     {
       id: 'gdc109',
       name: 'Roller 190 mm',
       article: '25011',
       description: 'Stainless steel & plastic.',
-      price: 2.00,
-      unit: '',
+      price: 2.00, unit: '',
       features: '',
       category: 'On Panel',
-      imageA: images.A25011,
-      imageB: images.B25011
+      imageA: images.A25011, imageB: images.B25011
     },
     {
       id: 'gdc110',
       name: 'Intermediate hinge',
       article: '25733.1',
       description: 'For use with article 25734. features for 40mm panels.',
-      price: 0.88,
-      unit: '',
+      price: 0.88, unit: '',
       features: '',
       category: 'On Panel',
-      imageA: images.A25733_1,
-      imageB: images.B25733_1
+      imageA: images.A25733_1, imageB: images.B25733_1
     },
     {
       id: 'gdc111',
       name: 'Aluminum bottom profile',
       article: '820100b',
       description: 'For 40 mm thick panels. features for rubber seal 80042.',
-      price: 31.69,
-      unit: '',
+      price: 31.69, unit: '',
       features: '',
       category: 'On Panel',
-      imageA: images.A820100b,
-      imageB: images.B820100b
+      imageA: images.A820100b, imageB: images.B820100b
     },
     {
       id: 'gdc112',
       name: 'Bottom seal',
       article: '80042',
       description: 'features for aluminum profile 820100b.',
-      price: 3.00,
-      unit: '',
+      price: 3.00, unit: '',
       features: '',
       category: 'On Panel',
-      imageA: images.A80042,
-      imageB: images.B80042
+      imageA: images.A80042, imageB: images.B80042
     },
     {
       id: 'gdc113',
       name: 'Bottom seal',
       article: '825109',
       description: 'features for aluminum profile VSN01.',
-      price: 5.53,
-      unit: '',
+      price: 5.53, unit: '',
       features: '',
       category: 'On Panel',
-      imageA: images.A825109,
-      imageB: images.B825109
+      imageA: images.A825109, imageB: images.B825109
+    },
+// gdc-ON-SHAFT
+    {
+      id: 'gdc101', name: 'Tubular shaft with keyway',
+      article: '25019',
+      description: 'Hollow shaft with keyway. Additional key: 25064 or 25073.',
+      price: 4.05, unit: '',
+      features: '',
+      category: 'On Shaft',
+      imageA: images.A25019, imageB: images.B25019
     },
     {
       id: 'gdc114',
       name: 'Rectangle key 6.35x9.5x43 mm',
       article: '276002',
       description: 'Can be used in combination with spring break devices.',
-      price: 0.20,
-      unit: '',
+      price: 0.20, unit: '',
       features: '',
       category: 'On Shaft',
-      imageA: images.A276002,
-      imageB: images.B276002
+      imageA: images.A276002, imageB: images.B276002
     },
     {
       id: 'gdc115',
       name: 'End bearing plate offset 86 mm',
       article: '235210',
       description: 'End bearing bracket, Offset 86mm',
-      price: 10.00,
-      unit: '',
+      price: 10.00, unit: '',
       features: '',
       category: 'On Shaft',
-      imageA: images.A235210,
-      imageB: images.B235210
+      imageA: images.A235210, imageB: images.B235210
     },
     {
       id: 'gdc116',
@@ -389,17 +375,16 @@ const GatesDatabase = {
       imageA: images.A110140,
       imageB: images.B110140
     },
+// gdc-RAILSYSTEM
     {
       id: 'gdc118',
       name: 'Vertical angle 85x69x17x2.00 mm',
       article: '290030',
       description: 'Hole-pattern for various. Applications.',
-      price: 50.00,
-      unit: '',
+      price: 50.00, unit: '',
       features: '',
       category: 'Railsystem',
-      imageA: images.A290030,
-      imageB: images.B290030
+      imageA: images.A290030, imageB: images.B290030
     },
     // Other common products...
   ],
