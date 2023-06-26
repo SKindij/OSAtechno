@@ -124,7 +124,33 @@ const GatesDatabase = {
       imageA: images.A235213, imageB: images.B235213
     },
 // gdi-RAILSYSTEM
+    {
+      id: 'gdi114', name: 'Vertical angle', article: '290030',
+      price: 101.00, unit: 'piece',	    
+      description: 'L=6000 mm. Dimensions: 85x69x17x2,00 mm. With slotted holes in mounting field.',
+      features: '',
+      category: 'Railsystem',
+      imageA: images.A290030, imageB: images.B290030
+    },
+    {
+      id: 'gdi115', name: 'Weatherstrip', article: '225030',
+      price: , unit: 'piece',	    
+      description: 'L=6060 mm. Double TPE sealing. Follows the panel-line.',
+      features: 'For vertical angle 290030',
+      category: 'Railsystem',
+      imageA: images.A225030, imageB: images.B225030
+    },
     // Add more products here...
+     /*
+     {
+      id: 'gdi1', name: '', article: '',
+      price: , unit: '',	    
+      description: '',
+      features: '',
+      category: 'Railsystem',
+      imageA: images.A, imageB: images.B
+    },
+    */
   ],
 
 	
@@ -207,6 +233,16 @@ const GatesDatabase = {
       imageA: images.A43007, imageB: images.B43007
     },
     // Add more products here...
+   /*
+     {
+      id: 'gdri1', name: '', article: '',
+      price: , unit: '',	    
+      description: '',
+      features: '',
+      category: 'Railsystem',
+      imageA: images.A, imageB: images.B
+    },
+    */
   ],
 
 	
@@ -256,138 +292,128 @@ const GatesDatabase = {
     {
       id: 'gdc106', name: 'Side hinge', article: '25734.1',
       price: 3.70, unit: 'piece',    
-      description: 'features for 40mm panels.',
-
-      features: '',
+      description: 'Material: Galvanized steel z/p.',
+      features: 'For 40mm fingerprotection panels.',
       category: 'On Panel',
       imageA: images.A25734_1, imageB: images.B25734_1
     },
     {
-      id: 'gdc107',
-      name: 'Roller 120 mm',
-      article: '25010',
-      description: 'Stainless steel & plastic.',
-      price: 0.95, unit: '',
-      features: '',
+      id: 'gdc107', name: 'Roller 120 mm', article: '25010',
+      price: 1.45, unit: 'piece',	    
+      description: 'PA6 / Galvanized steel.',
+      features: 'Standard',
       category: 'On Panel',
       imageA: images.A25010, imageB: images.B25010
     },
     {
-      id: 'gdc108',
-      name: 'Roller 190 mm',
-      article: '25011',
-      description: 'Stainless steel & plastic.',
-      price: 2.00, unit: '',
-      features: '',
+      id: 'gdc108', name: 'Roller 190 mm', article: '25011',
+      price: 3.00, unit: 'piece',	    
+      description: 'PA6 / Galvanized steel.',
+      features: 'For doors wider then 5000mm with doubleside hinges',
       category: 'On Panel',
       imageA: images.A25011, imageB: images.B25011
     },
     {
-      id: 'gdc109',
-      name: 'Intermediate hinge',
-      article: '25733.1',
-      description: 'For use with article 25734. features for 40mm panels.',
-      price: 0.88, unit: '',
-      features: '',
+      id: 'gdc109', name: 'Intermediate hinge', article: '25733.1',
+      price: 1.32, unit: 'piece',	    
+      description: 'Zinc plated steel.',
+      features: 'For use with article 25734. For 40mm panels.',
       category: 'On Panel',
       imageA: images.A25733_1, imageB: images.B25733_1
     },
     {
-      id: 'gdc110',
-      name: 'Aluminum bottom profile',
-      article: '820100b',
-      description: 'For 40 mm thick panels. features for rubber seal 80042.',
-      price: 31.69, unit: '',
-      features: '',
+      id: 'gdc110', name: 'Bottom u-profile 6090', article: '820100b',
+      description: 'For 40 mm thick panels. H=35 Pan=40 L=6090..',
+      price: 47.50, unit: 'piece',
+      features: 'For rubber seal 825109',
       category: 'On Panel',
       imageA: images.A820100b, imageB: images.B820100b
     },
+   {
+      id: 'gdc111', name: 'Bottom seal', article: '825109',
+      description: 'Extra high seal to compensate for unevenness / height differences in the floor.',
+      price: 8.10, unit: 'mtr',
+      features: 'For profile 820100b or VSN01.',
+      category: 'On Panel',
+      imageA: images.A825109, imageB: images.B825109
+    },  
+   {
+      id: 'gdc112', name: 'C-profile', article: '220015',
+      description: 'Connection profile 40x20x1.5 with holes.',
+      price: 3.45, unit: 'mtr',
+      features: 'For M8 bolts and nuts.',
+      category: 'On Panel',
+      imageA: images.A220015, imageB: images.B220015
+    },    
     {
-      id: 'gdc111',
-      name: 'Bottom seal',
-      article: '80042',
-      description: 'features for aluminum profile 820100b.',
-      price: 3.00, unit: '',
-      features: '',
+      id: 'gdc113', name: 'Bottom seal', article: '80042',
+      description: 'Material: Rubber. ',
+      price: 4.50, unit: 'mtr',
+      features: 'For wicket gates.',
       category: 'On Panel',
       imageA: images.A80042, imageB: images.B80042
     },
-    {
-      id: 'gdc112',
-      name: 'Bottom seal',
-      article: '825109',
-      description: 'features for aluminum profile VSN01.',
-      price: 5.53, unit: '',
-      features: '',
-      category: 'On Panel',
-      imageA: images.A825109, imageB: images.B825109
-    },
+
 // gdc-ON-SHAFT
     {
-      id: 'gdc101', name: 'Tubular shaft with keyway',
-      article: '25019',
-      description: 'Hollow shaft with keyway. Additional key: 25064 or 25073.',
-      price: 4.05, unit: '',
-      features: '',
+      id: 'gdc114', name: 'Tubular shaft with keyway', article: '25019',
+      price: 6.10, unit: 'mtr',	    
+      description: 'Thickness 1.8 mm, diameter 1" (25,4mm).',
+      features: 'Additional key: 26064 or 25073.',
       category: 'On Shaft',
       imageA: images.A25019, imageB: images.B25019
     },
     {
-      id: 'gdc114',
-      name: 'Rectangle key 6.35x9.5x43 mm',
-      article: '276002',
-      description: 'Can be used in combination with spring break devices.',
-      price: 0.20, unit: '',
-      features: '',
+      id: 'gdc115', name: 'Rectangle key 75', article: '26064',
+      price: 0.45, unit: 'piece',	    
+      description: '9.53x6.35x75 mm',
+      features: 'Suitable for hollow shaft with keyway.',
+      category: 'On Shaft',
+      imageA: images.A26064, imageB: images.B26064
+    },
+    {
+      id: 'gdc116', name: 'Rectangle key 43', article: '276002',
+      price: 0.30, unit: 'piece',	    
+      description: '6.35x9.5x43 mm',
+      features: 'Can be used in combination with spring break devices.',
       category: 'On Shaft',
       imageA: images.A276002, imageB: images.B276002
     },
     {
-      id: 'gdc115',
-      name: 'End bearing plate offset 86 mm',
-      article: '235210',
-      description: 'End bearing bracket, Offset 86mm',
-      price: 10.00, unit: '',
-      features: '',
+      id: 'gdc117', name: 'End bearing plate', article: '235210',
+      price: 15.00, unit: 'pair',	    
+      description: 'Offset 86mm.',
+      features: 'In most cases, industrial.',
       category: 'On Shaft',
       imageA: images.A235210, imageB: images.B235210
     },
     {
-      id: 'gdc116',
-      name: 'Drums M102-3125 SL',
-      article: '110010',
-      description: 'Is used for a standard lift door. ',
-      price: 20.00,
-      unit: '',
-      features: '',
+      id: 'gdc118', name: 'Drums  SL', article: '110010',
+      price: 21.00, unit: 'pair',	    
+      description: 'With 2 set screws for fixation on shaft. With 1 cable set screw for cablefixation.',
+      features: 'M102-3125 SL.',
       category: 'On Shaft',
-      imageA: images.A110010,
-      imageB: images.B110010
+      imageA: images.A110010, imageB: images.B110010
     },
     {
-      id: 'gdc117',
-      name: 'Drums M102-3760 SL',
-      article: '110140',
-      description: 'Is used for a standard lift.',
-      price: 18.00,
-      unit: '',
-      features: '',
+      id: 'gdc119', name: 'Drums ', article: '110140',
+      price: 24.00, unit: 'pair',	    
+      description: 'With 2 set screws for fixation on shaft. With 1 cable set screw for cablefixation.',
+      features: 'M102-3760 SL.',
       category: 'On Shaft',
-      imageA: images.A110140,
-      imageB: images.B110140
-    },
-// gdc-RAILSYSTEM
-    {
-      id: 'gdc118',
-      name: 'Vertical angle 85x69x17x2.00 mm',
-      article: '290030',
-      description: 'Hole-pattern for various. Applications.',
-      price: 50.00, unit: '',
-      features: '',
-      category: 'Railsystem',
-      imageA: images.A290030, imageB: images.B290030
+      imageA: images.A110140, imageB: images.B110140
     },
     // Other common products...
+    /*
+     {
+      id: 'gdc1', name: '', article: '',
+      price: , unit: '',	    
+      description: '',
+      features: '',
+      category: 'Railsystem',
+      imageA: images.A, imageB: images.B
+    },
+    */
   ],
 };
 
