@@ -5,121 +5,107 @@ const GatesDatabase = {
   industrial: [
 // gdi-ON PANEL
     {
-      id: 'gdi101', name: 'Top seal',
-      article: '825101',
+      id: 'gdi101', name: 'Top seal', article: '825101',
+      price: 4.15, unit: 'mtr',   
       description: 'Material: rubber.',
-      price: 4.15, unit: 'mtr',
       features: 'For profile 820100.',
       category: 'On Panel',
       imageA: images.A825101, imageB: images.B825101
     },  
-	  {
-      id: 'gdi102', name: 'Top roller carrier',
-      article: '230104',
-      description: 'Usually for an industrial series. 2 pcs are required.',
-      price: 1.39, unit: '',
-      features: '',
+    {
+      id: 'gdi102', name: 'Top roller carrier', article: '230104',
+      price: 2.10, unit: 'piece',		  
+      description: 'Usually for an industrial series.',
+      features: '2 pcs are required with 25238.1.',
       category: 'On Panel',
       imageA: images.A230104, imageB: images.B230104
     },
     {
-      id: 'gdi103', name: 'Roller carrier 11 mm',
-      article: '25238.1',
-      description: 'Usually for an industrial series. 2 pcs are required.',
-      price: 0.55, unit: '',
-      features: '',
+      id: 'gdi103', name: 'Roller carrier 11 mm', article: '25238.1',
+      price: 0.83, unit: 'piece',   
+      description: 'Usually for an industrial series.',
+      features: 'For mounting on 230104.',
       category: 'On Panel',
       imageA: images.A25238_1, imageB: images.B25238_1
     },
     {
-      id: 'gdi104', name: 'Track bolt M8x10.5',
-      article: '14024',
-      description: 'Especially features for tracks with reduced side room. ',
-      price: 0.09, unit: '',
-      features: '',
+      id: 'gdi104', name: 'Track bolt', article: '14024',
+      price: 0.14, unit: 'piece',	    
+      description: 'Universal M8x10.5 bolt.',
+      features: 'For tracks with reduced side room.',
       category: 'On Panel',
       imageA: images.A14024, imageB: images.B14024
     },
     {
-      id: 'gdi105', name: 'Flange nut M8',
-      article: '14022',
+      id: 'gdi105', name: 'Flange nut', article: '14022',
+      price: 0.11, unit: 'piece',	    
       description: 'M8 nut with locking serration.',
-      price: 0.07, unit: '',
-      features: '',
+      features: 'Material: Zinc-plated steel.',
       category: 'On Panel',
       imageA: images.A14022, imageB: images.B14022
     },
     {
-      id: 'gdi106', name: 'Universal pvc footstep/handle',
-      article: '25130.1',
+      id: 'gdi106', name: 'Universal pvc footstep/handle', article: '25130.1',
+      price: 6.25, unit: 'piece',	    
       description: 'Two-piece. Supplied with 4 screws.',
-      price: 4.15, unit: '',
-      features: '',
+      features: 'Handle for panel thickness 38 / 50 mm.',
       category: 'On Panel',
       imageA: images.A25130_1, imageB: images.B25130_1
     },
 // gdi-ON-SHAFT
     {
-      id: 'gdi107', name: 'Galvanised solid shaft 25,4 mm',
-      article: '25516',
-      description: 'Solid shaft with keyway zinc plated. Additional key: 25062 or25048.',
-      price: 13.00, unit: '',
-      features: '',
+      id: 'gdi107', name: 'Galvanised solid shaft ', article: '25516',
+      price: 19.50, unit: 'mtr',    
+      description: 'Shaft 25,4 mm with keyway zinc plated.',
+      features: 'Additional key: 25048.',
       category: 'On Shaft',
       imageA: images.A25516, imageB: images.B25516
     },
     {
-      id: 'gdi108', name: 'Key 6.35x6.35x100 mm',
-      article: '25048',
-      description: 'Key for solid shaft with keyway.',
-      price: 0.60, unit: '',
-      features: '',
+      id: 'gdi108', name: 'Key 100 mm', article: '25048',
+      price: 0.90, unit: 'piece',	    
+      description: '6.35x6.35x100 mm',
+      features: 'Key for solid shaft with keyway.',
       category: 'On Shaft',
-      imageA: images.A25048,
-      imageB: images.B25048
+      imageA: images.A25048, imageB: images.B25048
     },
     {
-      id: 'gdi109', name: 'Drums M134-5500 SL',
-      article: '110020',
-      description: 'Application: Industrial garage doors.',
-      price: 24.00, unit: '',
-      features: '',
+      id: 'gdi109', name: 'Drums', article: '110020',
+      price: 24.00, unit: 'pair',	    
+      description: 'M134-5500 SL. Max. cable diameter: 5mm.',
+      features: 'Application: Industrial garage doors.',
       category: 'On Shaft',
       imageA: images.A110020, imageB: images.B110020
     },
     {
-      id: 'gdi110', name: 'Bracket with angle',
-      article: '235012',
-      description: 'For connection from horizontal track with C-profile.',
-      price: 1.28, unit: '',
-      features: '',
+      id: 'gdi110', name: 'Bracket with angle', article: '235012',
+      price: 1.92, unit: 'piece',	    
+      description: '...',
+      features: 'For connection from horizontal track with C-profile.',
       category: 'On Shaft',
       imageA: images.A235012, imageB: images.B235012
     },
     {
-      id: 'gdi111', name: 'End bearing plate offset 111 mm',
-      article: '235211',
-      description: 'End bearing bracket, Offset 111mm',
-      price: 13.00, unit: '',
-      features: '',
+      id: 'gdi111', name: 'End bearing plate 111', article: '235211',
+      price: 19.50, unit: 'pair',	    
+      description: 'End bearing bracket.',
+      features: 'Offset 111mm.',
       category: 'On Shaft',
       imageA: images.A235211, imageB: images.B235211
     },
     {
-      id: 'gdi112', name: 'End bearing plate offset 127 mm',
-      article: '235212',
-      description: 'End bearing bracket, Offset 127mm',
-      price: 18.00, unit: '',
-      features: '',
+      id: 'gdi112', name: 'End bearing plate 127', article: '235212',
+      price: 27.00, unit: 'pair',	    
+      description: 'End bearing bracket.',
+      features: 'Offset 127mm.',
       category: 'On Shaft',
       imageA: images.A235212, imageB: images.B235212
     },
     {
-      id: 'gdi113', name: 'End bearing plate offset 152 mm',
-      article: '235213',
-      description: 'End bearing bracket, Offset 152mm',
-      price: 22.00, unit: '',
-      features: '',
+      id: 'gdi113', name: 'End bearing plate 152', article: '235213',
+      price: 22.00, unit: 'pair',	    
+      description: 'End bearing bracket.',
+      features: 'Offset 152mm.',
       category: 'On Shaft',
       imageA: images.A235213, imageB: images.B235213
     },
@@ -235,7 +221,7 @@ const GatesDatabase = {
     // Add more products here...
    /*
      {
-      id: 'gdri1', name: '', article: '',
+      id: 'gdr1', name: '', article: '',
       price: , unit: '',	    
       description: '',
       features: '',
@@ -388,7 +374,7 @@ const GatesDatabase = {
       imageA: images.A235210, imageB: images.B235210
     },
     {
-      id: 'gdc118', name: 'Drums  SL', article: '110010',
+      id: 'gdc118', name: 'Drums', article: '110010',
       price: 21.00, unit: 'pair',	    
       description: 'With 2 set screws for fixation on shaft. With 1 cable set screw for cablefixation.',
       features: 'M102-3125 SL.',
@@ -396,7 +382,7 @@ const GatesDatabase = {
       imageA: images.A110010, imageB: images.B110010
     },
     {
-      id: 'gdc119', name: 'Drums ', article: '110140',
+      id: 'gdc119', name: 'Drums', article: '110140',
       price: 24.00, unit: 'pair',	    
       description: 'With 2 set screws for fixation on shaft. With 1 cable set screw for cablefixation.',
       features: 'M102-3760 SL.',
