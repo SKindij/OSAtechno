@@ -40,7 +40,7 @@ import A43007 from '../resources/gatesImages/A43007.jpg';import B43007 from '../
 import A290030 from '../resources/gatesImages/A290030.jpg';import B290030 from '../resources/gatesImages/B290030.jpg';
 import A26064 from '../resources/gatesImages/A26064.jpg';import B26064 from '../resources/gatesImages/B26064.jpg';
 import A220015 from '../resources/gatesImages/A220015.jpg';import B220015 from '../resources/gatesImages/B220015.jpg';
-
+import A225030 from '../resources/gatesImages/A225030.jpg';import B225030 from '../resources/gatesImages/B225030.jpg';
 
 
 
@@ -56,7 +56,7 @@ export const dbGateImages = {
   A110010,B110010,  A110013,B110013,  A110020,B110020,  A110140,B110140,
   A235012,B235012,  A235211,B235211,  A235212,B235212,  A235213,B235213,
   A43006,B43006,  A43007,B43007,  A290030,B290030,
-  A26064, B26064, A220015, B220015
+  A26064, B26064, A220015, B220015, A225030, B225030
 
 
 

@@ -25,12 +25,13 @@ const ProductDetails = ({ onClose, productId }) => {
       <Modal.Header closeButton>
         <Modal.Title>{product.name}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <p>features: ${product.features}</p>        
+      <Modal.Body>               
         <div className="product-image-container">
           <img className="product-image" src={product.imageB} alt="Drawing B of detail" />
-        </div>     
+        </div>  
+        <p>Additional Information:</p>
         <p>{product.description}</p>  
+        <p>{product.features}</p>
       </Modal.Body>
       <Modal.Footer>
         <button onClick={onClose}>Close</button>

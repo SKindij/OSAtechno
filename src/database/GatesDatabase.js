@@ -113,8 +113,8 @@ const GatesDatabase = {
     {
       id: 'gdi114', name: 'Vertical angle', article: '290030',
       price: 101.00, unit: 'piece',	    
-      description: 'L=6000 mm. Dimensions: 85x69x17x2,00 mm. With slotted holes in mounting field.',
-      features: '',
+      description: 'L=6000 mm. Dimensions: 85x69x17x2,00 mm. ',
+      features: 'With slotted holes in mounting field.',
       category: 'Railsystem',
       imageA: images.A290030, imageB: images.B290030
     },
@@ -161,17 +161,17 @@ const GatesDatabase = {
     },   
     {
       id: 'gdr103', name: 'Bottom bracket 12,5', article: '240031',
+      price: 13.50, unit: 'pair',
       description: 'Corner bracket with T-stud for cable fixation.',
       features: 'Offset=12,5. For HOME-F.',
-      price: 13.50, unit: 'pair',
       category: 'On Panel',
       imageA: images.A240031, imageB: images.B240031
     },
     {
       id: 'gdr104', name: 'Bottom bracket 18,0', article: '240034',
+      price: 13.50, unit: 'pair',
       description: 'Corner bracket with T-stud for cable fixation.',
       features: 'Offset=18,0. For HOME-F.',
-      price: 13.50, unit: 'pair',
       category: 'On Panel',
       imageA: images.A240031, imageB: images.B240031
     },
@@ -195,8 +195,8 @@ const GatesDatabase = {
     {
       id: 'gdr108', name: 'Bearing 25,4 mm', article: '13026.1',
       price: 1.50, unit: 'piece',	    
-      description: 'features for mounting in bearing bracket or stationary plugs.',
-      features: '',
+      description: 'Shaft diameter: 1" (25,4)mm.',
+      features: 'For mounting in bearing bracket or stationary plugs.',
       category: 'On Shaft',
       imageA: images.A13026_1, imageB: images.B13026_1
     },
