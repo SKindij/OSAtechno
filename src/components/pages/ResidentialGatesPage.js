@@ -6,12 +6,15 @@ import { BsFillBadgeAdFill } from 'react-icons/bs';
 import DataService from '../../services/DataService';
 import './Pages.scss';
 const ProductDetails = lazy( () => import('./ProductDetails') );
+const OrderForm = lazy(() => import('../order/OrderForm'));
+
 const ResidentialGatesPage = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [showProductDetails, setShowProductDetails] = useState(false);
   const [quantity, setQuantity] = useState(0);
+  const [selectedProducts, setSelectedProducts] = useState([]);
   useEffect( () => {
     const fetchProducts = async () => {
       try {
@@ -32,7 +35,7 @@ const ResidentialGatesPage = () => {
       setFilteredProducts(filtered);
     }
   };
-  const selectProduct = (productId) => {
+  const selectProductId = (productId) => {
     setSelectedProductId(productId);
   };
   const handleOpenProductDetails = (productId) => {
@@ -47,11 +50,30 @@ const ResidentialGatesPage = () => {
     const value = parseInt(event.target.value, 10) || 0;
     setQuantity(value);
   };
+
   const handleAddClick = async (event) => {
     event.preventDefault();
-    // Handle add button click event with quantity value
     try {
       const selectedProduct = await DataService.getGatesById(selectedProductId);
+      // Updating the list of selected products
+      const updatedSelectedProducts = [...selectedProducts];
+      const existingProductIndex = updatedSelectedProducts.findIndex(
+        (product) => product.id === selectedProductId
+      );
+      if (existingProductIndex !== -1) {
+        // The product already exists, update its quantity
+        updatedSelectedProducts[existingProductIndex].quantity += quantity;
+      } else {
+        // Add a new product to the list
+        updatedSelectedProducts.push({
+          id: selectedProductId,
+          name: selectedProduct.name,
+          price: selectedProduct.price,
+          quantity: quantity,
+          unit: selectedProduct.unit,
+        });
+      }
+      setSelectedProducts(updatedSelectedProducts);
       console.log(`User add ${quantity} of ${selectedProduct.name}`);
     } catch (error) {
       console.error('Error fetching selected product:', error);
@@ -76,18 +98,18 @@ const ResidentialGatesPage = () => {
         <Col>
           <ButtonToolbar aria-label="Product categories">
             <ButtonGroup className="me-2">
-              <Button variant="success" onClick={() => filterProducts('All categories')}>
+              <Button variant="success" onClick={() => filterProducts('All categories')} className="me-2">
                 All categories
               </Button>
             </ButtonGroup>
             <ButtonGroup>
-              <Button variant="info" onClick={() => filterProducts('On Shaft')}>
+              <Button variant="info" onClick={() => filterProducts('On Shaft')} className="me-2">
                 On Shaft
-              </Button>
-              <Button variant="info" onClick={() => filterProducts('On Panel')}>
+              </Button>{' '}
+              <Button variant="info" onClick={() => filterProducts('On Panel')} className="me-2">
                 On Panel
-              </Button>
-              <Button variant="info" onClick={() => filterProducts('Railsystem')}>
+              </Button>{' '}
+              <Button variant="info" onClick={() => filterProducts('Railsystem')} className="me-2">
                 Railsystem
               </Button>
             </ButtonGroup>
@@ -98,7 +120,7 @@ const ResidentialGatesPage = () => {
       {filteredProducts.map( (product) => (
         <Col key={product.id} xs={12} md={6} lg={4} xl={3}>
           <Card className={`product-card ${selectedProductId === product.id ? 'product-card-highlight' : ''}`}
-            onClick={() => selectProduct(product.id)}
+            onClick={() => selectProductId(product.id)}
           >
             <Card.Header>{product.name}</Card.Header>
             <div className="product-image-container">
@@ -144,6 +166,10 @@ const ResidentialGatesPage = () => {
       {selectedProductId && showProductDetails && (
         <ProductDetails onClose={handleCloseProductDetails} productId={selectedProductId} />
       )}
+
+     {/* Passing selectedProducts to OrderForm */}
+     <OrderForm selectedProducts={selectedProducts} />
+
     </Container>
     </main>
   );

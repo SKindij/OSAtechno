@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, startTransition } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
-import { FaLanguage } from 'react-icons/fa';
+import { FaLanguage, FaShoppingCart } from 'react-icons/fa';
 import logo from '../../resources/commonImages/OSA-mini-logo.jpg';
 import './Common.scss';
 
@@ -10,8 +10,10 @@ const Header = () => {
   const [language, setLanguage] = useState('en'); 
 
   const handleLanguageSwitch = () => {
-    const newLanguage = language === 'en' ? 'ua' : 'en';
-    setLanguage(newLanguage);
+    startTransition(() => {
+      const newLanguage = language === 'en' ? 'ua' : 'en';
+      setLanguage(newLanguage);
+    });
   };
 
   return (
@@ -52,14 +54,20 @@ const Header = () => {
             </Navbar.Collapse>
           </Container>  
           {/* Language switch button */}
-          <Button variant="light" className="language-switch-button" onClick={handleLanguageSwitch}>
+          <Button variant="light" className="language-switch-button ml-auto"
+            onClick={handleLanguageSwitch}>
             <FaLanguage />
             <span className="language-text">{language === 'en' ? 'UA' : 'EN'}</span>
           </Button>
+          {/* Shopping cart button */}
+          <Link to="/order">
+            <Button variant="light" className="cart-button order-md-last">
+              <FaShoppingCart />
+            </Button>
+          </Link>        
         </Navbar>
       </Container>
     </header>
   );
 };
-
 export default Header;

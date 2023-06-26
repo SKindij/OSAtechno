@@ -3,7 +3,7 @@ import { Modal } from 'react-bootstrap';
 // Import the DataService
 import DataService from '../../services/DataService';
 import './Pages.scss';
-// use React.memo for rendering to preserve immutable components
+
 const ProductDetails = ({ onClose, productId }) => { 
   const [product, setProduct] = useState(null);
   useEffect( () => {
