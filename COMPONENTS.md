@@ -22,7 +22,7 @@
 > _-user sees complete list of products and their prices on the page of selected block;_\
 > _-user chooses desired goods - by entering required quantity and pressing "select" button;_\
 > _-selected accessories are added to a separate window ("OrderForm");_
-11. **ProductPage.js** &emsp; - _displays a single product as a card with information and images;_
+11. **ProductDetails.js** &emsp; - _displays modal window with aditional information and images;_
 12. **NotFoundPage.js** &emsp; - _displays a 404 page_
 13. **index.js** &emsp; - _file with a generalized import/export of all page components_
 
@@ -32,11 +32,10 @@
 > _-accessories selected by the user are displayed here;_\
 > _-there is a form where the user can enter his data;_\
 > _-here is the "Notes to order" field;_\
-> _-contains "Delete" and "View" buttons at the bottom;_
+> _-contains "Delete item" and "Order Summary" buttons;_
 15. **OrderSummary.js**
-> _-displays the overall summary of the order;_\
+> _-displays the overall summary of the order as a modal window;_\
 > _-contains "Print" and "Save" buttons;_
-16. **OrderConfirmation.js** &emsp; - _component functionality under development;_
 
 ## ├── database/
 17. **GatesDatabase.js** &emsp; - _module that contains data about available gate accessories;_
@@ -46,5 +45,3 @@
 ## ├── services/
 19. **DataService.js** &emsp; - _service module that provides access to reading product data;_
 20. **AuthService.js** &emsp; - _service module responsible for user authentication and authorization;_
-
-
