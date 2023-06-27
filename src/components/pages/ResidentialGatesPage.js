@@ -6,14 +6,15 @@ import { BsFillBadgeAdFill } from 'react-icons/bs';
 import DataService from '../../services/DataService';
 import './Pages.scss';
 const ProductDetails = lazy( () => import('./ProductDetails') );
-const OrderForm = lazy(() => import('../order/OrderForm'));
 
 const ResidentialGatesPage = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+	
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [showProductDetails, setShowProductDetails] = useState(false);
-  const [quantity, setQuantity] = useState(0);
+	
+  const [selectedProductQuantity, setSelectedProductQuantity] = useState(0);	
   const [selectedProducts, setSelectedProducts] = useState([]);
   useEffect( () => {
     const fetchProducts = async () => {
@@ -46,9 +47,10 @@ const ResidentialGatesPage = () => {
     setSelectedProductId(null);
     setShowProductDetails(false);
   };
+	
   const handleQuantityChange = (event) => {
     const value = parseInt(event.target.value, 10) || 0;
-    setQuantity(value);
+    setSelectedProductQuantity(value);
   };
 
   const handleAddClick = async (event) => {
@@ -62,19 +64,19 @@ const ResidentialGatesPage = () => {
       );
       if (existingProductIndex !== -1) {
         // The product already exists, update its quantity
-        updatedSelectedProducts[existingProductIndex].quantity += quantity;
+        updatedSelectedProducts[existingProductIndex].quantity += selectedProductQuantity;
       } else {
         // Add a new product to the list
         updatedSelectedProducts.push({
           id: selectedProductId,
           name: selectedProduct.name,
           price: selectedProduct.price,
-          quantity: quantity,
+          quantity: selectedProductQuantity,
           unit: selectedProduct.unit,
         });
       }
       setSelectedProducts(updatedSelectedProducts);
-      console.log(`User add ${quantity} of ${selectedProduct.name}`);
+      console.log(`User add ${selectedProductQuantity} of ${selectedProduct.name}`);
     } catch (error) {
       console.error('Error fetching selected product:', error);
     }
@@ -125,7 +127,8 @@ const ResidentialGatesPage = () => {
             <Card.Header>{product.name}</Card.Header>
             <div className="product-image-container">
               <Card.Img className="product-image" variant="top" 
-                src={product.imageA} alt={product.name} />
+                src={product.imageA} alt={product.name}
+                width="500" height="375"/>
             </div>
             <Card.Body>
               <Card.Text>Article: {product.article}</Card.Text>
@@ -139,6 +142,7 @@ const ResidentialGatesPage = () => {
                     <Form.Control aria-label="Need for spare parts"
                       type="number" min={0} step={1} pattern="[0-9]+"
                       inputMode="numeric"
+                      value={selectedProductQuantity}
                       onChange={handleQuantityChange}
                     />
                     <InputGroup.Text>{product.unit}</InputGroup.Text>
@@ -166,9 +170,6 @@ const ResidentialGatesPage = () => {
       {selectedProductId && showProductDetails && (
         <ProductDetails onClose={handleCloseProductDetails} productId={selectedProductId} />
       )}
-
-     {/* Passing selectedProducts to OrderForm */}
-     <OrderForm selectedProducts={selectedProducts} />
 
     </Container>
     </main>
