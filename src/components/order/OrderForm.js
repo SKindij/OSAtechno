@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Form, Button, Modal, ButtonGroup, ButtonToolbar } from 'react-bootstrap';
+import { Form, Button, Modal, ButtonGroup } from 'react-bootstrap';
+import { RiDeleteBinLine } from 'react-icons/ri';
 
 const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
   const [companyName, setCompanyName] = useState('');
@@ -13,13 +14,11 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
     );
     setSelectedProducts(updatedSelectedProducts);
   };
-
   const getTotalQuantity = () => {
     return selectedProducts.reduce(
       (total, product) => total + product.quantity, 0
     );
   };
-
   const getTotalPrice = () => {
     return selectedProducts.reduce(
       (total, product) => total + product.price * product.quantity, 0
@@ -28,25 +27,21 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
 
   const handlePrint = () => {
     const orderContent = `
-      Company Name: ${companyName}
-      User Name: ${userName}
-      Phone Number: ${phoneNumber}
-      
+      Company: ${companyName}
+      User: ${userName}
+      Phone: ${phoneNumber}     
       Selected Products:
       ${selectedProducts
         .map(
           (product) =>
             `${product.name} ${product.article} ${product.quantity} ${product.unit}`
         )
-        .join('<br />')}
-      
+        .join('<br />')}     
       Notes to Order:
-      ${notes}
-      
+      ${notes}     
       Total Quantity: ${getTotalQuantity()}
       Total Price: ${getTotalPrice().toFixed(2)}
     `;
-
     // Handle print functionality
     console.log('Print the Order');
     console.log(orderContent);
@@ -58,11 +53,8 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
   };
 
   return (
-    <Modal
-      show={true}
-      onHide={onClose}
-      backdrop='static'
-      keyboard={false}
+    <Modal show={true} onHide={onClose}
+      backdrop='static' keyboard={false}
     >
       <Modal.Header closeButton>
         <Modal.Title>Order Form</Modal.Title>
@@ -70,46 +62,52 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
       <Modal.Body>
         {/* Form for company name, user name, and phone number */}
         <Form>
-          <Form.Group controlId='companyName'>
+          <Form.Group controlId='companyName' className="mb-3">
             <Form.Label>Company Name</Form.Label>
-            <Form.Control type='text' placeholder='Enter company name'
-              value={companyName} required
+            <Form.Control type='text' placeholder='Enter company name' 
+              value={companyName} required size="sm"
               onChange={(e) => setCompanyName(e.target.value)} 
             />
           </Form.Group>
-          <Form.Group controlId='userName'>
+          <Form.Group controlId='userName' className="mb-3">
             <Form.Label>User Name</Form.Label>
             <Form.Control type='text' placeholder='Enter user name'
-              value={userName} required
+              value={userName} required size="sm"
               onChange={(e) => setUserName(e.target.value)}
             />
           </Form.Group>
-          <Form.Group controlId='phoneNumber'>
+          <Form.Group controlId='phoneNumber' className="mb-3">
             <Form.Label>Phone Number</Form.Label>
             <Form.Control type='tel' placeholder='Enter phone number'
-              value={phoneNumber} required
+              value={phoneNumber} required size="sm"
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
+            <Form.Text className="text-muted">
+              We'll never share your data with anyone else.
+            </Form.Text>
           </Form.Group>
         </Form>
+        <br />
         {selectedProducts && selectedProducts.length > 0 ? (
           <div>
-            <p>Selected Products:</p>
+            <p style={{ fontWeight: 'bold' }}>Selected Products:</p>
             <ul>
               {selectedProducts.map((product) => (
                 <li key={product.id}>
-                  {product.name} - Quantity: {product.quantity} {product.unit}
-                  <span onClick={() => handleDeleteProduct(product.id)}>
-                    Delete
-                  </span>
+                  {product.name} {product.article} - {product.quantity} {product.unit}
+                  <Button variant="danger" size="sm" style={{ marginLeft: '10px' }}
+                    onClick={() => handleDeleteProduct(product.id)}>
+                      <RiDeleteBinLine />
+                  </Button>
                 </li>
               ))}
             </ul>
           </div>
         ) : (
-          <p>No products selected.</p>
+          <p style={{ fontWeight: 'bold' }}>No products selected.</p>
         )}
-        <p>Notes to Order:</p>
+        <br />
+        <p style={{ fontWeight: 'bold' }}>Notes to Order:</p>
         <Form.Group>
           <Form.Control
             as='textarea'
@@ -119,29 +117,33 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
           />
         </Form.Group>
           <p>Total Quantity: {getTotalQuantity()}</p>
-          <p>Total Price: {getTotalPrice().toFixed(2)}</p>
+          <p>Total Price: {getTotalPrice().toFixed(2)} €</p>
       </Modal.Body>
       <Modal.Footer>
-        <ButtonToolbar aria-label="Toolbar with button groups">
-          <ButtonGroup className="me-2" aria-label="First group">
-            <Button variant="light" aria-label="Print the order"
-              disabled={selectedProducts.length === 0}
-              onClick={handlePrint}>
-                  Print
-            </Button>
-            <Button variant="light" aria-label="Save the order"
-              disabled={selectedProducts.length === 0}
-              onClick={handleSave}>
-                 Save
-            </Button>
-          </ButtonGroup>
-          <ButtonGroup className="me-2" aria-label="Second group">
-            <Button variant='secondary' onClick={onClose}>
-                  Close
-            </Button>
-          </ButtonGroup>
-        </ButtonToolbar>
-      </Modal.Footer>
+  <div className="d-flex justify-content-between w-100">
+    <div>
+      <ButtonGroup aria-label="First group">
+        <Button variant="light" aria-label="Print the order"
+          disabled={selectedProducts.length === 0}
+          onClick={handlePrint}>
+          Print
+        </Button>
+        <Button variant="light" aria-label="Save the order"
+          disabled={selectedProducts.length === 0}
+          onClick={handleSave}>
+          Save
+        </Button>
+      </ButtonGroup>
+    </div>
+    <div>
+      <ButtonGroup aria-label="Second group">
+        <Button variant="secondary" onClick={onClose}>
+          Close
+        </Button>
+      </ButtonGroup>
+    </div>
+  </div>
+</Modal.Footer>
     </Modal>
   );
 };

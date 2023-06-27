@@ -10,7 +10,7 @@ const IndustrialGates = lazy(() => import('./components/pages/IndustrialGatesPag
 const GarageRollerShutters = lazy(() => import('./components/pages/GarageRollerPage'));
 const WindowRollerShutters = lazy(() => import('./components/pages/WindowRollerPage'));
 const Page404 = lazy(() => import('./components/pages/NotFoundPage'));
-const ProductDetails = lazy(() => import('./components/pages/ProductDetails'));
+
 function App() {
   return (
       <div className="app">

@@ -1,12 +1,12 @@
-import React, { useState, useEffect, lazy, startTransition } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from "react-helmet";
 import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
 import { FaEye } from 'react-icons/fa';
 import { BsFillBadgeAdFill } from 'react-icons/bs';
 import DataService from '../../services/DataService';
 import OrderForm from '../order/OrderForm';
+import ProductDetails from './ProductDetails';
 import './Pages.scss';
-const ProductDetails = lazy( () => import('./ProductDetails') );
 
 const ResidentialGatesPage = () => {
   const [products, setProducts] = useState([]);
@@ -15,7 +15,6 @@ const ResidentialGatesPage = () => {
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [showProductDetails, setShowProductDetails] = useState(false);
 	
-  const [selectedAdBtns, setSelectedAdBtns] = useState({});
   //const [selectedProductQuantity, setSelectedProductQuantity] = useState(0);	
   const [selectedProductQuantities, setSelectedProductQuantities] = useState({});
   const [selectedProducts, setSelectedProducts] = useState([]);
@@ -49,10 +48,9 @@ const ResidentialGatesPage = () => {
   };
   const handleOpenProductDetails = (productId) => {
     setSelectedProductId(productId);
-    startTransition(() => { setShowProductDetails(true); });
+    setShowProductDetails(true);
   };
   const handleCloseProductDetails = () => {
-    setSelectedProductId(null);
     setShowProductDetails(false);
   };
 
@@ -70,12 +68,12 @@ const handleQuantityChange = (event, productId) => {
   const handleAddClick = async (event, productId) => {
     event.preventDefault();
     try {
-      const selectedProduct = await DataService.getGatesById(selectedProductId);
-      const quantity = selectedProductQuantities[selectedProductId] || 0;
+      const selectedProduct = await DataService.getGatesById(productId);
+      const quantity = selectedProductQuantities[productId] || 0;
       // Updating the list of selected products
       const updatedSelectedProducts = [...selectedProducts];
       const existingProductIndex = updatedSelectedProducts.findIndex(
-        (product) => product.id === selectedProductId
+        (product) => product.id === productId
       );
       if (existingProductIndex !== -1) {
         // The product already exists, update its quantity
@@ -97,17 +95,9 @@ const handleQuantityChange = (event, productId) => {
       console.error('Error fetching selected product:', error);
     }
   };
-  const handleToggleSelected = (productId) => {
-    const selected = selectedAdBtns[productId] || false;
-    const updatedSelectedAdBtns = {
-      ...selectedAdBtns,
-      [productId]: !selected,
-    };
-    setSelectedAdBtns(updatedSelectedAdBtns);
-  };
 // functions of managing modal window of order form
   const handleOpenOrderForm = () => {   
-    startTransition(() => { setShowOrderForm(true); });
+    setShowOrderForm(true);
   };
   const handleCloseOrderForm = () => {   
     setShowOrderForm(false);
@@ -117,7 +107,6 @@ const handleQuantityChange = (event, productId) => {
     setSelectedProductQuantities({});
     setSelectedProducts([]);
   };
-
 
   return (
     <main className='main-page'>
@@ -161,7 +150,6 @@ const handleQuantityChange = (event, productId) => {
       <Row>
        {filteredProducts.map( (product) => {        
          const quantity = selectedProductQuantities[product.id] || 0;
-         const selectedAdBtn = selectedAdBtns[product.id] || false;
         return (
         <Col key={product.id} xs={12} md={6} lg={4} xl={3}>
           <Card className={`product-card ${selectedProductId === product.id ? 'product-card-highlight' : ''}`}
@@ -189,12 +177,10 @@ const handleQuantityChange = (event, productId) => {
                       onChange={(event) => handleQuantityChange(event, product.id)}
                     />
                     <InputGroup.Text>{product.unit}</InputGroup.Text>
-                    <Button variant={selectedAdBtn ? 'warning' : 'outline-warning'} 
-                      onClick={(event) => handleAddClick(event, product.id)}>
-                      <Form.Check type="checkbox" id={`addToCartCheckbox_${product.id}`}
-                        checked={selectedAdBtn} aria-label="Add item to Selected Products"
-                        onChange={() => {}}
-                        label={<BsFillBadgeAdFill />} />{/* ... */}
+                    <Button variant='outline-warning'
+                      onClick={(event) => handleAddClick(event, product.id)}
+                      aria-label="Add item to Selected Products">
+                        <BsFillBadgeAdFill />
                     </Button>
                   </InputGroup>
                   </Form.Group>
