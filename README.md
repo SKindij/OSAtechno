@@ -51,12 +51,10 @@ src/
 │   │   ├── ProductDetails.js
 │   │   ├── commonImages.js
 │   │   ├── NotFoundPage.js
-│   │   ├── index.js
 │   │   └── Pages.scss
 │   └── order/
 │       ├── OrderForm.js
 │       ├── OrderSummary.js
-│       ├── OrderConfirmation.js
 │       └── Order.scss
 ├── database/
 │   ├── dbImages.js
