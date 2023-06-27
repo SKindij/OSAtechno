@@ -15,8 +15,9 @@ const ResidentialGatesPage = () => {
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [showProductDetails, setShowProductDetails] = useState(false);
 	
-  const [selectedAdBtn, setSelectedAdBtn] = useState(false);
-  const [selectedProductQuantity, setSelectedProductQuantity] = useState(0);	
+  const [selectedAdBtns, setSelectedAdBtns] = useState({});
+  //const [selectedProductQuantity, setSelectedProductQuantity] = useState(0);	
+  const [selectedProductQuantities, setSelectedProductQuantities] = useState({});
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [showOrderForm, setShowOrderForm] = useState(false);
 // function of obtaining goods from database
@@ -41,6 +42,7 @@ const ResidentialGatesPage = () => {
       setFilteredProducts(filtered);
     }
   };
+
 // functions of managing modal window of additional info about product
   const selectProductId = (productId) => {
     setSelectedProductId(productId);
@@ -53,15 +55,23 @@ const ResidentialGatesPage = () => {
     setSelectedProductId(null);
     setShowProductDetails(false);
   };
-// functionality for collecting desired goods
-  const handleQuantityChange = (event) => {
-    const value = parseInt(event.target.value, 10) || 0;
-    setSelectedProductQuantity(value);
+
+  // Update the quantity variable when the quantity changes
+const handleQuantityChange = (event, productId) => {
+  const value = parseInt(event.target.value, 10) || 0;
+  // Create a new object with the updated product quantity for the current ID
+  const updatedQuantities = {
+    ...selectedProductQuantities,
+    [productId]: value,
   };
-  const handleAddClick = async (event) => {
+  setSelectedProductQuantities(updatedQuantities);
+};
+// functionality for collecting desired goods
+  const handleAddClick = async (event, productId) => {
     event.preventDefault();
     try {
       const selectedProduct = await DataService.getGatesById(selectedProductId);
+      const quantity = selectedProductQuantities[selectedProductId] || 0;
       // Updating the list of selected products
       const updatedSelectedProducts = [...selectedProducts];
       const existingProductIndex = updatedSelectedProducts.findIndex(
@@ -69,26 +79,31 @@ const ResidentialGatesPage = () => {
       );
       if (existingProductIndex !== -1) {
         // The product already exists, update its quantity
-        updatedSelectedProducts[existingProductIndex].quantity += selectedProductQuantity;
+        updatedSelectedProducts[existingProductIndex].quantity += quantity;
       } else {
         // Add a new product to the list
         updatedSelectedProducts.push({
-          id: selectedProductId,
+          id: productId,
           name: selectedProduct.name,
           article: selectedProduct.article,
           price: selectedProduct.price,
-          quantity: selectedProductQuantity,
+          quantity: quantity,
           unit: selectedProduct.unit,
         });
       }
       setSelectedProducts(updatedSelectedProducts);
-      console.log(`User add ${selectedProductQuantity} of ${selectedProduct.name}`);
+      console.log(`User add ${quantity} of ${selectedProduct.name}`);
     } catch (error) {
       console.error('Error fetching selected product:', error);
     }
   };
-  const handleToggleSelected = () => {
-    setSelectedAdBtn(!selectedAdBtn);
+  const handleToggleSelected = (productId) => {
+    const selected = selectedAdBtns[productId] || false;
+    const updatedSelectedAdBtns = {
+      ...selectedAdBtns,
+      [productId]: !selected,
+    };
+    setSelectedAdBtns(updatedSelectedAdBtns);
   };
 // functions of managing modal window of order form
   const handleOpenOrderForm = () => {   
@@ -99,9 +114,10 @@ const ResidentialGatesPage = () => {
   };
 // clear all fields and remove visual effects from buttons
   const handleClearSelectedAccessories = () => {
-    setSelectedProductQuantity(0);
+    setSelectedProductQuantities({});
     setSelectedProducts([]);
   };
+
 
   return (
     <main className='main-page'>
@@ -126,13 +142,16 @@ const ResidentialGatesPage = () => {
               </Button>
             </ButtonGroup>
             <ButtonGroup>
-              <Button variant="info" onClick={() => filterProducts('On Shaft')} className="me-2">
+              <Button variant="info" aria-label="Filter On Shaft"
+                onClick={() => filterProducts('On Shaft')} className="me-2">
                 On Shaft
               </Button>{' '}
-              <Button variant="info" onClick={() => filterProducts('On Panel')} className="me-2">
+              <Button variant="info" aria-label="Filter On Panel"
+                onClick={() => filterProducts('On Panel')} className="me-2">
                 On Panel
               </Button>{' '}
-              <Button variant="info" onClick={() => filterProducts('Railsystem')} className="me-2">
+              <Button variant="info" aria-label="Filter for Railsystem"
+                onClick={() => filterProducts('Railsystem')} className="me-2">
                 Railsystem
               </Button>
             </ButtonGroup>
@@ -140,7 +159,10 @@ const ResidentialGatesPage = () => {
         </Col>
       </Row>
       <Row>
-       {filteredProducts.map( (product) => (
+       {filteredProducts.map( (product) => {        
+         const quantity = selectedProductQuantities[product.id] || 0;
+         const selectedAdBtn = selectedAdBtns[product.id] || false;
+        return (
         <Col key={product.id} xs={12} md={6} lg={4} xl={3}>
           <Card className={`product-card ${selectedProductId === product.id ? 'product-card-highlight' : ''}`}
             onClick={() => selectProductId(product.id)}
@@ -163,16 +185,16 @@ const ResidentialGatesPage = () => {
                     <Form.Control aria-label="Need for spare parts"
                       type="number" min={0} step={1} pattern="[0-9]+"
                       inputMode="numeric"
-                      value={selectedProductQuantity}
-                      onChange={handleQuantityChange}
+                      value={quantity === 0 ? '' : quantity}
+                      onChange={(event) => handleQuantityChange(event, product.id)}
                     />
                     <InputGroup.Text>{product.unit}</InputGroup.Text>
-                    <Button variant={selectedAdBtn ? 'warning' : 'outline-warning'} onClick={handleToggleSelected}>
-                      <Form.Check type="checkbox" id="addToCartCheckbox"
+                    <Button variant={selectedAdBtn ? 'warning' : 'outline-warning'} 
+                      onClick={(event) => handleAddClick(event, product.id)}>
+                      <Form.Check type="checkbox" id={`addToCartCheckbox_${product.id}`}
                         checked={selectedAdBtn} aria-label="Add item to Selected Products"
-                        onChange={handleToggleSelected}
-                        onClick={handleAddClick}
-                        label={<BsFillBadgeAdFill />} />
+                        onChange={() => {}}
+                        label={<BsFillBadgeAdFill />} />{/* ... */}
                     </Button>
                   </InputGroup>
                   </Form.Group>
@@ -188,7 +210,8 @@ const ResidentialGatesPage = () => {
             </Card.Footer>
           </Card>
         </Col>
-       ) )}        
+       );
+      } )}        
       </Row>
       {selectedProductId && showProductDetails && (
         <ProductDetails 

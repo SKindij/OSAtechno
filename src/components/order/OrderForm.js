@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Modal } from 'react-bootstrap';
+import { Form, Button, Modal, ButtonGroup, ButtonToolbar } from 'react-bootstrap';
 
 const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
   const [companyName, setCompanyName] = useState('');
@@ -67,7 +67,6 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
       <Modal.Header closeButton>
         <Modal.Title>Order Form</Modal.Title>
       </Modal.Header>
-
       <Modal.Body>
         {/* Form for company name, user name, and phone number */}
         <Form>
@@ -93,7 +92,6 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
             />
           </Form.Group>
         </Form>
-
         {selectedProducts && selectedProducts.length > 0 ? (
           <div>
             <p>Selected Products:</p>
@@ -111,7 +109,6 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
         ) : (
           <p>No products selected.</p>
         )}
-
         <p>Notes to Order:</p>
         <Form.Group>
           <Form.Control
@@ -121,24 +118,29 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
             onChange={(e) => setNotes(e.target.value)}
           />
         </Form.Group>
+          <p>Total Quantity: {getTotalQuantity()}</p>
+          <p>Total Price: {getTotalPrice().toFixed(2)}</p>
       </Modal.Body>
-
       <Modal.Footer>
-        <p>Total Quantity: {getTotalQuantity()}</p>
-        <p>Total Price: {getTotalPrice().toFixed(2)}</p>
-        <Button variant="outline-light"
-          disabled={selectedProducts.length === 0}
-          onClick={handlePrint}>
-            Print
-        </Button>
-        <Button variant="outline-light"
-          disabled={selectedProducts.length === 0}
-          onClick={handleSave}>
-            Save
-        </Button>
-        <Button variant='secondary' onClick={onClose}>
-          Close
-        </Button>
+        <ButtonToolbar aria-label="Toolbar with button groups">
+          <ButtonGroup className="me-2" aria-label="First group">
+            <Button variant="light" aria-label="Print the order"
+              disabled={selectedProducts.length === 0}
+              onClick={handlePrint}>
+                  Print
+            </Button>
+            <Button variant="light" aria-label="Save the order"
+              disabled={selectedProducts.length === 0}
+              onClick={handleSave}>
+                 Save
+            </Button>
+          </ButtonGroup>
+          <ButtonGroup className="me-2" aria-label="Second group">
+            <Button variant='secondary' onClick={onClose}>
+                  Close
+            </Button>
+          </ButtonGroup>
+        </ButtonToolbar>
       </Modal.Footer>
     </Modal>
   );
