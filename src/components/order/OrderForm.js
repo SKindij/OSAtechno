@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import OrderSummary from './OrderSummary';
+import { Form, Button, Modal } from 'react-bootstrap';
 
 const OrderForm = ({ selectedProducts }) => {
   const [companyName, setCompanyName] = useState('');
@@ -14,16 +13,35 @@ const OrderForm = ({ selectedProducts }) => {
     const updatedSelectedProducts = selectedProducts.filter((product) => product.id !== productId);
     setorderProducts(updatedSelectedProducts);
   };
-  const handleOrderSummary = () => {
-    setShowOrderSummary(true); // Open a modal window
+
+  const getTotalQuantity = () => {
+    return selectedProducts.reduce( (total, product) => total + product.quantity, 0 );
   };
-  const handleCloseOrderSummary = () => {
-    setShowOrderSummary(false); // Close the modal window
+
+  const getTotalPrice = () => {
+    return selectedProducts.reduce(
+      (total, product) => total + product.price * product.quantity,
+      0
+    );
+  };
+
+  const handlePrint = () => {
+    // Handle print functionality
+    console.log("Print the Order")
+  };
+
+  const handleSave = () => {
+    // Handle save functionality
+    console.log("Save the Order as PDF file.")
   };
 
   return (
-    <div>
-      <h1>Order Form</h1>
+    <Modal show={show} onHide={onHide}
+      backdrop='static' keyboard={false}>
+        <Modal.Header closeButton>
+        <Modal.Title>Order Form</Modal.Title>
+      </Modal.Header>
+        <Modal.Body>     
       {/* Form for company name, user name, and phone number */}
       <Form>
         <Form.Group controlId="companyName">
@@ -45,7 +63,7 @@ const OrderForm = ({ selectedProducts }) => {
 
       {selectedProducts && selectedProducts.length > 0 ? (
         <div>
-          <h3>Selected Products:</h3>
+          <p>Selected Products:<p>
           <ul>
             {selectedProducts.map((product) => (
               <li key={product.id}>
@@ -59,27 +77,21 @@ const OrderForm = ({ selectedProducts }) => {
         <p>No products selected.</p>
       )}
 
-      <h4>Notes to Order:</h4>
+      <p>Notes to Order:<p>
       <Form.Control as="textarea"
         rows={3} value={notes}
         onChange={(e) => setNotes(e.target.value)}
       />
-
-      <Button onClick={handleOrderSummary}>Order Summary</Button>
-
-      {showOrderSummary && (
-        <OrderSummary
-          show={showOrderSummary}
-          onHide={handleCloseOrderSummary}
-          selectedProducts={orderProducts}
-          companyName={companyName}
-          userName={userName}
-          phoneNumber={phoneNumber}
-          notes={notes}
-      />
-      )}
-
-    </div>
+      </Modal.Body>
+      <Modal.Footer>
+        <p>Total Quantity: {getTotalQuantity()}</p>
+        <p>Total Price: {getTotalPrice()}</p>
+        <Button onClick={handlePrint}>Print</Button>
+        <Button onClick={handleSave}>Save</Button>
+        <Button variant="secondary" onClick={onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+      
   );
 };
 export default OrderForm;
