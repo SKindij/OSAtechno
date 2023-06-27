@@ -4,6 +4,7 @@ import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, In
 import { FaEye } from 'react-icons/fa';
 import { BsFillBadgeAdFill } from 'react-icons/bs';
 import DataService from '../../services/DataService';
+import OrderForm from '../order/OrderForm';
 import './Pages.scss';
 const ProductDetails = lazy( () => import('./ProductDetails') );
 
@@ -14,8 +15,11 @@ const ResidentialGatesPage = () => {
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [showProductDetails, setShowProductDetails] = useState(false);
 	
+  const [selectedAdBtn, setSelectedAdBtn] = useState(false);
   const [selectedProductQuantity, setSelectedProductQuantity] = useState(0);	
   const [selectedProducts, setSelectedProducts] = useState([]);
+  const [showOrderForm, setShowOrderForm] = useState(false);
+// function of obtaining goods from database
   useEffect( () => {
     const fetchProducts = async () => {
       try {
@@ -28,6 +32,7 @@ const ResidentialGatesPage = () => {
     };
     fetchProducts();
   }, [] );
+// functionality of filtering groups of accessories
   const filterProducts = (category) => {
     if (category === 'All categories') {
       setFilteredProducts(products);
@@ -36,6 +41,7 @@ const ResidentialGatesPage = () => {
       setFilteredProducts(filtered);
     }
   };
+// functions of managing modal window of additional info about product
   const selectProductId = (productId) => {
     setSelectedProductId(productId);
   };
@@ -47,12 +53,11 @@ const ResidentialGatesPage = () => {
     setSelectedProductId(null);
     setShowProductDetails(false);
   };
-	
+// functionality for collecting desired goods
   const handleQuantityChange = (event) => {
     const value = parseInt(event.target.value, 10) || 0;
     setSelectedProductQuantity(value);
   };
-
   const handleAddClick = async (event) => {
     event.preventDefault();
     try {
@@ -70,6 +75,7 @@ const ResidentialGatesPage = () => {
         updatedSelectedProducts.push({
           id: selectedProductId,
           name: selectedProduct.name,
+          article: selectedProduct.article,
           price: selectedProduct.price,
           quantity: selectedProductQuantity,
           unit: selectedProduct.unit,
@@ -80,6 +86,21 @@ const ResidentialGatesPage = () => {
     } catch (error) {
       console.error('Error fetching selected product:', error);
     }
+  };
+  const handleToggleSelected = () => {
+    setSelectedAdBtn(!selectedAdBtn);
+  };
+// functions of managing modal window of order form
+  const handleOpenOrderForm = () => {   
+    startTransition(() => { setShowOrderForm(true); });
+  };
+  const handleCloseOrderForm = () => {   
+    setShowOrderForm(false);
+  };
+// clear all fields and remove visual effects from buttons
+  const handleClearSelectedAccessories = () => {
+    setSelectedProductQuantity(0);
+    setSelectedProducts([]);
   };
 
   return (
@@ -119,7 +140,7 @@ const ResidentialGatesPage = () => {
         </Col>
       </Row>
       <Row>
-      {filteredProducts.map( (product) => (
+       {filteredProducts.map( (product) => (
         <Col key={product.id} xs={12} md={6} lg={4} xl={3}>
           <Card className={`product-card ${selectedProductId === product.id ? 'product-card-highlight' : ''}`}
             onClick={() => selectProductId(product.id)}
@@ -146,10 +167,12 @@ const ResidentialGatesPage = () => {
                       onChange={handleQuantityChange}
                     />
                     <InputGroup.Text>{product.unit}</InputGroup.Text>
-                    <Button variant="outline-secondary" 
-                      onClick={handleAddClick}
-                      aria-label="Add value to cart">
-                      <BsFillBadgeAdFill />
+                    <Button variant={selectedAdBtn ? 'warning' : 'outline-warning'} onClick={handleToggleSelected}>
+                      <Form.Check type="checkbox" id="addToCartCheckbox"
+                        checked={selectedAdBtn} aria-label="Add item to Selected Products"
+                        onChange={handleToggleSelected}
+                        onClick={handleAddClick}
+                        label={<BsFillBadgeAdFill />} />
                     </Button>
                   </InputGroup>
                   </Form.Group>
@@ -165,12 +188,30 @@ const ResidentialGatesPage = () => {
             </Card.Footer>
           </Card>
         </Col>
-      ) )}        
+       ) )}        
       </Row>
       {selectedProductId && showProductDetails && (
-        <ProductDetails onClose={handleCloseProductDetails} productId={selectedProductId} />
+        <ProductDetails 
+          onClose={handleCloseProductDetails} 
+          productId={selectedProductId} />
       )}
-
+      <div className="d-grid gap-2">
+      <Button variant="outline-success" size="lg"
+        onClick={() => handleOpenOrderForm()}
+        aria-label="Open windwow with order form">
+          Open windwow with order form
+      </Button>
+      <Button variant="outline-danger" size="lg"
+        onClick={handleClearSelectedAccessories}>
+          Clear the list of selected accessories
+      </Button>
+      </div>             
+      {showOrderForm && (
+        < OrderForm 
+          onClose={handleCloseOrderForm} 
+          selectedProducts={selectedProducts} 
+          setSelectedProducts={setSelectedProducts} />
+      )}   
     </Container>
     </main>
   );
