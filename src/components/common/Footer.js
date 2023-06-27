@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer className="footer">
         <Container className="mt-4" >
-          <h4 className="mb-3">Login for registered users</h4>
+          <p className="mb-3">Login for registered users</p>
           <p>Provides access to professional functions on the portal.</p>
           <Form onSubmit={handleRegistration} >
           <fieldset disabled>
