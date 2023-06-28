@@ -25,8 +25,7 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
     );
   };
 
-  const handlePrint = () => {
-    const orderContent = `
+const orderContent = `
       Company: ${companyName}
       User: ${userName}
       Phone: ${phoneNumber}     
@@ -42,9 +41,13 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
       Total Quantity: ${getTotalQuantity()}
       Total Price: ${getTotalPrice().toFixed(2)}
     `;
-    // Handle print functionality
+  
+  const handlePrint = () => {    
+    const printWindow = window.open('', '_blank');
+      printWindow.document.write(`<html><body>${orderContent}</body></html>`);
+      printWindow.document.close();
+      printWindow.print();
     console.log('Print the Order');
-    console.log(orderContent);
   };
 
   const handleSave = () => {
