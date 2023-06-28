@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button, Modal, ButtonGroup } from 'react-bootstrap';
 import { RiDeleteBinLine } from 'react-icons/ri';
-import {
-  Document,
-  PDFDownloadLink,
-  PDFViewer,
-  Page,
-  View,
-  Text
-} from '@react-pdf/renderer';
+import { Document, PDFDownloadLink, PDFViewer, Page, View, Text } from '@react-pdf/renderer';
+import htmlToPdfMake from 'html-to-pdfmake';
 
 const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
   const [companyName, setCompanyName] = useState('');
@@ -51,42 +45,49 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
   };
 
   const getTotalQuantity = () => {
-    return selectedProducts.reduce((total, product) => total + product.quantity, 0);
+    const uniqueProducts = new Set(selectedProducts.map((product) => product.name));
+    return uniqueProducts.size;
   };
-
   const getTotalPrice = () => {
-    return selectedProducts.reduce(
-      (total, product) => total + product.price * product.quantity,
-      0
-    );
+    const totalPrice = selectedProducts.reduce(
+      (total, product) => total + product.price * product.quantity, 0 );
+    return totalPrice.toFixed(2);
   };
-
-  const orderContent = `
-    Application for components for sectional doors
-
-    Company Name: ${companyName}
-    User Name: ${userName}
-    Phone Number: ${phoneNumber}
-
-    Selected products:
-    ${selectedProducts
-      .map((product) => `${product.name} (Quantity: ${product.quantity}, Price: ${product.price} USD)`)
-      .join('\n')}
-
-    Notes:
-    ${notes}
-
-    Total quantity: ${getTotalQuantity()}
-    Total price: ${getTotalPrice()} USD
-
-    Created using "OSAtechno" web service.
-  `;
 
   const handleGenerateOrder = () => {
     if (validateForm()) {
-      setOrderContentState(orderContent);
+      const orderContentHTML = `
+        <h3>Application for components for sectional doors</h3>
+  
+        <p><strong>Company Name:</strong> ${companyName}</p>
+        <p><strong>User Name:</strong> ${userName}</p>
+        <p><strong>Phone Number:</strong> ${phoneNumber}</p>
+  
+        <h4>Selected products:</h4>
+        <ul>
+          ${selectedProducts
+            .map(
+              (product) =>
+                `<li>${product.name} (Quantity: ${product.quantity}, Price: ${product.price} USD)</li>`
+            )
+            .join('')}
+        </ul>
+  
+        <p><strong>Notes:</strong></p>
+        <p>${notes}</p>
+  
+        <p><strong>Total quantity:</strong> ${getTotalQuantity()}</p>
+        <p><strong>Total price:</strong> ${getTotalPrice()} USD</p>
+  
+        <p>Created using "OSAtechno" web service.</p>
+      `;
+  
+      const orderContentPDF = htmlToPdfMake(orderContentHTML);
+  
+      setOrderContentState(orderContentPDF);
     }
   };
+
   const handleCloseModal = () => {
     setOrderContentState('');
     onClose();

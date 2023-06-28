@@ -44,7 +44,7 @@ const Footer = () => {
         </Container>
 
         <Container className="text-center">
-            <Col className="pt-4 copy">&copy; OSAtechno v.0.7.0 by SKindij {new Date().getFullYear()} </Col>
+            <Col className="pt-4 copy">&copy; OSAtechno v.0.7.8 by SKindij {new Date().getFullYear()} </Col>
         </Container>
     </footer>
   );
