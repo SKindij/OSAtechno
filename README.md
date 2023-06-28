@@ -6,16 +6,16 @@
 
 - **User-Friendly Interface**: OSA offers a user-friendly interface that allows seamless navigation and easy access to information.
 - **Categorized Product Groups**: The main page presents four distinct product groups - Residential Gates, Industrial Gates, Garage Roller Shutters, and Window Roller Shutters. Users can explore each category to find the relevant accessories.
-- **Order Customization**: OSA enables users to select the desired accessories by clicking the "Choose" button. Selected items are added to the order window, where users can input the desired quantities.
+- **Order Customization**: OSA enables users to select the desired accessories by clicking the "Add" button. Selected items are added to the order window. User can preview his order in the browser window, as well as save it as a PDF file.
 - **Responsive Design**: The web-app is designed with responsiveness in mind, ensuring an optimal viewing experience across various devices.
 
 ### 📝 How to Use
 
 1. Visit the OSA web application and explore the main page, where you will find an overview of the available product groups.
 2. Click on a specific group to access the corresponding page, where a comprehensive list of products will be displayed.
-3. Select the desired accessories, enter the required quantity and press the "select" button next to each product. 
+3. Select the desired accessories, enter the required quantity and press the "add" button next to each product. 
 4. The selected items will appear in the "order window", where you will be able to add your data and additional notes.
-5. Once you have completed your application, you can download your order as an image (e.g., JPG, PNG) or a PDF file.
+5. Once you have completed your application, you can download your order as a PDF file.
 
 ### 📒 About
 
@@ -24,7 +24,7 @@ The logic and data handling are implemented using separation of concerns princip
 
 ### 🔭 Future Enhancements
 
-&emsp;In the future, we plan to introduce registration functionality, allowing registered users to access additional features and customization options. We also aim to expand the database of accessories and continuously improve the user interface for an enhanced user experience.
+&emsp;In the future, I plan to introduce registration functionality, allowing registered users to access additional features and customization options. I also aim to expand the database of accessories and continuously improve the user interface for an enhanced user experience.
 
 - - -
 
@@ -75,4 +75,4 @@ See [Components Guide](https://github.com/SKindij/OSAtechno-app/blob/main/COMPON
 ### Thank you for choosing OSA - 🏡 Optimal Selection of Accessories!
 🔗 to: <https://osatechno.com/>
 
-©️ SKIndij 2023
+©️ OSAtechno v.0.7.5 by SKindij  2023
