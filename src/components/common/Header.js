@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { FaLanguage } from 'react-icons/fa';
@@ -6,14 +6,10 @@ import logo from '../../resources/commonImages/OSA-mini-logo.jpg';
 import './Common.scss';
 
 const Header = () => {
-  // 'en' for English, 'ua' for Ukrainian
-  const [language, setLanguage] = useState('en'); 
-
   const handleLanguageSwitch = () => {
-      const newLanguage = language === 'en' ? 'ua' : 'en';
-      setLanguage(newLanguage);
+    window.location.href = 'https://ua.osatechno.com/';
   };
-
+  
   return (
     <header className="header">
       <Container>
@@ -55,7 +51,7 @@ const Header = () => {
           <Button variant="light" className="language-switch-button ml-auto"
             onClick={handleLanguageSwitch}>
               <FaLanguage />
-              <span className="language-text">{language === 'en' ? 'UA' : 'EN'}</span>
+              <span className="language-text">'UA'</span>
           </Button>      
         </Navbar>
       </Container>
