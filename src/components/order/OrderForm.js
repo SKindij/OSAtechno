@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Modal, ButtonGroup } from 'react-bootstrap';
 import { RiDeleteBinLine } from 'react-icons/ri';
+import { PDFDownloadLink, PDFViewer, Document, Page, Text } from '@react-pdf/renderer';
 
 const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
   const [companyName, setCompanyName] = useState('');
@@ -55,15 +56,58 @@ const orderContent = `
   </div>
 `;
   
-  const handleView = () => {   
-    
-    console.log('View the Order');
-  };
+const handleView = () => {   
+  const MyDocument = () => (
+     <Document>
+        <Page>
+          <Text>{orderContent}</Text>
+        </Page>
+     </Document>
+  );    
+  const Viewer = () => (
+    <PDFViewer width="100%" height={600}>
+        <MyDocument />
+    </PDFViewer>
+  );  
+  const win = window.open();
+    win.document.write(`
+      <html>
+        <head>
+          <title>Order Preview</title>
+        </head>
+        <body style="margin: 0;">
+          <div id="root"></div>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.production.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+          <script type="text/babel">
+            const App = () => <Viewer />;
+            ReactDOM.render(<App />, document.getElementById("root"));
+          </script>
+        </body>
+      </html>
+  `);  
+  console.log('View the Order');
+};
 
-  const handleSave = () => {
-
-    console.log('Save the Order as PDF file.');
-  };
+const handleSave = () => {
+  const MyDocument = () => (
+    <Document>
+      <Page>
+        <Text>{orderContent}</Text>
+      </Page>
+    </Document>
+  );
+  const fileName = 'order.pdf';
+    return (
+      <PDFDownloadLink document={<MyDocument />} fileName={fileName}>
+        {({ blob, url, loading, error }) =>
+          loading ? 'Generating PDF...' : 'Download PDF'
+        }
+      </PDFDownloadLink>
+  );
+  console.log('Save the Order as PDF file.');
+};
 
   return (
     <Modal show={true} onHide={onClose}
