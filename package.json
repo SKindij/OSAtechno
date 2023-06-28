@@ -1,8 +1,9 @@
 {
   "name": "osatechno",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "private": true,
   "dependencies": {
+    "@react-pdf/renderer": "^3.1.12",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
