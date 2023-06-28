@@ -1,8 +1,23 @@
 import React, { useState } from 'react';
-import { Form, Button, Modal, ButtonGroup } from 'react-bootstrap';
+import { Form, Button, Modal } from 'react-bootstrap';
 import { RiDeleteBinLine } from 'react-icons/ri';
-import { Document, PDFDownloadLink, PDFViewer, Page, View, Text } from '@react-pdf/renderer';
-import htmlToPdfMake from 'html-to-pdfmake';
+import { PDFDownloadLink, Document, StyleSheet, PDFViewer, Page, View, Text } from '@react-pdf/renderer';
+import { createPortal } from 'react-dom';
+const modalRoot = document.getElementById('modal-root');
+
+// Create styles
+const styles = StyleSheet.create({
+  page: {
+    flexDirection: 'row',
+    backgroundColor: '#E4E4E4'
+  },
+  section: {
+    margin: 10,
+    padding: 10,
+    flexGrow: 1
+  }
+});
+
 
 const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
   const [companyName, setCompanyName] = useState('');
@@ -13,6 +28,7 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
   const [phoneNumberError, setPhoneNumberError] = useState('');
   const [notes, setNotes] = useState('');
   const [orderContentState, setOrderContentState] = useState('');
+  const [orderModalOpen, setOrderModalOpen] = useState(false);
 
   const handleDeleteProduct = (productId) => {
     const updatedSelectedProducts = selectedProducts.filter(
@@ -56,44 +72,54 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
 
   const handleGenerateOrder = () => {
     if (validateForm()) {
-      const orderContentHTML = `
-        <h3>Application for components for sectional doors</h3>
-  
-        <p><strong>Company Name:</strong> ${companyName}</p>
-        <p><strong>User Name:</strong> ${userName}</p>
-        <p><strong>Phone Number:</strong> ${phoneNumber}</p>
-  
-        <h4>Selected products:</h4>
-        <ul>
-          ${selectedProducts
-            .map(
-              (product) =>
-                `<li>${product.name} (Quantity: ${product.quantity}, Price: ${product.price} USD)</li>`
-            )
-            .join('')}
-        </ul>
-  
-        <p><strong>Notes:</strong></p>
-        <p>${notes}</p>
-  
-        <p><strong>Total quantity:</strong> ${getTotalQuantity()}</p>
-        <p><strong>Total price:</strong> ${getTotalPrice()} USD</p>
-  
-        <p>Created using "OSAtechno" web service.</p>
-      `;
-  
-      const orderContentPDF = htmlToPdfMake(orderContentHTML);
-  
-      setOrderContentState(orderContentPDF);
+      const orderContent = {
+        companyName,
+        userName,
+        phoneNumber,
+        products: selectedProducts,
+        notes,
+        totalQuantity: getTotalQuantity(),
+        totalPrice: getTotalPrice()
+      };     
+      setOrderContentState(orderContent);
+      setOrderModalOpen(true);
     }
   };
 
   const handleCloseModal = () => {
-    setOrderContentState('');
-    onClose();
+    if (orderModalOpen) {
+      setOrderModalOpen(false);
+      onClose();
+    }
   };
 
+  const MyDocument = ({ orderContent }) => (
+    <Document>
+      <Page size="A4" style={styles.page}>
+        <View style={styles.section}>
+          <Text>Application for components for sectional doors</Text>
+          
+          <Text>{orderContent.companyName}</Text>
+          <Text>{orderContent.userName}</Text>
+          <Text>{orderContent.phoneNumber}</Text>
+          {/* Display additional details about the order */}
+          {orderContent.products.map((product) => (
+            <View key={product.id}>
+              <Text>{product.name} {product.article}</Text>
+              <Text>{product.quantity}{product.unit}</Text>
+            </View>
+          ))}
+          <Text>{orderContent.notes}</Text>
+          <Text>{orderContent.totalQuantity}</Text>
+          <Text>{orderContent.totalPrice}</Text>
+          <Text>Created using "OSAtechno" web service.</Text>
+        </View>
+      </Page>
+    </Document>
+  );
+
   return (
+    <>
     <Modal show onHide={handleCloseModal} size="lg">
       <Modal.Header closeButton>
         <Modal.Title>Order Form</Modal.Title>
@@ -102,9 +128,7 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
         <Form>
           <Form.Group controlId="formCompanyName">
             <Form.Label>Company Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter company name"
+            <Form.Control type="text" placeholder="Enter company name"
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
               isInvalid={!!companyNameError}
@@ -113,9 +137,7 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
           </Form.Group>
           <Form.Group controlId="formUserName">
             <Form.Label>User Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter user name"
+            <Form.Control type="text" placeholder="Enter user name"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
               isInvalid={!!userNameError}
@@ -124,9 +146,7 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
           </Form.Group>
           <Form.Group controlId="formPhoneNumber">
             <Form.Label>Phone Number</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter phone number"
+            <Form.Control type="text" placeholder="Enter phone number"
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               isInvalid={!!phoneNumberError}
@@ -135,9 +155,7 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
           </Form.Group>
           <Form.Group controlId="formNotes">
             <Form.Label>Notes</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={3}
+            <Form.Control as="textarea" rows={3}
               placeholder="Enter notes (optional)"
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
@@ -151,11 +169,8 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
           <ul>
             {selectedProducts.map((product) => (
               <li key={product.id}>
-                {product.name} (Quantity: {product.quantity}, Price: {product.price} USD)
-                <Button
-                  variant="danger"
-                  size="sm"
-                  className="ml-2"
+                {product.name} {product.article} Quantity: {product.quantity} {product.unit}
+                <Button variant="danger" size="sm" className="ml-2"
                   onClick={() => handleDeleteProduct(product.id)}
                 >
                   <RiDeleteBinLine />
@@ -164,7 +179,7 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
             ))}
           </ul>
         )}
-        <h4>Total Quantity: {getTotalQuantity()}</h4>
+        <h4>Types of goods: {getTotalQuantity()}</h4>
         <h4>Total Price: {getTotalPrice()} USD</h4>
       </Modal.Body>
       <Modal.Footer>
@@ -175,38 +190,51 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
           Close
         </Button>   
       </Modal.Footer>
+    </Modal>
 
-      {orderContentState && (
+    {orderContentState && createPortal(
         <Modal.Dialog>
           <Modal.Header closeButton>
             <Modal.Title>Generated Order</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <PDFViewer width="100%" height="500px">
+            <PDFViewer width="100%" height="450px">
               <Document>
-                <Page size="A4" style={{ padding: '20px' }}>
-                  <View>
-                    <Text>{orderContentState}</Text>
+                <Page size="A4" style={styles.page}>
+                  <View style={styles.section}>
+                    <Text>{orderContentState.companyName}</Text>
+                    <Text>{orderContentState.userName}</Text>
+                    <Text>{orderContentState.phoneNumber}</Text>
+                    {/* Display additional details about the order */}
+                    {orderContentState.products.map((product) => (
+                      <View key={product.id}>
+                        <Text>{product.name} {product.article}</Text>
+                        <Text>{product.quantity}{product.unit}</Text>
+                      </View>
+                    ))}
+                    <Text>{orderContentState.notes}</Text>
+                    <Text>{orderContentState.totalQuantity}</Text>
+                    <Text>{orderContentState.totalPrice}</Text>
                   </View>
                 </Page>
               </Document>
             </PDFViewer>
           </Modal.Body>
-          <Modal.Footer>
-            <ButtonGroup className="mr-2">
-              <PDFDownloadLink document={<Document>{orderContentState}</Document>} fileName="gates-part-order.pdf">
+          <Modal.Footer>          
+              <PDFDownloadLink document={<MyDocument 
+                orderContent={orderContentState} />} 
+                fileName="gates-part-order.pdf">
                 {({ blob, url, loading, error }) =>
-                  loading ? 'Loading document...' : 'Download PDF'
-                }
-              </PDFDownloadLink>
-            </ButtonGroup>
+                  loading ? 'Loading document...' : 'Download PDF'}
+              </PDFDownloadLink>  
             <Button variant="secondary" onClick={handleCloseModal}>
               Close
             </Button>
           </Modal.Footer>
-        </Modal.Dialog>
-      )}
-    </Modal>
+        </Modal.Dialog>,
+        modalRoot
+      )}  
+    </>
   );
 };
 

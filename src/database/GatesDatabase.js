@@ -167,14 +167,6 @@ const GatesDatabase = {
       category: 'On Panel',
       imageA: images.A240031, imageB: images.B240031
     },
-    {
-      id: 'gdr104', name: 'Bottom bracket 18,0', article: '240034',
-      price: 13.50, unit: 'pair',
-      description: 'Corner bracket with T-stud for cable fixation.',
-      features: 'Offset=18,0. For HOME-F.',
-      category: 'On Panel',
-      imageA: images.A240034, imageB: images.B240034
-    },
 // gdr-ON-SHAFT
     {
       id: 'gdr106', name: 'Connection bracket', article: '235222',
