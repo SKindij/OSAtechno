@@ -173,7 +173,7 @@ const GatesDatabase = {
       description: 'Corner bracket with T-stud for cable fixation.',
       features: 'Offset=18,0. For HOME-F.',
       category: 'On Panel',
-      imageA: images.A240031, imageB: images.B240031
+      imageA: images.A240034, imageB: images.B240034
     },
 // gdr-ON-SHAFT
     {
@@ -202,7 +202,7 @@ const GatesDatabase = {
     },
 // gdr-RAILSYSTEM
     {
-      id: 'gdr105', name: 'Vertical trackset', article: '43006-2250',
+      id: 'gdr105', name: 'Vertical trackset', article: '43006',
       price: 120.00, unit: 'pair',	    
       description: 'Vertical trackset, bolted.',
       features: 'HOME',
