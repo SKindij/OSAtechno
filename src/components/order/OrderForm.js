@@ -1,23 +1,52 @@
 import React, { useState } from 'react';
 import { Form, Button, Modal } from 'react-bootstrap';
 import { RiDeleteBinLine } from 'react-icons/ri';
-import { PDFDownloadLink, Document, StyleSheet, PDFViewer, Page, View, Text } from '@react-pdf/renderer';
-import { createPortal } from 'react-dom';
-const modalRoot = document.getElementById('modal-root');
+import { Font, pdf, Document, StyleSheet, Page, View, Text } from '@react-pdf/renderer';
+//import ArialRegular from 'path/to/arial-regular.ttf';
+// import ArialBold from 'path/to/arial-bold.ttf';
 
-// Create styles
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'row',
-    backgroundColor: '#E4E4E4'
+    backgroundColor: '#E4E4E4',
+    padding: 20,
   },
   section: {
+    flexGrow: 1,
     margin: 10,
-    padding: 10,
-    flexGrow: 1
-  }
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  subtitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  productName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 3,
+  },
+  notes: {
+    fontFamily: 'Arial',
+    fontSize: 14,
+    marginVertical: 10,
+    marginBottom: 10,
+  },
+  total: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+  footer: {
+    fontSize: 12,
+    marginTop: 20,
+    color: 'gray',
+  },
 });
-
 
 const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
   const [companyName, setCompanyName] = useState('');
@@ -27,8 +56,6 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [phoneNumberError, setPhoneNumberError] = useState('');
   const [notes, setNotes] = useState('');
-  const [orderContentState, setOrderContentState] = useState('');
-  const [orderModalOpen, setOrderModalOpen] = useState(false);
 
   const handleDeleteProduct = (productId) => {
     const updatedSelectedProducts = selectedProducts.filter(
@@ -61,72 +88,88 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
   };
 
   const getTotalQuantity = () => {
-    const uniqueProducts = new Set(selectedProducts.map((product) => product.name));
+    const uniqueProducts = new Set(selectedProducts.map((product) => product.article));
     return uniqueProducts.size;
   };
+
   const getTotalPrice = () => {
     const totalPrice = selectedProducts.reduce(
-      (total, product) => total + product.price * product.quantity, 0 );
+      (total, product) => total + product.price * product.quantity, 0
+    );
     return totalPrice.toFixed(2);
   };
 
   const handleGenerateOrder = () => {
     if (validateForm()) {
       const orderContent = {
-        companyName,
-        userName,
-        phoneNumber,
-        products: selectedProducts,
-        notes,
+        companyName, userName, phoneNumber,
+        products: selectedProducts, notes,
         totalQuantity: getTotalQuantity(),
         totalPrice: getTotalPrice()
-      };     
-      setOrderContentState(orderContent);
-      setOrderModalOpen(true);
-    }
-  };
+      };
 
-  const handleCloseModal = () => {
-    if (orderModalOpen) {
-      setOrderModalOpen(false);
-      onClose();
-    }
-  };
+      // Generate PDF content
+      const MyDocument = () => (
+        <Document>
+          <Page size="A4" style={styles.page}>
+            <View style={styles.section}>
+              
 
-  const MyDocument = ({ orderContent }) => (
-    <Document>
-      <Page size="A4" style={styles.page}>
-        <View style={styles.section}>
-          <Text>Application for components for sectional doors</Text>
-          
-          <Text>{orderContent.companyName}</Text>
-          <Text>{orderContent.userName}</Text>
-          <Text>{orderContent.phoneNumber}</Text>
-          {/* Display additional details about the order */}
-          {orderContent.products.map((product) => (
-            <View key={product.id}>
-              <Text>{product.name} {product.article}</Text>
-              <Text>{product.quantity}{product.unit}</Text>
+              <Text style={styles.subtitle}>{orderContent.companyName}</Text>
+              <Text style={styles.subtitle}>{orderContent.userName}</Text>
+              <Text style={styles.subtitle}>{orderContent.phoneNumber}{'\n'}</Text>
+
+              <Text style={styles.title}>Application for components for sectional doors</Text>
+              {/* Display details about the order */}
+              {orderContent.products.map((product) => (
+                <View key={product.id}>
+                  <Text style={styles.productName}>{product.name} {product.article}.
+                   Quantity: {product.quantity}{product.unit}</Text>
+                </View>
+              ))}
+      
+              <Text style={styles.notes}>{orderContent.notes}{'\n'}</Text>
+
+              <Text style={styles.total}>Type of goods: {orderContent.totalQuantity}</Text>
+              <Text style={styles.total}>Total Price: {orderContent.totalPrice}{'\n'}</Text>
+      
+              <Text style={styles.footer}>Created using "OSAtechno" web service.</Text>
             </View>
-          ))}
-          <Text>{orderContent.notes}</Text>
-          <Text>{orderContent.totalQuantity}</Text>
-          <Text>{orderContent.totalPrice}</Text>
-          <Text>Created using "OSAtechno" web service.</Text>
-        </View>
-      </Page>
-    </Document>
-  );
+          </Page>
+        </Document>
+      );
+
+ // Create a Blob with PDF data
+ const pdfBlob = async () => {
+  const pdfBlobInstance = await pdf(<MyDocument />).toBlob();
+  return pdfBlobInstance;
+};
+
+pdfBlob().then((blob) => {
+  // Create a URL from the Blob
+  const url = URL.createObjectURL(blob);
+
+  // Create a link for downloading the PDF
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'order.pdf';
+  link.click();
+
+  // Cleanup
+  URL.revokeObjectURL(url);
+  onClose();
+});
+}
+};
 
   return (
-    <>
-    <Modal show onHide={handleCloseModal} size="lg">
+    <Modal show={true} onHide={onClose}>
       <Modal.Header closeButton>
         <Modal.Title>Order Form</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
-          <Form.Group controlId="formCompanyName">
+        <Form.Group controlId="formCompanyName">
             <Form.Label>Company Name</Form.Label>
             <Form.Control type="text" placeholder="Enter company name"
               value={companyName}
@@ -162,6 +205,7 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
             />
           </Form.Group>
         </Form>
+
         <h4>Selected Products</h4>
         {selectedProducts.length === 0 ? (
           <p>No products selected.</p>
@@ -179,62 +223,25 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
             ))}
           </ul>
         )}
-        <h4>Types of goods: {getTotalQuantity()}</h4>
-        <h4>Total Price: {getTotalPrice()} USD</h4>
+
+        {/* Display total quantity and total price */}
+        <div>
+          <strong>Total Quantity:</strong> {getTotalQuantity()}
+        </div>
+        <div>
+          <strong>Total Price:</strong> ${getTotalPrice()}
+        </div>
       </Modal.Body>
       <Modal.Footer>
+      
         <Button variant="primary" onClick={handleGenerateOrder}>
           Generate Order
         </Button>
-        <Button variant="secondary" onClick={handleCloseModal}>
-          Close
-        </Button>   
+        <Button variant="secondary" onClick={onClose}>
+          Cancel
+        </Button>
       </Modal.Footer>
     </Modal>
-
-    {orderContentState && createPortal(
-        <Modal.Dialog>
-          <Modal.Header closeButton>
-            <Modal.Title>Generated Order</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <PDFViewer width="100%" height="450px">
-              <Document>
-                <Page size="A4" style={styles.page}>
-                  <View style={styles.section}>
-                    <Text>{orderContentState.companyName}</Text>
-                    <Text>{orderContentState.userName}</Text>
-                    <Text>{orderContentState.phoneNumber}</Text>
-                    {/* Display additional details about the order */}
-                    {orderContentState.products.map((product) => (
-                      <View key={product.id}>
-                        <Text>{product.name} {product.article}</Text>
-                        <Text>{product.quantity}{product.unit}</Text>
-                      </View>
-                    ))}
-                    <Text>{orderContentState.notes}</Text>
-                    <Text>{orderContentState.totalQuantity}</Text>
-                    <Text>{orderContentState.totalPrice}</Text>
-                  </View>
-                </Page>
-              </Document>
-            </PDFViewer>
-          </Modal.Body>
-          <Modal.Footer>          
-              <PDFDownloadLink document={<MyDocument 
-                orderContent={orderContentState} />} 
-                fileName="gates-part-order.pdf">
-                {({ blob, url, loading, error }) =>
-                  loading ? 'Loading document...' : 'Download PDF'}
-              </PDFDownloadLink>  
-            <Button variant="secondary" onClick={handleCloseModal}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal.Dialog>,
-        modalRoot
-      )}  
-    </>
   );
 };
 
