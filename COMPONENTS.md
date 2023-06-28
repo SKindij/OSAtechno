@@ -33,15 +33,14 @@
 > _-there is a form where the user can enter his data;_\
 > _-here is the "Notes to order" field;_\
 > _-contains "Delete item" and "Order Summary" buttons;_
-15. **OrderSummary.js**
 > _-displays the overall summary of the order as a modal window;_\
 > _-contains "Print" and "Save" buttons;_
 
 ## ├── database/
-17. **GatesDatabase.js** &emsp; - _module that contains data about available gate accessories;_
-18. **RollersDatabase.js** &emsp; - _module that contains data about available roller accessories;_
+15. **GatesDatabase.js** &emsp; - _module that contains data about available gate accessories;_
+16. **RollersDatabase.js** &emsp; - _module that contains data about available roller accessories;_
 > _they are simply modules with data that will be imported into the required components;_
 
 ## ├── services/
-19. **DataService.js** &emsp; - _service module that provides access to reading product data;_
-20. **AuthService.js** &emsp; - _service module responsible for user authentication and authorization;_
+17. **DataService.js** &emsp; - _service module that provides access to reading product data;_
+18. **AuthService.js** &emsp; - _service module responsible for user authentication and authorization;_
