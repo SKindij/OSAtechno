@@ -26,32 +26,42 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
   };
 
 const orderContent = `
-      Company: ${companyName}
-      User: ${userName}
-      Phone: ${phoneNumber}     
-      Selected Products:
+  <div style="font-family: Arial, sans-serif; line-height: 1.5;">
+    <h2 style="color: #333; font-size: 24px; font-weight: bold;">Application for components for sectional doors</h2>
+    <h3 style="color: #666; font-size: 18px; font-weight: bold; margin-top: 20px;">Company: ${companyName}</h3>
+    <h3 style="color: #666; font-size: 18px; font-weight: bold;">User: ${userName}</h3>
+    <h3 style="color: #666; font-size: 18px; font-weight: bold;">Phone: ${phoneNumber}</h3>    
+    <h3 style="color: #333; font-size: 20px; font-weight: bold; margin-top: 30px;">Selected Products:</h3>
+    <ul style="list-style-type: disc; margin-left: 20px; margin-top: 10px;">
       ${selectedProducts
-        .map(
-          (product) =>
-            `${product.name} ${product.article} ${product.quantity} ${product.unit}`
-        )
-        .join('<br />')}     
-      Notes to Order:
-      ${notes}     
+        .map( (product) => `
+              <li>
+                <span style="font-weight: bold;">${product.name} ${product.article}</span> 
+                - ${product.quantity} ${product.unit}
+              </li>`
+        ).join('')}
+    </ul>    
+    <h3 style="color: #333; font-size: 20px; font-weight: bold; margin-top: 30px;">Notes to Order:</h3>
+    <p>${notes}</p> 
+    <p style="color: #333; font-size: 18px; font-weight: bold; margin-top: 30px;">
       Total Quantity: ${getTotalQuantity()}
-      Total Price: ${getTotalPrice().toFixed(2)}
-    `;
+    </p>
+    <p style="color: #333; font-size: 18px; font-weight: bold;">
+      Total Price: ${getTotalPrice().toFixed(2)} €
+    </p>
+    <p style="color: #666; font-size: 14px; margin-top: 30px;">
+      Created using "OSAtechno" web service.
+    </p>
+  </div>
+`;
   
-  const handlePrint = () => {    
-    const printWindow = window.open('', '_blank');
-      printWindow.document.write(`<html><body>${orderContent}</body></html>`);
-      printWindow.document.close();
-      printWindow.print();
-    console.log('Print the Order');
+  const handleView = () => {   
+    
+    console.log('View the Order');
   };
 
   const handleSave = () => {
-    // Handle save functionality
+
     console.log('Save the Order as PDF file.');
   };
 
@@ -129,7 +139,7 @@ const orderContent = `
         <Button variant="light" aria-label="Print the order"
           disabled={selectedProducts.length === 0}
           onClick={handlePrint}>
-          Print
+          View
         </Button>
         <Button variant="light" aria-label="Save the order"
           disabled={selectedProducts.length === 0}
@@ -150,5 +160,4 @@ const orderContent = `
     </Modal>
   );
 };
-
 export default OrderForm;
