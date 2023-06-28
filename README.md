@@ -54,7 +54,6 @@ src/
 │   │   └── Pages.scss
 │   └── order/
 │       ├── OrderForm.js
-│       ├── OrderSummary.js
 │       └── Order.scss
 ├── database/
 │   ├── dbImages.js
