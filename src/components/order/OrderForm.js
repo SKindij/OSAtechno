@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 import { Form, Button, Modal, ButtonGroup } from 'react-bootstrap';
 import { RiDeleteBinLine } from 'react-icons/ri';
-import { PDFDownloadLink, PDFViewer, Document, Page, Text } from '@react-pdf/renderer';
+import {
+  Document,
+  PDFDownloadLink,
+  PDFViewer,
+  Page,
+  View,
+  Text
+} from '@react-pdf/renderer';
 
 const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
   const [companyName, setCompanyName] = useState('');
+  const [companyNameError, setCompanyNameError] = useState('');
   const [userName, setUserName] = useState('');
+  const [userNameError, setUserNameError] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumberError, setPhoneNumberError] = useState('');
   const [notes, setNotes] = useState('');
+  const [orderContentState, setOrderContentState] = useState('');
 
   const handleDeleteProduct = (productId) => {
     const updatedSelectedProducts = selectedProducts.filter(
@@ -15,193 +26,187 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
     );
     setSelectedProducts(updatedSelectedProducts);
   };
-  const getTotalQuantity = () => {
-    return selectedProducts.reduce(
-      (total, product) => total + product.quantity, 0
-    );
+
+  const validateForm = () => {
+    let isValid = true;
+    if (companyName.trim() === '') {
+      setCompanyNameError('Company name is required.');
+      isValid = false;
+    } else {
+      setCompanyNameError('');
+    }
+    if (userName.trim() === '') {
+      setUserNameError('User name is required.');
+      isValid = false;
+    } else {
+      setUserNameError('');
+    }
+    if (phoneNumber.trim() === '') {
+      setPhoneNumberError('Phone number is required.');
+      isValid = false;
+    } else {
+      setPhoneNumberError('');
+    }
+    return isValid;
   };
+
+  const getTotalQuantity = () => {
+    return selectedProducts.reduce((total, product) => total + product.quantity, 0);
+  };
+
   const getTotalPrice = () => {
     return selectedProducts.reduce(
-      (total, product) => total + product.price * product.quantity, 0
+      (total, product) => total + product.price * product.quantity,
+      0
     );
   };
 
-const orderContent = `
-  <div style="font-family: Arial, sans-serif; line-height: 1.5;">
-    <h2 style="color: #333; font-size: 24px; font-weight: bold;">Application for components for sectional doors</h2>
-    <h3 style="color: #666; font-size: 18px; font-weight: bold; margin-top: 20px;">Company: ${companyName}</h3>
-    <h3 style="color: #666; font-size: 18px; font-weight: bold;">User: ${userName}</h3>
-    <h3 style="color: #666; font-size: 18px; font-weight: bold;">Phone: ${phoneNumber}</h3>    
-    <h3 style="color: #333; font-size: 20px; font-weight: bold; margin-top: 30px;">Selected Products:</h3>
-    <ul style="list-style-type: disc; margin-left: 20px; margin-top: 10px;">
-      ${selectedProducts
-        .map( (product) => `
-              <li>
-                <span style="font-weight: bold;">${product.name} ${product.article}</span> 
-                - ${product.quantity} ${product.unit}
-              </li>`
-        ).join('')}
-    </ul>    
-    <h3 style="color: #333; font-size: 20px; font-weight: bold; margin-top: 30px;">Notes to Order:</h3>
-    <p>${notes}</p> 
-    <p style="color: #333; font-size: 18px; font-weight: bold; margin-top: 30px;">
-      Total Quantity: ${getTotalQuantity()}
-    </p>
-    <p style="color: #333; font-size: 18px; font-weight: bold;">
-      Total Price: ${getTotalPrice().toFixed(2)} €
-    </p>
-    <p style="color: #666; font-size: 14px; margin-top: 30px;">
-      Created using "OSAtechno" web service.
-    </p>
-  </div>
-`;
-  
-const handleView = () => {   
-  const MyDocument = () => (
-     <Document>
-        <Page>
-          <Text>{orderContent}</Text>
-        </Page>
-     </Document>
-  );    
-  const Viewer = () => (
-    <PDFViewer width="100%" height={600}>
-        <MyDocument />
-    </PDFViewer>
-  );  
-  const win = window.open();
-    win.document.write(`
-      <html>
-        <head>
-          <title>Order Preview</title>
-        </head>
-        <body style="margin: 0;">
-          <div id="root"></div>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.production.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
-          <script type="text/babel">
-            const App = () => <Viewer />;
-            ReactDOM.render(<App />, document.getElementById("root"));
-          </script>
-        </body>
-      </html>
-  `);  
-  console.log('View the Order');
-};
+  const orderContent = `
+    Application for components for sectional doors
 
-const handleSave = () => {
-  const MyDocument = () => (
-    <Document>
-      <Page>
-        <Text>{orderContent}</Text>
-      </Page>
-    </Document>
-  );
-  const fileName = 'order.pdf';
-    return (
-      <PDFDownloadLink document={<MyDocument />} fileName={fileName}>
-        {({ blob, url, loading, error }) =>
-          loading ? 'Generating PDF...' : 'Download PDF'
-        }
-      </PDFDownloadLink>
-  );
-  console.log('Save the Order as PDF file.');
-};
+    Company Name: ${companyName}
+    User Name: ${userName}
+    Phone Number: ${phoneNumber}
+
+    Selected products:
+    ${selectedProducts
+      .map((product) => `${product.name} (Quantity: ${product.quantity}, Price: ${product.price} USD)`)
+      .join('\n')}
+
+    Notes:
+    ${notes}
+
+    Total quantity: ${getTotalQuantity()}
+    Total price: ${getTotalPrice()} USD
+
+    Created using "OSAtechno" web service.
+  `;
+
+  const handleGenerateOrder = () => {
+    if (validateForm()) {
+      setOrderContentState(orderContent);
+    }
+  };
+  const handleCloseModal = () => {
+    setOrderContentState('');
+    onClose();
+  };
 
   return (
-    <Modal show={true} onHide={onClose}
-      backdrop='static' keyboard={false}
-    >
+    <Modal show onHide={handleCloseModal} size="lg">
       <Modal.Header closeButton>
         <Modal.Title>Order Form</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {/* Form for company name, user name, and phone number */}
         <Form>
-          <Form.Group controlId='companyName' className="mb-3">
+          <Form.Group controlId="formCompanyName">
             <Form.Label>Company Name</Form.Label>
-            <Form.Control type='text' placeholder='Enter company name' 
-              value={companyName} required size="sm"
-              onChange={(e) => setCompanyName(e.target.value)} 
+            <Form.Control
+              type="text"
+              placeholder="Enter company name"
+              value={companyName}
+              onChange={(e) => setCompanyName(e.target.value)}
+              isInvalid={!!companyNameError}
             />
+            <Form.Control.Feedback type="invalid">{companyNameError}</Form.Control.Feedback>
           </Form.Group>
-          <Form.Group controlId='userName' className="mb-3">
+          <Form.Group controlId="formUserName">
             <Form.Label>User Name</Form.Label>
-            <Form.Control type='text' placeholder='Enter user name'
-              value={userName} required size="sm"
+            <Form.Control
+              type="text"
+              placeholder="Enter user name"
+              value={userName}
               onChange={(e) => setUserName(e.target.value)}
+              isInvalid={!!userNameError}
             />
+            <Form.Control.Feedback type="invalid">{userNameError}</Form.Control.Feedback>
           </Form.Group>
-          <Form.Group controlId='phoneNumber' className="mb-3">
+          <Form.Group controlId="formPhoneNumber">
             <Form.Label>Phone Number</Form.Label>
-            <Form.Control type='tel' placeholder='Enter phone number'
-              value={phoneNumber} required size="sm"
+            <Form.Control
+              type="text"
+              placeholder="Enter phone number"
+              value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
+              isInvalid={!!phoneNumberError}
             />
-            <Form.Text className="text-muted">
-              We'll never share your data with anyone else.
-            </Form.Text>
+            <Form.Control.Feedback type="invalid">{phoneNumberError}</Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group controlId="formNotes">
+            <Form.Label>Notes</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              placeholder="Enter notes (optional)"
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+            />
           </Form.Group>
         </Form>
-        <br />
-        {selectedProducts && selectedProducts.length > 0 ? (
-          <div>
-            <p style={{ fontWeight: 'bold' }}>Selected Products:</p>
-            <ul>
-              {selectedProducts.map((product) => (
-                <li key={product.id}>
-                  {product.name} {product.article} - {product.quantity} {product.unit}
-                  <Button variant="danger" size="sm" style={{ marginLeft: '10px' }}
-                    onClick={() => handleDeleteProduct(product.id)}>
-                      <RiDeleteBinLine />
-                  </Button>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <h4>Selected Products</h4>
+        {selectedProducts.length === 0 ? (
+          <p>No products selected.</p>
         ) : (
-          <p style={{ fontWeight: 'bold' }}>No products selected.</p>
+          <ul>
+            {selectedProducts.map((product) => (
+              <li key={product.id}>
+                {product.name} (Quantity: {product.quantity}, Price: {product.price} USD)
+                <Button
+                  variant="danger"
+                  size="sm"
+                  className="ml-2"
+                  onClick={() => handleDeleteProduct(product.id)}
+                >
+                  <RiDeleteBinLine />
+                </Button>
+              </li>
+            ))}
+          </ul>
         )}
-        <br />
-        <p style={{ fontWeight: 'bold' }}>Notes to Order:</p>
-        <Form.Group>
-          <Form.Control
-            as='textarea'
-            rows={3}
-            value={notes}
-            onChange={(e) => setNotes(e.target.value)}
-          />
-        </Form.Group>
-          <p>Total Quantity: {getTotalQuantity()}</p>
-          <p>Total Price: {getTotalPrice().toFixed(2)} €</p>
+        <h4>Total Quantity: {getTotalQuantity()}</h4>
+        <h4>Total Price: {getTotalPrice()} USD</h4>
       </Modal.Body>
       <Modal.Footer>
-  <div className="d-flex justify-content-between w-100">
-    <div>
-      <ButtonGroup aria-label="First group">
-        <Button variant="light" aria-label="Print the order"
-          disabled={selectedProducts.length === 0}
-          onClick={handlePrint}>
-          View
+        <Button variant="primary" onClick={handleGenerateOrder}>
+          Generate Order
         </Button>
-        <Button variant="light" aria-label="Save the order"
-          disabled={selectedProducts.length === 0}
-          onClick={handleSave}>
-          Save
-        </Button>
-      </ButtonGroup>
-    </div>
-    <div>
-      <ButtonGroup aria-label="Second group">
-        <Button variant="secondary" onClick={onClose}>
+        <Button variant="secondary" onClick={handleCloseModal}>
           Close
-        </Button>
-      </ButtonGroup>
-    </div>
-  </div>
-</Modal.Footer>
+        </Button>   
+      </Modal.Footer>
+
+      {orderContentState && (
+        <Modal.Dialog>
+          <Modal.Header closeButton>
+            <Modal.Title>Generated Order</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <PDFViewer width="100%" height="500px">
+              <Document>
+                <Page size="A4" style={{ padding: '20px' }}>
+                  <View>
+                    <Text>{orderContentState}</Text>
+                  </View>
+                </Page>
+              </Document>
+            </PDFViewer>
+          </Modal.Body>
+          <Modal.Footer>
+            <ButtonGroup className="mr-2">
+              <PDFDownloadLink document={<Document>{orderContentState}</Document>} fileName="gates-part-order.pdf">
+                {({ blob, url, loading, error }) =>
+                  loading ? 'Loading document...' : 'Download PDF'
+                }
+              </PDFDownloadLink>
+            </ButtonGroup>
+            <Button variant="secondary" onClick={handleCloseModal}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal.Dialog>
+      )}
     </Modal>
   );
 };
+
 export default OrderForm;
