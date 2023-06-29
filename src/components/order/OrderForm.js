@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Modal } from 'react-bootstrap';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { Font, pdf, Document, StyleSheet, Page, View, Text } from '@react-pdf/renderer';
+import './Order.scss';
 // importing font files
 import NotoSerifRegular from '../../resources/NotoSerif-Regular.ttf';
 import NotoSerifSemiBoldItalic from '../../resources/NotoSerif-SemiBoldItalic.ttf';
@@ -159,34 +160,34 @@ const handleGenerateOrder = () => {
 };
 
   return (
-    <Modal show={true} onHide={onClose}>
+    <Modal show={true} onHide={onClose} className="order-modal">
       <Modal.Header closeButton>
         <Modal.Title>Order Form</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
         <Form.Group controlId="formCompanyName">
-            <Form.Label>Company Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter company name"
-              value={companyName}
+            <Form.Label className="form-label">Company Name</Form.Label>
+            <Form.Control type="text" className="form-control"
+              value={companyName} placeholder="Enter company name"
               onChange={(e) => setCompanyName(e.target.value)}
               isInvalid={!!companyNameError}
             />
             <Form.Control.Feedback type="invalid">{companyNameError}</Form.Control.Feedback>
           </Form.Group>
           <Form.Group controlId="formUserName">
-            <Form.Label>User Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter user name"
-              value={userName}
+            <Form.Label className="form-label">User Name</Form.Label>
+            <Form.Control type="text" className="form-control"
+              value={userName} placeholder="Enter user name"
               onChange={(e) => setUserName(e.target.value)}
               isInvalid={!!userNameError}
             />
             <Form.Control.Feedback type="invalid">{userNameError}</Form.Control.Feedback>
           </Form.Group>
           <Form.Group controlId="formPhoneNumber">
-            <Form.Label>Phone Number</Form.Label>
-            <Form.Control type="text" placeholder="Enter phone number"
-              value={phoneNumber}
+            <Form.Label className="form-label">Phone Number</Form.Label>
+            <Form.Control type="text" className="form-control"
+              value={phoneNumber} placeholder="Enter phone number"
               onChange={(e) => setPhoneNumber(e.target.value)}
               isInvalid={!!phoneNumberError}
             />
@@ -194,15 +195,16 @@ const handleGenerateOrder = () => {
             <Form.Text className="text-muted">We'll never share your data with anyone else.</Form.Text>
           </Form.Group>
           <Form.Group controlId="formNotes">
-            <Form.Label>Notes</Form.Label>
+            <Form.Label className="form-label">Notes</Form.Label>
             <Form.Control as="textarea" rows={3}
               placeholder="Enter here your notes (optional)."
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
+              className="form-control" 
             />
           </Form.Group>
         </Form>
-
+        <div className="selected-products">
         <h4>Selected Products</h4>
         {selectedProducts.length === 0 ? (
           <p>No products selected.</p>
@@ -220,12 +222,11 @@ const handleGenerateOrder = () => {
             ))}
           </ul>
         )}
-
-        {/* Display total quantity and total price */}
-        <div>
+        </div>
+        <div className="total-quantity">
           <strong>Type of goods:</strong> {getTotalQuantity()}
         </div>
-        <div>
+        <div className="total-price">
           <strong>Total Price:</strong> {getTotalPrice()} EURO
         </div>
       </Modal.Body>
@@ -241,5 +242,4 @@ const handleGenerateOrder = () => {
     </Modal>
   );
 };
-
 export default OrderForm;
