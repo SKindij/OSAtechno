@@ -77,8 +77,10 @@ const handleQuantityChange = (event, productId) => {
         (product) => product.id === productId
       );
       if (existingProductIndex !== -1) {
-        // The product already exists, update its quantity
-        updatedSelectedProducts[existingProductIndex].quantity += quantity;
+        // The product already exists, check if the quantity is different
+        if (updatedSelectedProducts[existingProductIndex].quantity !== quantity) {
+          updatedSelectedProducts[existingProductIndex].quantity = quantity;
+        }
       } else {
         // Add a new product to the list
         updatedSelectedProducts.push({
