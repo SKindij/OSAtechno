@@ -2,64 +2,53 @@ import React, { useState } from 'react';
 import { Form, Button, Modal } from 'react-bootstrap';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { Font, pdf, Document, StyleSheet, Page, View, Text } from '@react-pdf/renderer';
-// Paths to font files
-const notoSerifFontRegularPath = '../../resources/NotoSerif-Regular.ttf';
-const notoSerifFontSemiBoldItalicPath = '../../resources/NotoSerif-SemiBoldItalic.ttf';
-const notoSerifFontBoldPath = '../../resources/NotoSerif-Bold.ttf';
-// Loading fonts
-const [notoSerifFontRegular, notoSerifFontSemiBoldItalic, notoSerifFontBold] = await Promise.all([
-  Font.load(await fetch(notoSerifFontRegularPath).then((res) => res.arrayBuffer())),
-  Font.load(await fetch(notoSerifFontSemiBoldItalicPath).then((res) => res.arrayBuffer())),
-  Font.load(await fetch(notoSerifFontBoldPath).then((res) => res.arrayBuffer())),
-]);
-// Adding fonts to the document
-pdfDoc.registerFont('NotoSerifRegular', notoSerifFontRegular);
-pdfDoc.registerFont('NotoSerifSemiBoldItalic', notoSerifFontSemiBoldItalic);
-pdfDoc.registerFont('NotoSerifBold', notoSerifFontBold);
-
-
-
+// importing font files
+import NotoSerifRegular from '../../resources/NotoSerif-Regular.ttf';
+import NotoSerifSemiBoldItalic from '../../resources/NotoSerif-SemiBoldItalic.ttf';
+import NotoSerifBold from '../../resources/NotoSerif-Bold.ttf';
+// font registration
+Font.register({
+  family: 'NotoSerif',
+  fonts: [
+    { src: NotoSerifRegular },
+    { src: NotoSerifSemiBoldItalic, fontStyle: 'italic', fontWeight: 'semiBold' },
+    { src: NotoSerifBold, fontWeight: 'bold' },
+  ],
+});
 
 const styles = StyleSheet.create({
   page: {
-    flexDirection: 'row',
-    backgroundColor: '#E4E4E4',
-    padding: 20,
+    fontFamily: 'NotoSerif', fontSize: 12,
+    flexDirection: 'row', backgroundColor: '#E4E4E4',
+    padding: 30,
   },
   section: {
-    flexGrow: 1,
-    margin: 10,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 10,
+    flexGrow: 1, margin: 10,
   },
   subtitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 14, fontStyle: 'italic', fontWeight: 'semiBold',
     marginBottom: 5,
+  },  
+  title: {
+    fontFamily: 'NotoSerif', fontWeight: 'bold', fontSize: 18,
+    marginBottom: 10,
   },
+
   productName: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 16, fontWeight: 'bold',
     marginBottom: 3,
   },
   notes: {
-    fontFamily: 'Arial',
     fontSize: 14,
-    marginVertical: 10,
-    marginBottom: 10,
+    marginVertical: 10, marginBottom: 10,
   },
   total: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 16, fontWeight: 'bold',
     marginTop: 10,
   },
   footer: {
-    fontSize: 12,
-    marginTop: 20,
-    color: 'gray',
+    fontSize: 10,     color: 'gray',
+    marginTop: 30, textAlign: 'center'
   },
 });
 
@@ -114,68 +103,59 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
     return totalPrice.toFixed(2);
   };
 
-  const handleGenerateOrder = () => {
-    if (validateForm()) {
+const handleGenerateOrder = () => {
+   if (validateForm()) {
       const orderContent = {
-        companyName, userName, phoneNumber,
-        products: selectedProducts, notes,
-        totalQuantity: getTotalQuantity(),
-        totalPrice: getTotalPrice()
+         companyName, userName, phoneNumber,
+         products: selectedProducts, notes,
+         totalQuantity: getTotalQuantity(),
+         totalPrice: getTotalPrice()
       };
-
-      // Generate PDF content
-      const MyDocument = () => (
+    // Create a Blob with PDF data
+    const pdfBlob = async () => {
+      const pdfBlobInstance = await pdf(
         <Document>
           <Page size="A4" style={styles.page}>
             <View style={styles.section}>
-              
-
               <Text style={styles.subtitle}>{orderContent.companyName}</Text>
               <Text style={styles.subtitle}>{orderContent.userName}</Text>
               <Text style={styles.subtitle}>{orderContent.phoneNumber}{'\n'}</Text>
-
+            </View>
+            <View style={styles.section}>
               <Text style={styles.title}>Application for components for sectional doors</Text>
               {/* Display details about the order */}
               {orderContent.products.map( (product) => (
-                <View key={product.id}>
-                  <Text style={styles.productName}>
-                    {product.article} {product.name}: {product.quantity} {product.unit}
-                  </Text>
-                </View>
+                  <View key={product.id}>
+                     <Text style={styles.productName}>
+                        {product.article} {product.name}: {product.quantity} {product.unit}
+                     </Text>
+                  </View>
                )) }
-      
+            <View style={styles.section}>
               <Text style={styles.notes}>{orderContent.notes}{'\n'}</Text>
-
               <Text style={styles.total}>Type of goods: {orderContent.totalQuantity}</Text>
-              <Text style={styles.total}>Total Price: {orderContent.totalPrice}{'\n'}</Text>
-      
+              <Text style={styles.total}>Total Price: {orderContent.totalPrice}{'\n'}</Text>      
               <Text style={styles.footer}>Created using "OSAtechno" web service.</Text>
             </View>
           </Page>
         </Document>
-      );
+        ).toBlob();
+      return pdfBlobInstance;
+    };
 
- // Create a Blob with PDF data
- const pdfBlob = async () => {
-  const pdfBlobInstance = await pdf(<MyDocument />).toBlob();
-  return pdfBlobInstance;
-};
-
-pdfBlob().then((blob) => {
-  // Create a URL from the Blob
-  const url = URL.createObjectURL(blob);
-
-  // Create a link for downloading the PDF
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = 'order.pdf';
-  link.click();
-
-  // Cleanup
-  URL.revokeObjectURL(url);
-  onClose();
-});
-}
+    pdfBlob().then( (blob) => {
+      // create a URL from the Blob
+      const url = URL.createObjectURL(blob);
+      // create a link for downloading the PDF
+      const link = document.createElement('a');
+        link.href = url;
+        link.download = 'order.pdf';
+        link.click();
+      // Cleanup
+      URL.revokeObjectURL(url);
+      onClose();
+    } );
+  }
 };
 
   return (
@@ -211,11 +191,12 @@ pdfBlob().then((blob) => {
               isInvalid={!!phoneNumberError}
             />
             <Form.Control.Feedback type="invalid">{phoneNumberError}</Form.Control.Feedback>
+            <Form.Text className="text-muted">We'll never share your data with anyone else.</Form.Text>
           </Form.Group>
           <Form.Group controlId="formNotes">
             <Form.Label>Notes</Form.Label>
             <Form.Control as="textarea" rows={3}
-              placeholder="Enter notes (optional)"
+              placeholder="Enter here your notes (optional)."
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
             />
@@ -242,10 +223,10 @@ pdfBlob().then((blob) => {
 
         {/* Display total quantity and total price */}
         <div>
-          <strong>Total Quantity:</strong> {getTotalQuantity()}
+          <strong>Type of goods:</strong> {getTotalQuantity()}
         </div>
         <div>
-          <strong>Total Price:</strong> ${getTotalPrice()}
+          <strong>Total Price:</strong> {getTotalPrice()} EURO
         </div>
       </Modal.Body>
       <Modal.Footer>
