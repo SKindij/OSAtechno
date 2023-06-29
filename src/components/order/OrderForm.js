@@ -1,25 +1,12 @@
 import React, { useState } from 'react';
 import { Form, Button, Modal } from 'react-bootstrap';
 import { RiDeleteBinLine } from 'react-icons/ri';
-import { Font, pdf, Document, StyleSheet, Page, View, Text } from '@react-pdf/renderer';
+import { pdf, Document, StyleSheet, Page, View, Text } from '@react-pdf/renderer';
 import './Order.scss';
-// importing font files
-import NotoSerifRegular from '../../resources/NotoSerif-Regular.ttf';
-import NotoSerifSemiBoldItalic from '../../resources/NotoSerif-SemiBoldItalic.ttf';
-import NotoSerifBold from '../../resources/NotoSerif-Bold.ttf';
-// font registration
-Font.register({
-  family: 'NotoSerif',
-  fonts: [
-    { src: NotoSerifRegular },
-    { src: NotoSerifSemiBoldItalic, fontStyle: 'italic', fontWeight: 'semiBold' },
-    { src: NotoSerifBold, fontWeight: 'bold' },
-  ],
-});
 
 const styles = StyleSheet.create({
   page: {
-    fontFamily: 'NotoSerif', fontSize: 12,
+    fontSize: 12,
     backgroundColor: '#E4E4E4',
     padding: 30,
   },
@@ -27,7 +14,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   section: {
-    
     margin: 10,
   },
   subtitle: {
@@ -35,17 +21,12 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },  
   title: {
-    fontFamily: 'NotoSerif', fontWeight: 'bold', fontSize: 18,
+    fontWeight: 'bold', fontSize: 18,
     marginBottom: 10,
   },
-
   productName: {
     fontSize: 16, fontWeight: 'bold',
     marginBottom: 3,
-  },
-  notes: {
-    fontSize: 14,
-    marginVertical: 10, marginBottom: 10,
   },
   total: {
     fontSize: 16, fontWeight: 'bold',
@@ -64,7 +45,6 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
   const [userNameError, setUserNameError] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [phoneNumberError, setPhoneNumberError] = useState('');
-  const [notes, setNotes] = useState('');
 
   const handleDeleteProduct = (productId) => {
     const updatedSelectedProducts = selectedProducts.filter(
@@ -112,7 +92,7 @@ const handleGenerateOrder = () => {
    if (validateForm()) {
       const orderContent = {
          companyName, userName, phoneNumber,
-         products: selectedProducts, notes,
+         products: selectedProducts,
          totalQuantity: getTotalQuantity(),
          totalPrice: getTotalPrice()
       };
@@ -139,7 +119,6 @@ const handleGenerateOrder = () => {
                )) }
             </View> 
             <View style={styles.section}>
-              <Text style={styles.notes}>{orderContent.notes}{'\n'}</Text>
               <Text style={styles.total}>Type of goods: {orderContent.totalQuantity}</Text>
               <Text style={styles.total}>Total Price: {orderContent.totalPrice}{'\n'}</Text>      
               <Text style={styles.footer}>Created using "OSAtechno" web service.</Text>
@@ -200,15 +179,6 @@ const handleGenerateOrder = () => {
             />
             <Form.Control.Feedback type="invalid">{phoneNumberError}</Form.Control.Feedback>
             <Form.Text className="text-muted">We'll never share your data with anyone else.</Form.Text>
-          </Form.Group>
-          <Form.Group controlId="formNotes">
-            <Form.Label className="form-label">Notes</Form.Label>
-            <Form.Control as="textarea" rows={3}
-              placeholder="Enter here your notes (optional)."
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
-              className="form-control" 
-            />
           </Form.Group>
         </Form>
         <div className="selected-products">
