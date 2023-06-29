@@ -2,8 +2,23 @@ import React, { useState } from 'react';
 import { Form, Button, Modal } from 'react-bootstrap';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { Font, pdf, Document, StyleSheet, Page, View, Text } from '@react-pdf/renderer';
-//import ArialRegular from 'path/to/arial-regular.ttf';
-// import ArialBold from 'path/to/arial-bold.ttf';
+// Paths to font files
+const notoSerifFontRegularPath = '../../resources/NotoSerif-Regular.ttf';
+const notoSerifFontSemiBoldItalicPath = '../../resources/NotoSerif-SemiBoldItalic.ttf';
+const notoSerifFontBoldPath = '../../resources/NotoSerif-Bold.ttf';
+// Loading fonts
+const [notoSerifFontRegular, notoSerifFontSemiBoldItalic, notoSerifFontBold] = await Promise.all([
+  Font.load(await fetch(notoSerifFontRegularPath).then((res) => res.arrayBuffer())),
+  Font.load(await fetch(notoSerifFontSemiBoldItalicPath).then((res) => res.arrayBuffer())),
+  Font.load(await fetch(notoSerifFontBoldPath).then((res) => res.arrayBuffer())),
+]);
+// Adding fonts to the document
+pdfDoc.registerFont('NotoSerifRegular', notoSerifFontRegular);
+pdfDoc.registerFont('NotoSerifSemiBoldItalic', notoSerifFontSemiBoldItalic);
+pdfDoc.registerFont('NotoSerifBold', notoSerifFontBold);
+
+
+
 
 const styles = StyleSheet.create({
   page: {
@@ -121,12 +136,13 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
 
               <Text style={styles.title}>Application for components for sectional doors</Text>
               {/* Display details about the order */}
-              {orderContent.products.map((product) => (
+              {orderContent.products.map( (product) => (
                 <View key={product.id}>
-                  <Text style={styles.productName}>{product.name} {product.article}.
-                   Quantity: {product.quantity}{product.unit}</Text>
+                  <Text style={styles.productName}>
+                    {product.article} {product.name}: {product.quantity} {product.unit}
+                  </Text>
                 </View>
-              ))}
+               )) }
       
               <Text style={styles.notes}>{orderContent.notes}{'\n'}</Text>
 
