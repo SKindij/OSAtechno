@@ -20,11 +20,15 @@ Font.register({
 const styles = StyleSheet.create({
   page: {
     fontFamily: 'NotoSerif', fontSize: 12,
-    flexDirection: 'row', backgroundColor: '#E4E4E4',
+    backgroundColor: '#E4E4E4',
     padding: 30,
   },
+  container: {
+    flexDirection: 'column',
+  },
   section: {
-    flexGrow: 1, margin: 10,
+    
+    margin: 10,
   },
   subtitle: {
     fontSize: 14, fontStyle: 'italic', fontWeight: 'semiBold',
@@ -117,6 +121,7 @@ const handleGenerateOrder = () => {
       const pdfBlobInstance = await pdf(
         <Document>
           <Page size="A4" style={styles.page}>
+          <View style={styles.container}>
             <View style={styles.section}>
               <Text style={styles.subtitle}>{orderContent.companyName}</Text>
               <Text style={styles.subtitle}>{orderContent.userName}</Text>
@@ -132,12 +137,14 @@ const handleGenerateOrder = () => {
                      </Text>
                   </View>
                )) }
+            </View> 
             <View style={styles.section}>
               <Text style={styles.notes}>{orderContent.notes}{'\n'}</Text>
               <Text style={styles.total}>Type of goods: {orderContent.totalQuantity}</Text>
               <Text style={styles.total}>Total Price: {orderContent.totalPrice}{'\n'}</Text>      
               <Text style={styles.footer}>Created using "OSAtechno" web service.</Text>
             </View>
+          </View>  
           </Page>
         </Document>
         ).toBlob();
@@ -150,7 +157,7 @@ const handleGenerateOrder = () => {
       // create a link for downloading the PDF
       const link = document.createElement('a');
         link.href = url;
-        link.download = 'order.pdf';
+        link.download = `order-${orderContent.companyName}.pdf`;
         link.click();
       // Cleanup
       URL.revokeObjectURL(url);
@@ -209,18 +216,29 @@ const handleGenerateOrder = () => {
         {selectedProducts.length === 0 ? (
           <p>No products selected.</p>
         ) : (
-          <ul>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Article</th><th>Product Name</th>
+                <th>Quantity</th><th>Unit</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
             {selectedProducts.map((product) => (
-              <li key={product.id}>
-                {product.name} {product.article} Quantity: {product.quantity} {product.unit}
-                <Button variant="danger" size="sm" className="ml-2"
-                  onClick={() => handleDeleteProduct(product.id)}
-                >
-                  <RiDeleteBinLine />
-                </Button>
-              </li>
+              <tr key={product.id}>
+                <td>{product.article}</td><td>{product.name}</td>
+                <td>{product.quantity}</td><td>{product.unit}</td>
+                <td>
+                  <Button variant="danger" size="sm"
+                    onClick={() => handleDeleteProduct(product.id)}
+                  > <RiDeleteBinLine />
+                  </Button>
+                </td>
+             </tr>
             ))}
-          </ul>
+            </tbody>
+          </table>
         )}
         </div>
         <div className="total-quantity">

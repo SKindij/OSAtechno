@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet } from "react-helmet";
-import { Accordion, Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
-import { FaEye } from 'react-icons/fa';
+import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
+import { FaEye, FaMedapps } from 'react-icons/fa';
 import { BsFillBadgeAdFill, BsFillInfoCircleFill } from 'react-icons/bs';
 import DataService from '../../services/DataService';
 import OrderForm from '../order/OrderForm';
 import ProductDetails from './ProductDetails';
+import Accordion from 'react-bootstrap/Accordion';
 import './Pages.scss';
 
 const ResidentialGatesPage = () => {
@@ -108,17 +109,6 @@ const handleQuantityChange = (event, productId) => {
     setSelectedProducts([]);
   };
 
-const careAndMaintenanceText = `
-    Residential garage doors require regular care and maintenance to ensure their efficient operation and longevity. 
-    Here are a few helpful tips for caring for your doors:
-    1. Regularly clean the doors from dirt and dust. Use a soft cloth or sponge with a mild detergent to remove any debris from the surface of the doors.
-    2. Periodically check the condition of the weatherstripping and seals. Replace any damaged weatherstripping to ensure proper insulation.
-    3. Lubricate the moving parts of the doors, such as rollers and hinges, using a specialized silicone lubricant. Avoid using oil-based lubricants as they can attract dirt and dust.
-    4. Check the operation of the automatic door opener and its components. Repair or replace any malfunctions to avoid breakdowns or safety hazards.
-    Remember to also schedule regular professional servicing for your doors. Reach out to experts if you encounter any issues or require professional maintenance.
-    By keeping your doors in good condition and taking care of regular maintenance, you will ensure the safety, functionality, and longevity of your residential garage doors.
-`;
-
   return (
     <main className='main-page'>
       <Helmet>
@@ -132,7 +122,7 @@ const careAndMaintenanceText = `
         <link rel="canonical" href="https://osatechno.com/residential" />
       </Helmet>
     <Container className={ `card-wrapper ${showProductDetails ? 'blur' : ''}` }>
-      <h1>Accessories for residential garage doors</h1>
+      <h1 className="text-center">Accessories for residential garage doors</h1>
       <Row className="mb-4">       
         <Col>
           <ButtonToolbar aria-label="Product categories">
@@ -158,21 +148,7 @@ const careAndMaintenanceText = `
           </ButtonToolbar>
         </Col>
       </Row>
-      <Row>
-
-	<Accordion className="mt-4">
-          <Card>
-            <Accordion.Toggle as={Card.Header} eventKey="0">
-              <BsFillInfoCircleFill /> Care and Maintenance
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey="0">
-              <Card.Body>
-                {careAndMaintenanceText}
-              </Card.Body>
-            </Accordion.Collapse>
-          </Card>
-        </Accordion>
-			
+      <Row>	
        {filteredProducts.map( (product) => {        
          const quantity = selectedProductQuantities[product.id] || 0;
         return (
@@ -229,6 +205,7 @@ const careAndMaintenanceText = `
           onClose={handleCloseProductDetails} 
           productId={selectedProductId} />
       )}
+      <h2 className="text-center">Completion of the order form to the supplier</h2>
       <div className="d-grid gap-2">
       <Button variant="outline-success" size="lg"
         onClick={() => handleOpenOrderForm()}
@@ -245,7 +222,26 @@ const careAndMaintenanceText = `
           onClose={handleCloseOrderForm} 
           selectedProducts={selectedProducts} 
           setSelectedProducts={setSelectedProducts} />
-      )}   
+      )} 
+    <Accordion>
+    <Accordion.Item eventKey="0">
+      <Accordion.Header>
+        <h3> Care and maintenance of residential gates...<BsFillInfoCircleFill /></h3>
+      </Accordion.Header>
+      <Accordion.Body>
+        <p>Residential garage doors require regular care and maintenance to ensure their efficient operation and longevity.</p>
+        <h4 className="text-center">Here are a few helpful tips for caring for your doors:</h4>
+        <ol>
+         <li><FaMedapps />Regularly clean the doors from dirt and dust. Use a soft cloth or sponge with a mild detergent to remove any debris from the surface of the doors.</li>
+         <li><FaMedapps />Periodically check the condition of the weatherstripping and seals. Replace any damaged weatherstripping to ensure proper insulation.</li>
+         <li><FaMedapps />Lubricate the moving parts of the doors, such as rollers and hinges, using a specialized silicone lubricant. Avoid using oil-based lubricants as they can attract dirt and dust.</li>
+         <li><FaMedapps />Check the operation of the automatic door opener and its components. Repair or replace any malfunctions to avoid breakdowns or safety hazards.</li>
+        </ol>
+        <p>Remember to also schedule regular professional servicing for your doors. Reach out to experts if you encounter any issues or require professional maintenance.</p>
+        <p>By keeping your doors in good condition and taking care of regular maintenance, you will ensure the safety, functionality, and longevity of your residential garage doors.</p>
+      </Accordion.Body>
+    </Accordion.Item>
+    </Accordion>  
     </Container>
     </main>
   );

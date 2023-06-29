@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet } from "react-helmet";
-import { Accordion, Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
-import { FaEye } from 'react-icons/fa';
+import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
+import { FaEye, FaMedapps } from 'react-icons/fa';
 import { BsFillBadgeAdFill, BsFillInfoCircleFill } from 'react-icons/bs';
 import DataService from '../../services/DataService';
 import OrderForm from '../order/OrderForm';
 import ProductDetails from './ProductDetails';
+import Accordion from 'react-bootstrap/Accordion';
 import './Pages.scss';
 
 const ResidentialGatesPage = () => {
@@ -108,19 +109,6 @@ const handleQuantityChange = (event, productId) => {
     setSelectedProducts([]);
   };
 
-const careAndMaintenanceText = `
-    Industrial sectional gates are an essential component of many commercial and industrial facilities. 
-    Proper care and maintenance of these gates are crucial for their reliable and efficient operation, ensuring the security and productivity of your business. 
-    Here are some important guidelines for caring for your industrial sectional gates:
-    1. Regularly inspect the gates for any signs of wear, damage, or misalignment. Addressing issues promptly can prevent further damage and potential operational disruptions.
-    2. Clean the gates regularly to remove dirt, debris, and corrosive substances. Use a mild detergent and a soft cloth or sponge to clean the gate panels, tracks, and hardware. Avoid using abrasive cleaners that can scratch or damage the gate surface.
-    3. Lubricate all moving parts of the gate, including hinges, rollers, and tracks. Use a high-quality lubricant recommended by the gate manufacturer. Proper lubrication reduces friction, extends the lifespan of the components, and ensures smooth gate operation.
-    4. Check the safety features of the gate, such as sensors and emergency stop buttons, to ensure they are functioning correctly. Regularly test these safety mechanisms to guarantee the protection of employees and equipment.
-    5. Inspect the gate's electrical components, such as control panels and motors, for any signs of damage or malfunction. Electrical issues can affect the gate's performance and compromise its safety. If you notice any problems, contact a qualified technician for repairs.
-    6. Schedule regular professional maintenance and inspections to identify potential issues early on and prevent costly repairs or downtime. Professional technicians can assess the gate's condition, make necessary adjustments, and perform preventive maintenance tasks.
-    By following these care and maintenance practices, you can optimize the performance, durability, and safety of your industrial sectional gates. Remember to consult the manufacturer's guidelines and seek professional assistance whenever needed to ensure the proper care of your gates.
-`;
-	
   return (
     <main className='main-page'>
       <Helmet>
@@ -134,7 +122,7 @@ const careAndMaintenanceText = `
         <link rel="canonical" href="https://osatechno.com/industrial" />
       </Helmet>
     <Container className={ `card-wrapper ${showProductDetails ? 'blur' : ''}` }>
-      <h1>Accessories for industrial sectional doors</h1>
+      <h1 className="text-center">Accessories for industrial sectional doors</h1>
       <Row className="mb-4">       
         <Col>
           <ButtonToolbar aria-label="Product categories">
@@ -161,20 +149,6 @@ const careAndMaintenanceText = `
         </Col>
       </Row>
       <Row>
-
-        <Accordion className="mt-4">
-          <Card>
-            <Accordion.Toggle as={Card.Header} eventKey="0">
-              <BsFillInfoCircleFill /> Care and Maintenance
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey="0">
-              <Card.Body>
-                {careAndMaintenanceText}
-              </Card.Body>
-            </Accordion.Collapse>
-          </Card>
-        </Accordion>
-		
        {filteredProducts.map( (product) => {        
          const quantity = selectedProductQuantities[product.id] || 0;
         return (
@@ -231,11 +205,12 @@ const careAndMaintenanceText = `
           onClose={handleCloseProductDetails} 
           productId={selectedProductId} />
       )}
+      <h2 className="text-center">Completion of the order form to the supplier</h2>
       <div className="d-grid gap-2">
       <Button variant="outline-success" size="lg"
         onClick={() => handleOpenOrderForm()}
         aria-label="Open windwow with order form">
-          Open windwow with order form
+          Open window with order form
       </Button>
       <Button variant="outline-danger" size="lg"
         onClick={handleClearSelectedAccessories}>
@@ -248,6 +223,28 @@ const careAndMaintenanceText = `
           selectedProducts={selectedProducts} 
           setSelectedProducts={setSelectedProducts} />
       )}   
+      <Accordion>
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>
+          <h3>Care and maintenance of industrial gates...<BsFillInfoCircleFill /></h3>
+        </Accordion.Header>
+        <Accordion.Body>
+        <p>Industrial sectional gates are an essential component of many commercial and industrial facilities.
+          Proper care and maintenance of these gates are crucial for their reliable and efficient operation, ensuring the security and productivity of your business.</p>
+        <h4 className="text-center">Here are some important guidelines for caring for your industrial sectional gates:</h4>
+        <ol>
+          <li><FaMedapps/>Regularly inspect the gates for any signs of wear, damage, or misalignment. Addressing issues promptly can prevent further damage and potential operational disruptions.</li>
+          <li><FaMedapps/>Clean the gates regularly to remove dirt, debris, and corrosive substances. Use a mild detergent and a soft cloth or sponge to clean the gate panels, tracks, and hardware. Avoid using abrasive cleaners that can scratch or damage the gate surface.</li>
+          <li><FaMedapps/>Lubricate all moving parts of the gate, including hinges, rollers, and tracks. Use a high-quality lubricant recommended by the gate manufacturer. Proper lubrication reduces friction, extends the lifespan of the components, and ensures smooth gate operation.</li>
+          <li><FaMedapps/>Check the safety features of the gate, such as sensors and emergency stop buttons, to ensure they are functioning correctly. Regularly test these safety mechanisms to guarantee the protection of employees and equipment.</li>
+          <li><FaMedapps/>Inspect the gate's electrical components, such as control panels and motors, for any signs of damage or malfunction. Electrical issues can affect the gate's performance and compromise its safety. If you notice any problems, contact a qualified technician for repairs.</li>
+          <li><FaMedapps/>Schedule regular professional maintenance and inspections to identify potential issues early on and prevent costly repairs or downtime. Professional technicians can assess the gate's condition, make necessary adjustments, and perform preventive maintenance tasks.</li>
+        </ol>
+        <p>By following these care and maintenance practices, you can optimize the performance, durability, and safety of your industrial sectional gates.</p>
+        <p>Remember to consult the manufacturer's guidelines and seek professional assistance whenever needed to ensure the proper care of your gates.</p>
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
     </Container>
     </main>
   );
