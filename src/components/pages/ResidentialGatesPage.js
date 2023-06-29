@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from "react-helmet";
-import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
+import { Accordion, Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
 import { FaEye } from 'react-icons/fa';
-import { BsFillBadgeAdFill } from 'react-icons/bs';
+import { BsFillBadgeAdFill, BsFillInfoCircleFill } from 'react-icons/bs';
 import DataService from '../../services/DataService';
 import OrderForm from '../order/OrderForm';
 import ProductDetails from './ProductDetails';
@@ -108,6 +108,17 @@ const handleQuantityChange = (event, productId) => {
     setSelectedProducts([]);
   };
 
+const careAndMaintenanceText = `
+    Residential garage doors require regular care and maintenance to ensure their efficient operation and longevity. 
+    Here are a few helpful tips for caring for your doors:
+    1. Regularly clean the doors from dirt and dust. Use a soft cloth or sponge with a mild detergent to remove any debris from the surface of the doors.
+    2. Periodically check the condition of the weatherstripping and seals. Replace any damaged weatherstripping to ensure proper insulation.
+    3. Lubricate the moving parts of the doors, such as rollers and hinges, using a specialized silicone lubricant. Avoid using oil-based lubricants as they can attract dirt and dust.
+    4. Check the operation of the automatic door opener and its components. Repair or replace any malfunctions to avoid breakdowns or safety hazards.
+    Remember to also schedule regular professional servicing for your doors. Reach out to experts if you encounter any issues or require professional maintenance.
+    By keeping your doors in good condition and taking care of regular maintenance, you will ensure the safety, functionality, and longevity of your residential garage doors.
+`;
+
   return (
     <main className='main-page'>
       <Helmet>
@@ -148,6 +159,20 @@ const handleQuantityChange = (event, productId) => {
         </Col>
       </Row>
       <Row>
+
+	<Accordion className="mt-4">
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="0">
+              <BsFillInfoCircleFill /> Care and Maintenance
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                {careAndMaintenanceText}
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+			
        {filteredProducts.map( (product) => {        
          const quantity = selectedProductQuantities[product.id] || 0;
         return (
