@@ -45,6 +45,7 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
   const [userNameError, setUserNameError] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [phoneNumberError, setPhoneNumberError] = useState('');
+  const [notes, setNotes] = useState('');
 
   const handleDeleteProduct = (productId) => {
     const updatedSelectedProducts = selectedProducts.filter(
@@ -119,6 +120,10 @@ const handleGenerateOrder = () => {
                )) }
             </View> 
             <View style={styles.section}>
+			        <Text style={styles.title}>Aditional notes:</Text>
+			        <Text style={styles.notes}>{orderContent.notes}</Text>
+			      </View> 
+            <View style={styles.section}>
               <Text style={styles.total}>Type of goods: {orderContent.totalQuantity}</Text>
               <Text style={styles.total}>Total Price: {orderContent.totalPrice}{'\n'}</Text>      
               <Text style={styles.footer}>Created using "OSAtechno" web service.</Text>
@@ -146,7 +151,8 @@ const handleGenerateOrder = () => {
 };
 
   return (
-    <Modal show={true} onHide={onClose} className="order-modal">
+    <Modal show={true} onHide={onClose} className="order-modal"
+      backdrop="static" keyboard={false}>
       <Modal.Header closeButton>
         <Modal.Title>Order Form</Modal.Title>
       </Modal.Header>
@@ -179,6 +185,13 @@ const handleGenerateOrder = () => {
             />
             <Form.Control.Feedback type="invalid">{phoneNumberError}</Form.Control.Feedback>
             <Form.Text className="text-muted">We'll never share your data with anyone else.</Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="notes">
+             <Form.Label>Notes</Form.Label>
+             <Form.Control as="textarea" rows={3}
+                value={notes} 
+				        onChange={(e) => setNotes(e.target.value)}
+			        />
           </Form.Group>
         </Form>
         <div className="selected-products">
