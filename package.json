@@ -1,13 +1,13 @@
 {
   "name": "osatechno",
-  "version": "0.7.11",
+  "version": "0.8.01",
   "private": true,
   "dependencies": {
-    "@react-pdf/renderer": "^3.1.12",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.0",
+    "pdfmake": "^0.2.7",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
