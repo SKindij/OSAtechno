@@ -3,9 +3,9 @@ import { Form, Button, Modal } from 'react-bootstrap';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { Font, pdf, Document, StyleSheet, Page, View, Text } from '@react-pdf/renderer';
 // importing font files
-import NotoSerifRegular from '../../resources/NotoSerif-Regular.ttf';
-import NotoSerifSemiBoldItalic from '../../resources/NotoSerif-SemiBoldItalic.ttf';
-import NotoSerifBold from '../../resources/NotoSerif-Bold.ttf';
+import NotoSerifRegular from './NotoSerif-Regular.ttf';
+import NotoSerifSemiBoldItalic from './NotoSerif-SemiBoldItalic.ttf';
+import NotoSerifBold from './NotoSerif-Bold.ttf';
 // font registration
 Font.register({
   family: 'NotoSerif',
@@ -20,31 +20,31 @@ const styles = StyleSheet.create({
   page: {
     fontFamily: 'NotoSerif', fontSize: 12,
     flexDirection: 'row', backgroundColor: '#E4E4E4',
-    padding: 30,
+    padding: 20,
   },
   section: {
-    flexGrow: 1, margin: 10,
+    margin: 10,
   },
   subtitle: {
     fontSize: 14, fontStyle: 'italic', fontWeight: 'semiBold',
     marginBottom: 5,
   },  
   title: {
-    fontFamily: 'NotoSerif', fontWeight: 'bold', fontSize: 18,
-    marginBottom: 10,
+    fontFamily: 'NotoSerif', fontWeight: 'bold', 
+    fontSize: 16, color: '#1a054d',
+    marginBottom: 5,
   },
-
   productName: {
-    fontSize: 13,
+    fontSize: 12,
     marginBottom: 3,
   },
   notes: {
-    fontSize: 14,
-    marginVertical: 10, marginBottom: 10,
+    fontSize: 10,
+    marginVertical: 5, marginBottom: 10,
   },
   total: {
-    fontSize: 16, fontWeight: 'bold',
-    marginTop: 10,
+    fontSize: 8, fontWeight: 'bold',
+    marginTop: 5,
   },
   footer: {
     fontSize: 10,     color: 'gray',
@@ -106,7 +106,7 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
 const handleGenerateOrder = () => {
    if (validateForm()) {
       const orderContent = {
-         companyName, userName, phoneNumber,
+         companyName, userName, phoneNumber, notes,
          products: selectedProducts,
          totalQuantity: getTotalQuantity(),
          totalPrice: getTotalPrice()
@@ -123,23 +123,21 @@ const handleGenerateOrder = () => {
               <Text style={styles.subtitle}>{orderContent.phoneNumber}{'\n'}</Text>
             </View>
             <View style={styles.section}>
-              <Text style={styles.title}>Application for components for sectional doors</Text>
+              <Text style={styles.title}>Application for sectional doors components:</Text>
               {/* Display details about the order */}
               {orderContent.products.map( (product) => (
                   <View key={product.id}>
                      <Text style={styles.productName}>
-                        {product.article} {product.name}: {product.quantity} {product.unit}
+                        * {product.article} {product.name}: {product.quantity} {product.unit};
                      </Text>
                   </View>
                )) }
             </View> 
             <View style={styles.section}>
-	      <Text style={styles.title}>Aditional notes:</Text>
-	      <Text style={styles.notes}>{orderContent.notes}{'\n'}</Text>
-	    </View> 
-            <View style={styles.section}>
-              <Text style={styles.total}>Type of goods: {orderContent.totalQuantity}</Text>
-              <Text style={styles.total}>Total Price: {orderContent.totalPrice}{'\n'}</Text>      
+	            <Text style={styles.title}>Aditional notes:</Text>
+	            <Text style={styles.notes}>{orderContent.notes}{'\n'}</Text>
+              <Text style={styles.total}>Type of goods: {orderContent.totalQuantity}.</Text>
+              <Text style={styles.total}>Total Price: {orderContent.totalPrice} EURO.{'\n'}</Text>      
               <Text style={styles.footer}>Created using "OSAtechno" web service.</Text>
             </View>
           </View>  
@@ -172,7 +170,7 @@ const handleGenerateOrder = () => {
       </Modal.Header>
       <Modal.Body>
         <Form>
-        <Form.Group controlId="formCompanyName">
+        <Form.Group controlId="formCompanyName" className="mb-3">
             <Form.Label className="form-label">Company Name</Form.Label>
             <Form.Control type="text" className="form-control"
               value={companyName} placeholder="Enter company name"
@@ -181,7 +179,7 @@ const handleGenerateOrder = () => {
             />
             <Form.Control.Feedback type="invalid">{companyNameError}</Form.Control.Feedback>
           </Form.Group>
-          <Form.Group controlId="formUserName">
+          <Form.Group controlId="formUserName" className="mb-3">
             <Form.Label className="form-label">User Name</Form.Label>
             <Form.Control type="text" className="form-control"
               value={userName} placeholder="Enter user name"
@@ -190,7 +188,7 @@ const handleGenerateOrder = () => {
             />
             <Form.Control.Feedback type="invalid">{userNameError}</Form.Control.Feedback>
           </Form.Group>
-          <Form.Group controlId="formPhoneNumber">
+          <Form.Group controlId="formPhoneNumber" className="mb-3">
             <Form.Label className="form-label">Phone Number</Form.Label>
             <Form.Control type="text" className="form-control"
               value={phoneNumber} placeholder="Enter phone number"
@@ -204,7 +202,7 @@ const handleGenerateOrder = () => {
 	    backdrop="static" keyboard={false}
             >
              <Form.Label>Notes</Form.Label>
-             <Form.Control as="textarea" rows={3}
+             <Form.Control as="textarea" rows={2}
                 value={notes} 
 		onChange={(e) => setNotes(e.target.value)}
 	      />
