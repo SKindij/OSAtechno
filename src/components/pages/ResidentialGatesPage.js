@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from "react-helmet";
 import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
 import { FaEye, FaMedapps } from 'react-icons/fa';
@@ -50,7 +50,7 @@ const ResidentialGatesPage = () => {
   const handleCloseProductDetails = () => {
     setShowProductDetails(false);
   };
-  // Update the quantity variable when the quantity changes
+// Update the quantity variable when the quantity changes
 const handleQuantityChange = (event, productId) => {
   const value = parseInt(event.target.value, 10) || 0;
   // Create a new object with the updated product quantity for the current ID
@@ -66,6 +66,8 @@ const handleQuantityChange = (event, productId) => {
     try {
       const selectedProduct = await DataService.getGatesById(productId);
       const quantity = selectedProductQuantities[productId] || 0;
+     // Checking that zero-quantity items are not added
+     if (quantity !== 0) {
       // Updating the list of selected products
       const updatedSelectedProducts = [...selectedProducts];
       const existingProductIndex = updatedSelectedProducts.findIndex(
@@ -89,6 +91,7 @@ const handleQuantityChange = (event, productId) => {
       }
       setSelectedProducts(updatedSelectedProducts);
       console.log(`User add ${quantity} of ${selectedProduct.name}`);
+     }
     } catch (error) {
       console.error('Error fetching selected product:', error);
     }

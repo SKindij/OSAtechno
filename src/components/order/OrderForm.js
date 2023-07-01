@@ -129,14 +129,12 @@ const OrderForm = ({ selectedProducts, setSelectedProducts, onClose }) => {
           <Form.Control.Feedback type="invalid">{phoneNumberError}</Form.Control.Feedback>
           <Form.Text className="text-muted">We'll never share your data with anyone else.</Form.Text>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="notes"
-    backdrop="static" keyboard={false}
-          >
+        <Form.Group className="mb-3" controlId="notes">
            <Form.Label>Notes</Form.Label>
            <Form.Control as="textarea" rows={2}
               value={notes} 
-  onChange={(e) => setNotes(e.target.value)}
-      />
+              onChange={(e) => setNotes(e.target.value)}
+          />
         </Form.Group>
       </Form>
       <div className="selected-products">
