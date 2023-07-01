@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Helmet } from "react-helmet";
 import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
 import { FaEye, FaMedapps } from 'react-icons/fa';
@@ -51,7 +51,7 @@ const ResidentialGatesPage = () => {
     setShowProductDetails(false);
   };
 // Update the quantity variable when the quantity changes
-const handleQuantityChange = (event, productId) => {
+const handleQuantityChange = useCallback( (event, productId) => {
   const value = parseInt(event.target.value, 10) || 0;
   // Create a new object with the updated product quantity for the current ID
   const updatedQuantities = {
@@ -59,7 +59,7 @@ const handleQuantityChange = (event, productId) => {
     [productId]: value,
   };
   setSelectedProductQuantities(updatedQuantities);
-};
+}, [] );
 // functionality for collecting desired goods
   const handleAddClick = async (event, productId) => {
     event.preventDefault();

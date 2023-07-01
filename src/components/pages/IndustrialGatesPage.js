@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Helmet } from "react-helmet";
 import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
 import { FaEye, FaMedapps } from 'react-icons/fa';
@@ -11,12 +11,9 @@ import './Pages.scss';
 
 const ResidentialGatesPage = () => {
   const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-	
+  const [filteredProducts, setFilteredProducts] = useState([]);	
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [showProductDetails, setShowProductDetails] = useState(false);
-	
-  //const [selectedProductQuantity, setSelectedProductQuantity] = useState(0);	
   const [selectedProductQuantities, setSelectedProductQuantities] = useState({});
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [showOrderForm, setShowOrderForm] = useState(false);
@@ -42,7 +39,6 @@ const ResidentialGatesPage = () => {
       setFilteredProducts(filtered);
     }
   };
-
 // functions of managing modal window of additional info about product
   const selectProductId = (productId) => {
     setSelectedProductId(productId);
@@ -54,9 +50,8 @@ const ResidentialGatesPage = () => {
   const handleCloseProductDetails = () => {
     setShowProductDetails(false);
   };
-
-  // Update the quantity variable when the quantity changes
-const handleQuantityChange = (event, productId) => {
+// Update the quantity variable when the quantity changes
+const handleQuantityChange = useCallback( (event, productId) => {
   const value = parseInt(event.target.value, 10) || 0;
   // Create a new object with the updated product quantity for the current ID
   const updatedQuantities = {
@@ -64,13 +59,15 @@ const handleQuantityChange = (event, productId) => {
     [productId]: value,
   };
   setSelectedProductQuantities(updatedQuantities);
-};
+}, [] );
 // functionality for collecting desired goods
   const handleAddClick = async (event, productId) => {
     event.preventDefault();
     try {
       const selectedProduct = await DataService.getGatesById(productId);
       const quantity = selectedProductQuantities[productId] || 0;
+     // Checking that zero-quantity items are not added
+     if (quantity !== 0) {
       // Updating the list of selected products
       const updatedSelectedProducts = [...selectedProducts];
       const existingProductIndex = updatedSelectedProducts.findIndex(
@@ -94,6 +91,7 @@ const handleQuantityChange = (event, productId) => {
       }
       setSelectedProducts(updatedSelectedProducts);
       console.log(`User add ${quantity} of ${selectedProduct.name}`);
+     }
     } catch (error) {
       console.error('Error fetching selected product:', error);
     }
@@ -112,7 +110,8 @@ const handleQuantityChange = (event, productId) => {
   };
 
   return (
-    <main className='main-page'>
+    <main className='gates-page'>
+
       <Helmet>
         <meta name="description"
           content="Browse our selection of durable industrial gates. 
@@ -123,14 +122,17 @@ const handleQuantityChange = (event, productId) => {
         <title>Industrial gates</title>
         <link rel="canonical" href="https://osatechno.com/industrial" />
       </Helmet>
-    <Container className={ `card-wrapper ${showProductDetails ? 'blur' : ''}` }>
+
+    <section className="products-section">  
+    <Container className={ `${showProductDetails ? 'blur' : ''}` }>
       <h1 className="text-center">Accessories for industrial sectional doors</h1>
       <Row className="mb-4">       
         <Col>
           <ButtonToolbar aria-label="Product categories">
             <ButtonGroup className="me-2">
-              <Button variant="success" onClick={() => filterProducts('All categories')} className="me-2">
-                All categories
+              <Button variant="success" 
+                  onClick={() => filterProducts('All categories')} className="me-2">
+                  All categories
               </Button>
             </ButtonGroup>
             <ButtonGroup>
@@ -158,15 +160,15 @@ const handleQuantityChange = (event, productId) => {
           <Card className={`product-card ${selectedProductId === product.id ? 'product-card-highlight' : ''}`}
             onClick={() => selectProductId(product.id)}
           >
-            <Card.Header>{product.name}</Card.Header>
-            <div className="product-image-container">
+            <Card.Header className="card-header">{product.name}</Card.Header>
+            <div className="product-img-container">
               <Card.Img className="product-image" variant="top" 
                 src={product.imageA} alt={product.name}
                 width="500" height="375"/>
             </div>
             <Card.Body>
               <Card.Text>Article: {product.article}</Card.Text>
-              <Card.Text>Price: {product.price}€</Card.Text>
+              <Card.Text>Price: {product.price} €</Card.Text>
             </Card.Body>
             <Card.Footer>
               <Row>
@@ -178,6 +180,11 @@ const handleQuantityChange = (event, productId) => {
                       inputMode="numeric"
                       value={quantity === 0 ? '' : quantity}
                       onChange={(event) => handleQuantityChange(event, product.id)}
+                      onKeyPress={(event) => {
+                        if (event.key === '+' || event.key === '-') {
+                          event.preventDefault();
+                        }
+                      }}
                     />
                     <InputGroup.Text>{product.unit}</InputGroup.Text>
                     <Button variant='outline-warning'
@@ -189,7 +196,7 @@ const handleQuantityChange = (event, productId) => {
                   </Form.Group>
                 </Col>
                 <Col xs={12} md={3} className="d-flex justify-content-center">
-                  <Button variant="outline-success" className="product-button"
+                  <Button variant="outline-success"
                     onClick={() => handleOpenProductDetails(product.id)}
                     aria-label="Open product details">
                     <FaEye />
@@ -207,6 +214,11 @@ const handleQuantityChange = (event, productId) => {
           onClose={handleCloseProductDetails} 
           productId={selectedProductId} />
       )}
+     </Container>
+    </section>
+
+    <section className="order-section">
+     <Container className={ `${showProductDetails ? 'blur' : ''}` }>
       <h2 className="text-center">Completion of the order form to the supplier</h2>
       <div className="d-grid gap-2">
       <Button variant="outline-success" size="lg"
@@ -226,7 +238,7 @@ const handleQuantityChange = (event, productId) => {
           setSelectedProducts={setSelectedProducts} />
       )}   
       <Accordion>
-      <Accordion.Item eventKey="0">
+      <Accordion.Item eventKey="0" className='text-center'>
         <Accordion.Header>
           <h3>Care and maintenance of industrial gates...<BsFillInfoCircleFill /></h3>
         </Accordion.Header>
@@ -248,6 +260,7 @@ const handleQuantityChange = (event, productId) => {
       </Accordion.Item>
     </Accordion>
     </Container>
+    </section>
     </main>
   );
 };
