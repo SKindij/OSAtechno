@@ -65,10 +65,10 @@
 }
 /* here are styles for gate page */
 .gates-page {
-  padding: 20px;
+  padding: 20px; margin-bottom: 20px;
   background-color: $main-background;
   box-shadow: $box-shadow;
-  margin-bottom: 20px;
+
   /* here are styles for the first block */
   .products-section {
     .blur {
@@ -92,13 +92,14 @@
       width: 100%; /* Adjust value to resize image as desired */
       height: auto; /* Maintain aspect ratio */
     } 
-
+    h3 {
+      font-size: 18px;
+    }
   }
   /* here are styles for the second block */
   .order-section {
     .accordion {
-      margin-top: 30px; 
-      margin-bottom: 20px; 
+      margin-top: 30px; margin-bottom: 20px; 
       &:hover {
         h3 {
           font-weight: bold; 
@@ -108,7 +109,27 @@
       h3 {
         font-size: 20px;
       }
-
+      h4 {
+        font-size: 18px; font-weight: bold;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+      }
+      ol {
+        text-align: left;
+        margin-bottom: 20px;
+        li {
+          font-size: 16px;
+          line-height: 1.5;
+          margin-bottom: 10px;
+          strong {
+            font-weight: bold;
+          }
+        }
+      }
 
     }   
   }

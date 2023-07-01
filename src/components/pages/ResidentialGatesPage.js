@@ -230,13 +230,13 @@ const handleQuantityChange = (event, productId) => {
                 setSelectedProducts={setSelectedProducts} />
           )} 
         <Accordion>
-        <Accordion.Item eventKey="0">
+        <Accordion.Item eventKey="0" className='text-center'>
         <Accordion.Header>
           <h3> Care and maintenance of residential gates...<BsFillInfoCircleFill /></h3>
         </Accordion.Header>
         <Accordion.Body>
           <p>Residential garage doors require regular care and maintenance to ensure their efficient operation and longevity.</p>
-          <h4 className="text-center">Here are a few helpful tips for caring for your doors:</h4>
+          <h4>Here are a few helpful tips for caring for your doors:</h4>
           <ol>
             <li><FaMedapps />Regularly clean the doors from dirt and dust. Use a soft cloth or sponge with a mild detergent to remove any debris from the surface of the doors.</li>
             <li><FaMedapps />Periodically check the condition of the weatherstripping and seals. Replace any damaged weatherstripping to ensure proper insulation.</li>
