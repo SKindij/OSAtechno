@@ -130,8 +130,8 @@ const handleQuantityChange = useCallback( (event, productId) => {
         <Col>
           <ButtonToolbar aria-label="Product categories">
             <ButtonGroup className="me-2">
-              <Button variant="success" 
-                  onClick={() => filterProducts('All categories')} className="me-2">
+              <Button variant="success" aria-label="Filter All categories"
+                  onClick={() => filterProducts('All categories')} >
                   All categories
               </Button>
             </ButtonGroup>
@@ -157,7 +157,7 @@ const handleQuantityChange = useCallback( (event, productId) => {
          const quantity = selectedProductQuantities[product.id] || 0;
         return (
         <Col key={product.id} xs={12} md={6} lg={4} xl={3}>
-          <Card className={`product-card ${selectedProductId === product.id ? 'product-card-highlight' : ''}`}
+          <Card className={`product-card ${selectedProductId === product.id ? 'card-highlight' : ''}`}
             onClick={() => selectProductId(product.id)}
           >
             <Card.Header className="card-header">{product.name}</Card.Header>
