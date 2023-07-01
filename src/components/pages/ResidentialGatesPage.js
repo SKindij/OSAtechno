@@ -11,12 +11,9 @@ import './Pages.scss';
 
 const ResidentialGatesPage = () => {
   const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-	
+  const [filteredProducts, setFilteredProducts] = useState([]);	
   const [selectedProductId, setSelectedProductId] = useState(null);
-  const [showProductDetails, setShowProductDetails] = useState(false);
-	
-  //const [selectedProductQuantity, setSelectedProductQuantity] = useState(0);	
+  const [showProductDetails, setShowProductDetails] = useState(false);	
   const [selectedProductQuantities, setSelectedProductQuantities] = useState({});
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [showOrderForm, setShowOrderForm] = useState(false);
@@ -42,7 +39,6 @@ const ResidentialGatesPage = () => {
       setFilteredProducts(filtered);
     }
   };
-
 // functions of managing modal window of additional info about product
   const selectProductId = (productId) => {
     setSelectedProductId(productId);
@@ -54,7 +50,6 @@ const ResidentialGatesPage = () => {
   const handleCloseProductDetails = () => {
     setShowProductDetails(false);
   };
-
   // Update the quantity variable when the quantity changes
 const handleQuantityChange = (event, productId) => {
   const value = parseInt(event.target.value, 10) || 0;
@@ -112,7 +107,8 @@ const handleQuantityChange = (event, productId) => {
   };
 
   return (
-    <main className='main-page'>
+    <main className='gates-page'>
+
       <Helmet>
         <meta name="description"
           content="Discover our collection of high-quality residential gates. Choose from various designs and materials. 
@@ -123,28 +119,31 @@ const handleQuantityChange = (event, productId) => {
         <title>Residential gates</title>
         <link rel="canonical" href="https://osatechno.com/residential" />
       </Helmet>
-    <Container className={ `card-wrapper ${showProductDetails ? 'blur' : ''}` }>
+
+    <section className="products-section">
+    <Container className={ `${showProductDetails ? 'blur' : ''}` }>
       <h1 className="text-center">Accessories for residential garage doors</h1>
       <Row className="mb-4">       
         <Col>
           <ButtonToolbar aria-label="Product categories">
             <ButtonGroup className="me-2">
-              <Button variant="success" onClick={() => filterProducts('All categories')} className="me-2">
-                All categories
+              <Button variant="success" 
+                  onClick={() => filterProducts('All categories')} className="me-2">
+                  All categories
               </Button>
             </ButtonGroup>
             <ButtonGroup>
               <Button variant="info" aria-label="Filter On Shaft"
-                onClick={() => filterProducts('On Shaft')} className="me-2">
-                On Shaft
+                  onClick={() => filterProducts('On Shaft')} className="me-2">
+                  On Shaft
               </Button>{' '}
               <Button variant="info" aria-label="Filter On Panel"
-                onClick={() => filterProducts('On Panel')} className="me-2">
-                On Panel
+                  onClick={() => filterProducts('On Panel')} className="me-2">
+                  On Panel
               </Button>{' '}
               <Button variant="info" aria-label="Filter for Railsystem"
-                onClick={() => filterProducts('Railsystem')} className="me-2">
-                Railsystem
+                  onClick={() => filterProducts('Railsystem')} className="me-2">
+                  Railsystem
               </Button>
             </ButtonGroup>
           </ButtonToolbar>
@@ -155,11 +154,11 @@ const handleQuantityChange = (event, productId) => {
          const quantity = selectedProductQuantities[product.id] || 0;
         return (
         <Col key={product.id} xs={12} md={6} lg={4} xl={3}>
-          <Card className={`product-card ${selectedProductId === product.id ? 'product-card-highlight' : ''}`}
+          <Card className={`product-card ${selectedProductId === product.id ? 'card-highlight' : ''}`}
             onClick={() => selectProductId(product.id)}
           >
             <Card.Header>{product.name}</Card.Header>
-            <div className="product-image-container">
+            <div className="product-img-container">
               <Card.Img className="product-image" variant="top" 
                 src={product.imageA} alt={product.name}
                 width="500" height="375"/>
@@ -189,7 +188,7 @@ const handleQuantityChange = (event, productId) => {
                   </Form.Group>
                 </Col>
                 <Col xs={12} md={3} className="d-flex justify-content-center">
-                  <Button variant="outline-success" className="product-button"
+                  <Button variant="outline-success"
                     onClick={() => handleOpenProductDetails(product.id)}
                     aria-label="Open product details">
                     <FaEye />
@@ -207,44 +206,50 @@ const handleQuantityChange = (event, productId) => {
           onClose={handleCloseProductDetails} 
           productId={selectedProductId} />
       )}
-      <h2 className="text-center">Completion of the order form to the supplier</h2>
-      <div className="d-grid gap-2">
-      <Button variant="outline-success" size="lg"
-        onClick={() => handleOpenOrderForm()}
-        aria-label="Open windwow with order form">
-          Open windwow with order form
-      </Button>
-      <Button variant="outline-danger" size="lg"
-        onClick={handleClearSelectedAccessories}>
-          Clear the list of selected accessories
-      </Button>
-      </div>             
-      {showOrderForm && (
-        < OrderForm 
-          onClose={handleCloseOrderForm} 
-          selectedProducts={selectedProducts} 
-          setSelectedProducts={setSelectedProducts} />
-      )} 
-    <Accordion>
-    <Accordion.Item eventKey="0">
-      <Accordion.Header>
-        <h3> Care and maintenance of residential gates...<BsFillInfoCircleFill /></h3>
-      </Accordion.Header>
-      <Accordion.Body>
-        <p>Residential garage doors require regular care and maintenance to ensure their efficient operation and longevity.</p>
-        <h4 className="text-center">Here are a few helpful tips for caring for your doors:</h4>
-        <ol>
-         <li><FaMedapps />Regularly clean the doors from dirt and dust. Use a soft cloth or sponge with a mild detergent to remove any debris from the surface of the doors.</li>
-         <li><FaMedapps />Periodically check the condition of the weatherstripping and seals. Replace any damaged weatherstripping to ensure proper insulation.</li>
-         <li><FaMedapps />Lubricate the moving parts of the doors, such as rollers and hinges, using a specialized silicone lubricant. Avoid using oil-based lubricants as they can attract dirt and dust.</li>
-         <li><FaMedapps />Check the operation of the automatic door opener and its components. Repair or replace any malfunctions to avoid breakdowns or safety hazards.</li>
-        </ol>
-        <p>Remember to also schedule regular professional servicing for your doors. Reach out to experts if you encounter any issues or require professional maintenance.</p>
-        <p>By keeping your doors in good condition and taking care of regular maintenance, you will ensure the safety, functionality, and longevity of your residential garage doors.</p>
-      </Accordion.Body>
-    </Accordion.Item>
-    </Accordion>  
-    </Container>
+        </Container>
+      </section>
+
+      <section className="order-section">
+      <Container className={ `${showProductDetails ? 'blur' : ''}` }>
+        <h2 className="text-center">Completion of the order form to the supplier</h2>
+        <div className="d-grid gap-2">
+        <Button variant="outline-success" size="lg"
+            onClick={() => handleOpenOrderForm()}
+            aria-label="Open windwow with order form">
+            Open windwow with order form
+        </Button>
+        <Button variant="outline-danger" size="lg"
+            onClick={handleClearSelectedAccessories}>
+            Clear the list of selected accessories
+        </Button>
+        </div>             
+          {showOrderForm && (
+            < OrderForm 
+                onClose={handleCloseOrderForm} 
+                selectedProducts={selectedProducts} 
+                setSelectedProducts={setSelectedProducts} />
+          )} 
+        <Accordion>
+        <Accordion.Item eventKey="0">
+        <Accordion.Header>
+          <h3> Care and maintenance of residential gates...<BsFillInfoCircleFill /></h3>
+        </Accordion.Header>
+        <Accordion.Body>
+          <p>Residential garage doors require regular care and maintenance to ensure their efficient operation and longevity.</p>
+          <h4 className="text-center">Here are a few helpful tips for caring for your doors:</h4>
+          <ol>
+            <li><FaMedapps />Regularly clean the doors from dirt and dust. Use a soft cloth or sponge with a mild detergent to remove any debris from the surface of the doors.</li>
+            <li><FaMedapps />Periodically check the condition of the weatherstripping and seals. Replace any damaged weatherstripping to ensure proper insulation.</li>
+            <li><FaMedapps />Lubricate the moving parts of the doors, such as rollers and hinges, using a specialized silicone lubricant. Avoid using oil-based lubricants as they can attract dirt and dust.</li>
+            <li><FaMedapps />Check the operation of the automatic door opener and its components. Repair or replace any malfunctions to avoid breakdowns or safety hazards.</li>
+          </ol>
+          <p>Remember to also schedule regular professional servicing for your doors. Reach out to experts if you encounter any issues or require professional maintenance.</p>
+          <p>By keeping your doors in good condition and taking care of regular maintenance, you will ensure functionality, and longevity of your residential garage doors.</p>
+        </Accordion.Body>
+        </Accordion.Item>
+        </Accordion>  
+        </Container>
+        </section>
     </main>
   );
 };

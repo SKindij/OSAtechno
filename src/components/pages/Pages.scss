@@ -1,55 +1,123 @@
 @import '../../variables';
-
+/* here are styles for main page */
 .main-page {
   padding: 20px;
   background-color: $main-background;
   box-shadow: $box-shadow;
   margin-bottom: 20px;
-
-  .header-content { /* Fix the class name here */
-    text-align: center;
-    padding: 20px 80px;
+  /* here are styles for the first block */
+  .purpose-section { 
+    padding: 20px 60px;
+    text-align: center;   
     @media (max-width: 768px) {
-      padding: 5px 10px;
+      padding: 2px 6px;
+    }
+    .advices-content {
+      margin: 0 auto;
+      text-align: center;
+      h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+      }
+      ol {
+        text-align: left;
+        margin-bottom: 20px;
+        li {
+          font-size: 16px;
+          line-height: 1.5;
+          margin-bottom: 10px;
+          strong {
+            font-weight: bold;
+          }
+        }
+      }
     }
   }
-  .card-wrapper {
-    height: 100%;
-  }
-  .blur {
-    filter: blur(3px); // apply the blur effect
-    pointer-events: none; // prohibit interaction with elements that have blur class
-  }
-  .product-card {
-    margin-bottom: 20px; /* Adjust the value to add the desired spacing */   
-    @media (max-width: 768px) {
-      .product-button {
-        margin-top: 10px;
-        width: 50%;
+  /* here are styles for the second block */
+  .product-groups-section {  
+    .card-wrapper {
+      height: 100%;
+      /* smooth transition for backlight effect */
+      transition: box-shadow 0.3s ease; 
+      &:hover {
+        /* сhange shadow when hovering over card */
+        box-shadow: 0 0 10px $shadow-effect; 
+        .card-header, h3 {
+          font-weight: bold; 
+          color: darkgreen; 
+        }
       }
+    }
+    h3 {
+        font-size: 22px;
+        margin-bottom: 8px;
+      }
+    .product-group-image {
+        width: 100%; /* Adjust value to resize image as desired */
+        height: auto; /* Maintain aspect ratio */
+      } 
+  } 
+}
+/* here are styles for gate page */
+.gates-page {
+  padding: 20px;
+  background-color: $main-background;
+  box-shadow: $box-shadow;
+  margin-bottom: 20px;
+  /* here are styles for the first block */
+  .products-section {
+    .blur {
+      filter: blur(3px); 
+      pointer-events: none; 
+    }
+    .product-card {
+      margin-bottom: 20px;    
+      @media (max-width: 768px) {
+        .product-button {
+          margin-top: 10px;
+          width: 50%;
+        }
+      } 
     } 
-  }
+    .card-highlight {
+      border: 3px solid $yellow-border;
+      box-shadow: 0 0 10px $shadow-effect;
+    }
+    .product-image {
+      width: 100%; /* Adjust value to resize image as desired */
+      height: auto; /* Maintain aspect ratio */
+    } 
 
-  .product-card-highlight {
-    border: 3px solid $yellow-border;
-    box-shadow: 0 0 10px $shadow-effect;
   }
+  /* here are styles for the second block */
+  .order-section {
+    .accordion {
+      margin-top: 30px; 
+      margin-bottom: 20px; 
+      &:hover {
+        h3 {
+          font-weight: bold; 
+          color: darkgreen; 
+        }
+      }
+      h3 {
+        font-size: 20px;
+      }
 
-  .product-image {
-    width: 100%; /* Adjust value to resize image as desired */
-    height: auto; /* Maintain aspect ratio */
+
+    }   
   }
 }
-
-.accordion {
-  margin-top: 20px; 
-  margin-bottom: 20px; 
-}
-
-
+/* here are styles for modal window */
 .modal-detail {
   .product-image {
     width: 100%; /* Adjust value to resize image as desired */
     height: auto; /* Maintain aspect ratio */
   }
 }
+/* here are styles for roller page */
