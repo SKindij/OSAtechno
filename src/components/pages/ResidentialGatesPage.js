@@ -157,7 +157,7 @@ const handleQuantityChange = (event, productId) => {
           <Card className={`product-card ${selectedProductId === product.id ? 'card-highlight' : ''}`}
             onClick={() => selectProductId(product.id)}
           >
-            <Card.Header>{product.name}</Card.Header>
+            <Card.Header className="card-header">{product.name}</Card.Header>
             <div className="product-img-container">
               <Card.Img className="product-image" variant="top" 
                 src={product.imageA} alt={product.name}
@@ -177,6 +177,11 @@ const handleQuantityChange = (event, productId) => {
                       inputMode="numeric"
                       value={quantity === 0 ? '' : quantity}
                       onChange={(event) => handleQuantityChange(event, product.id)}
+                      onKeyPress={(event) => {
+                        if (event.key === '+' || event.key === '-') {
+                          event.preventDefault();
+                        }
+                      }}
                     />
                     <InputGroup.Text>{product.unit}</InputGroup.Text>
                     <Button variant='outline-warning'
