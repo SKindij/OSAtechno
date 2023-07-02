@@ -1,58 +1,72 @@
 @import '../../variables';
 .header {
-  padding: 10px;
   background-color: $parts-background;
   box-shadow: $box-shadow;
   margin-bottom: 20px;
-  @media (max-width: 768px) {
-    padding: 5px;
-  }
 
-  .language-switch-button {
-    border: 2px solid blue;
-    background-color: yellow;
+  .upper-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px 0 30px;
+    .language-switch-button {
+      border: 1px solid blue;
+    } 
   }
-
-  .logo {
-    width: 120px; height: 54px;
-    border-radius: 10px;
+  .header-container {
+    padding: 10px 30px;
     @media (max-width: 450px) {
-      width: 90px; height: 46px;
+      padding: 5px 10px;
+    }
+    .logo {
+      width: 120px; height: 54px;
+      border-radius: 10px;
+      @media (max-width: 450px) {
+        width: 90px; height: 46px;
+      }
+    }  
+    .brand-name {
+      color: $nav-text;
+      font-weight: 800;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+      font-size: 24px;
+      margin-left: 16px;
+      @media (max-width: 450px) {
+        font-size: 20px;
+        margin-left: 10px;
+      }
+    }
+    .nav-link {
+      transition: background-color 0.3s ease-in-out;
+      &:hover {
+        background-color: #f8f9fa;
+        color: darkorange; /* Change the color when hovering */
+        font-weight: bold; /* Add some emphasis */
+      }
+      @media (max-width: 768px) {
+        padding: 10px 0;
+      }
+    }
+    .navbar-toggler-icon {
+      width: 1rem;
+      height: 1rem;
+    }
+    .active {
+      color: darkorange !important;
+      font-weight: bold;
     }
   }
-
-  .brand-name {
-    color: $nav-text;
-    font-weight: 800;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
-    font-size: 20px;
-    margin-left: 16px;
-    @media (max-width: 450px) {
-      font-size: 16px;
-      margin-left: 10px;
-    }
-  }
-  .nav-link {
-    transition: background-color 0.3s ease-in-out;
-    &:hover {
-      background-color: #f8f9fa;
-      color: darkorange; /* Change the color when hovering */
-      font-weight: bold; /* Add some emphasis */
-    }
-    @media (max-width: 768px) {
-      padding: 10px 0;
-    }
+  .navbar-toggler {
+    /* Styles for the burger button */
+    width: 30%;
+    line-height: 1;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
   }
   .navbar-toggler-icon {
-    width: 0.7rem;
-    height: 0.7rem;
-  }
-  .active {
-    color: darkorange !important;
-    font-weight: bold;
+    font-size: 1.5rem;
   }
 }
-
 
 .footer {
   padding: 10px;

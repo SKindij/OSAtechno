@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Helmet } from "react-helmet";
 import { Container, Row, Col, Button, Card, Form, ButtonGroup, ButtonToolbar, InputGroup } from 'react-bootstrap';
 import { FaEye, FaMedapps } from 'react-icons/fa';
-import { BsFillBadgeAdFill, BsFillInfoCircleFill } from 'react-icons/bs';
+import { BsFillBagPlusFill, BsFillInfoCircleFill } from 'react-icons/bs';
 import DataService from '../../services/DataService';
 import OrderForm from '../order/OrderForm';
 import ProductDetails from './ProductDetails';
@@ -171,39 +171,41 @@ const handleQuantityChange = useCallback( (event, productId) => {
               <Card.Text>Price: {product.price} €</Card.Text>
             </Card.Body>
             <Card.Footer>
-              <Row>
-                <Col xs={12} md={9}>
-                  <Form.Group controlId={`quantity_${product.id}`}>
-                  <InputGroup>
-                    <Form.Control aria-label="Need for spare parts"
-                      type="number" min={0} step={1} pattern="[0-9]+"
-                      inputMode="numeric"
-                      value={quantity === 0 ? '' : quantity}
-                      onChange={(event) => handleQuantityChange(event, product.id)}
-                      onKeyPress={(event) => {
-                        if (event.key === '+' || event.key === '-') {
-                          event.preventDefault();
-                        }
-                      }}
-                    />
-                    <InputGroup.Text>{product.unit}</InputGroup.Text>
-                    <Button variant='outline-warning'
-                      onClick={(event) => handleAddClick(event, product.id)}
-                      aria-label="Add item to Selected Products">
-                        <BsFillBadgeAdFill />
-                    </Button>
-                  </InputGroup>
-                  </Form.Group>
-                </Col>
-                <Col xs={12} md={3} className="d-flex justify-content-center">
-                  <Button variant="outline-success"
-                    onClick={() => handleOpenProductDetails(product.id)}
-                    aria-label="Open product details">
-                    <FaEye />
-                  </Button>
-                </Col>
-              </Row>
-            </Card.Footer>
+                    <Row>
+                      <Col xs={7} md={8}>
+                        <Form.Group controlId={`quantity_${product.id}`}>
+                          <InputGroup>
+                            <Form.Control aria-label="Need for spare parts"
+                              type="number" min={0} step={1} pattern="[0-9]+"
+                              inputMode="numeric" className="quantity-input"
+                              value={quantity === 0 ? '' : quantity}
+                              onChange={(event) => handleQuantityChange(event, product.id)}
+                              onKeyPress={(event) => {
+                                if (event.key === '+' || event.key === '-') {
+                                  event.preventDefault();
+                                }
+                              }}
+                            />
+                            <InputGroup.Text>{product.unit}</InputGroup.Text> 
+                          </InputGroup>
+                        </Form.Group>
+                      </Col>
+                      <Col xs={5} md={4} >
+                        <Button variant='success' className="add-button"
+                            onClick={(event) => handleAddClick(event, product.id)}
+                            aria-label="Add item to Selected Products">
+                            <BsFillBagPlusFill />
+                        </Button>
+                      </Col>    
+                      <Col xs={8} md={6} >
+                        <Button variant="info" className="view-button"
+                            onClick={() => handleOpenProductDetails(product.id)}
+                            aria-label="Open product details">
+                            <FaEye />
+                        </Button>
+                      </Col>
+                    </Row>
+                  </Card.Footer>
           </Card>
         </Col>
        );
