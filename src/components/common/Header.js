@@ -5,7 +5,7 @@ import logo from '../../resources/commonImages/OSA-mini-logo.jpg';
 import './Common.scss';
 const Header = () => {
   const handleLanguageSwitch = () => {
-    window.location.href = 'https://osatechno.com/';
+    window.location.href = 'https://ua.osatechno.com/';
   };
   return (
     <header className="header">
