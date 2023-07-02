@@ -164,7 +164,7 @@ const handleQuantityChange = useCallback( (event, productId) => {
             <div className="product-img-container">
               <Card.Img className="product-image" variant="top" 
                 src={product.imageA} alt={product.name}
-                width="500" height="375"/>
+                width="400" height="225" />
             </div>
             <Card.Body>
               <Card.Text>Article: {product.article}</Card.Text>
