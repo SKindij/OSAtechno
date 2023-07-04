@@ -22,16 +22,15 @@ function MainPage() {
       </Helmet>
 
       <section className="purpose-section">
-        <div className="aim-content">
-        <h1 className="mb-3">OSA - Optimal Selection of Accessories</h1>
-        <p className="mb-3">
+      <div className="advices-content">
+          <h1>Where to start? <span>If you are looking for the perfect components for your gates or shutters, 
+            we have some useful tips for you.</span></h1>
+          <p className="mb-3">
           Web application designed to assist 👷 users 🔍 in finding ⭐ the best in terms of price-quality ratio accessories
             for 🔧 upgrading, 🔨 repairing, or 🔱 enhancing various types of gates and roller shutters.
-        </p>
-      </div>
-      <div className="advices-content">
-          <h2>Where to start?</h2>
-            <p>If you are looking for the perfect components for your gates or shutters, we have some useful tips for you.</p>
+          </p>
+          <h2 className="mb-3"><span>OSA - Optimal</span> Selection of Accessories</h2>
+
             <ol>
               <li><strong>Assess your needs:</strong> 
                 Determine the specific problems you would like to solve or the features you would like to add to your gates or shutters.
@@ -54,7 +53,7 @@ function MainPage() {
       <section className="product-groups-section">
       <Container>
         <Row xs={1} md={2} className="g-4 justify-content-center">
-          <Col>
+          <Col xs={11} md={5}>
             <Card className="card-wrapper">
             <Card.Header className="card-header">Accessories for garage gates</Card.Header>
             <Link to="/residential">
@@ -62,7 +61,7 @@ function MainPage() {
                 srcSet={`${images.residentialGate334} 334w, ${images.residentialGate668} 668w, ${images.residentialGate916} 916w`}
                 sizes="(min-width: 1200px) 525px, (min-width: 1000px) calc(11.11vw + 314px), (min-width: 780px) calc(5vw + 276px), (min-width: 640px) 505px, calc(93.75vw - 76px)"
                 className="img-fluid img-thumbnail product-group-image" alt="roller gate"
-                width={916} height={692}/>               
+                width={600} height={340}/>            
             </Link>   
               <Card.Body>
                 <Card.Title><h3>Residential type</h3></Card.Title>
@@ -73,7 +72,7 @@ function MainPage() {
               </Card.Footer>
             </Card>
           </Col>
-          <Col>
+          <Col xs={11} md={5}>
             <Card className="card-wrapper">
               <Card.Header className="card-header">Accessories for garage gates</Card.Header>
               <Link to="/industrial">
@@ -81,7 +80,7 @@ function MainPage() {
                 srcSet={`${images.industrialGate334} 334w, ${images.industrialGate668} 668w, ${images.industrialGate916} 916w`}
                 sizes="(min-width: 1200px) 525px, (min-width: 1000px) calc(11.11vw + 314px), (min-width: 780px) calc(5vw + 276px), (min-width: 640px) 505px, calc(93.75vw - 76px)"
                 className="img-fluid img-thumbnail product-group-image" alt="roller gate"
-                width={916} height={692} />                   
+                width={600} height={340}/>                
               </Link>
               <Card.Body>
                 <Card.Title><h3>Industrial type</h3></Card.Title>
@@ -92,7 +91,7 @@ function MainPage() {
               </Card.Footer>
             </Card>
           </Col>
-          <Col>
+          <Col xs={11} md={5}>
             <Card className="card-wrapper">
               <Card.Header className="card-header">Accessories for protective shutters</Card.Header>
               <Link to="/garageroller">
@@ -100,7 +99,7 @@ function MainPage() {
                 srcSet={`${images.garageRollet334} 334w, ${images.garageRollet668} 668w, ${images.garageRollet916} 916w`}
                 sizes="(min-width: 1200px) 525px, (min-width: 1000px) calc(11.11vw + 314px), (min-width: 780px) calc(5vw + 276px), (min-width: 640px) 505px, calc(93.75vw - 76px)"
                 className="img-fluid img-thumbnail product-group-image" alt="roller gate"
-                width={916} height={692} />                   
+                width={600} height={340}/>                   
               </Link>
               <Card.Body>
                 <Card.Title><h3>Garage type</h3></Card.Title>
@@ -111,7 +110,7 @@ function MainPage() {
               </Card.Footer>
             </Card>
           </Col>
-          <Col>
+          <Col xs={11} md={5}>
             <Card className="card-wrapper">
               <Card.Header className="card-header">Accessories for protective shutters</Card.Header>
               <Link to="/windowroller">
@@ -119,7 +118,7 @@ function MainPage() {
                 srcSet={`${images.windowRollet334} 334w, ${images.windowRollet668} 668w, ${images.windowRollet916} 916w`}
                 sizes="(min-width: 1200px) 525px, (min-width: 1000px) calc(11.11vw + 314px), (min-width: 780px) calc(5vw + 276px), (min-width: 640px) 505px, calc(93.75vw - 76px)"
                 className="img-fluid img-thumbnail product-group-image" alt="roller gate"
-                width={916} height={692} />                     
+                width={600} height={340}/>                     
               </Link>
               <Card.Body>
                 <Card.Title><h3>Window type</h3></Card.Title>
