@@ -73,6 +73,7 @@ See [Components Guide](https://github.com/SKindij/OSAtechno-app/blob/main/COMPON
 - - -
 
 ### Thank you for choosing OSA - 🏡 Optimal Selection of Accessories!
-🔗 to: <https://osatechno.com/>
+🔗 to 'en': <https://osatechno.com/>
+🔗 to 'ua': <https://ua.osatechno.com/>
 
-©️ OSAtechno v.0.7.5 by SKindij  2023
+©️ OSAtechno v.0.8.5 by SKindij  2023
