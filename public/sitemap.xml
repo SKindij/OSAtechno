@@ -1,0 +1,29 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Головна сторінка -->
+  <url>
+    <loc>https://rva.expert/</loc>
+    <lastmod>2023-07-30T12:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Сторінки сайту -->
+  <url>
+    <loc>https://rva.expert/rolets</loc>
+    <lastmod>2023-07-30T09:30:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rva.expert/gates</loc>
+    <lastmod>2023-07-30T09:30:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rva.expert/motors</loc>
+    <lastmod>2023-07-30T09:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
