@@ -9,25 +9,25 @@
 
   <!-- Сторінки сайту -->
   <url>
-    <loc>https://ua.osatechno.com/residential</loc>
+    <loc>https://osatechno.com/residential</loc>
     <lastmod>2023-07-12T09:30:00+00:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ua.osatechno.com/industrial</loc>
+    <loc>https://osatechno.com/industrial</loc>
     <lastmod>2023-07-12T09:30:00+00:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ua.osatechno.com/garageroller</loc>
+    <loc>https://osatechno.com/garageroller</loc>
     <lastmod>2023-07-12T09:30:00+00:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
     <url>
-    <loc>https://ua.osatechno.com/windowroller</loc>
+    <loc>https://osatechno.com/windowroller</loc>
     <lastmod>2023-07-12T09:30:00+00:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
