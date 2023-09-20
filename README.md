@@ -30,19 +30,21 @@ The logic and data handling are implemented using separation of concerns princip
 
 ### 📚 The project structure (architecture):
 
-```css
-src/
+```go
+📁 src/
+│
 ├── index.js
 ├── index.scss
 ├── variables.scss
 ├── App.js
-├── components/
-│   ├── common/
+│
+├── 📁 components/
+│   ├── 📁 common/
 │   │   ├── Header.js
 │   │   ├── Spinner.js
 │   │   ├── Footer.js
 │   │   └── Common.scss
-│   ├── pages/
+│   ├── 📁 pages/
 │   │   ├── MainPage.js
 │   │   ├── IndustrialGatesPage.js
 │   │   ├── ResidentialGatesPage.js
@@ -52,20 +54,20 @@ src/
 │   │   ├── commonImages.js
 │   │   ├── NotFoundPage.js
 │   │   └── Pages.scss
-│   └── order/
+│   └── 📁 order/
 │       ├── OrderForm.js
 │       └── Order.scss
-├── database/
+├── 📁 database/
 │   ├── dbImages.js
 │   ├── GatesDatabase.js
 │   └── RollersDatabase.js
-├── services/
+├── 📁 services/
 │   ├── DataService.js
 │   └── AuthService.js
-├── resources/
-│   ├── rollersImages/
-│   └── gatesImages/
-└── └── commonImages/
+├── 📁 resources/
+│   ├── 📁 rollersImages/
+│   └── 📁 gatesImages/
+└── └── 📁 commonImages/
 ```
 
 See [Components Guide](https://github.com/SKindij/OSAtechno-app/blob/main/COMPONENTS.md) for more explanation and description.
